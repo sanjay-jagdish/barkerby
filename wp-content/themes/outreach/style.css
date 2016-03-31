@@ -2569,7 +2569,7 @@ label.css-label {
 
 /*new takeaway cart*/
 #takeaway, #takeaway-lunch{
-	right: 2%;
+	right: 11.5%;
 	position: fixed;
 	bottom: -3px;
 	padding-bottom: 3px;
@@ -2586,7 +2586,7 @@ label.css-label {
 
 .takeaway_cart_wrap, .takeaway_lunch_cart_wrap{ display: none;}
 #takeaway-lunch{ right: 34%; }
-.toggle_cart, .toggle_cart_lunh{
+.toggle_cart, .toggle_cart_lunch{
 	border: #fff solid 3px;
 	border-bottom: none;
 	position: absolute;
@@ -2609,6 +2609,7 @@ label.css-label {
 	-o-transition: all 0.1s ease-in-out;
 	transition: all 0.1s ease-in-out;
 	font-size: 18px;
+	background-color: #223A5E !important;
 }
 
 .take_away_cart, .take_away_lunch_cart {
@@ -2631,7 +2632,7 @@ label.css-label {
 }
 
 .take_away_cart .cart_content,
-.take_away_lunch_cart .cart_content {
+.take_away_lunch_cart .cart_content, .lunch_cart_content {
 	padding: 5px 10px;
 	overflow: auto;
 	margin-right: 5px;
@@ -2642,11 +2643,11 @@ label.css-label {
   margin-bottom: 0;
 }
 
-.take_away_cart tbody, .take_away_cart td 
+/*.take_away_cart tbody, .take_away_cart td 
 .take_away_lunch_cart tbody, .take_away_lunch_cart td{
   border: transparent;
   line-height: 1;
-}
+}*/
 
 .inputs {
   float: left !important;
@@ -2656,7 +2657,7 @@ label.css-label {
   padding: 2px;
 }
 
-.addme_takeaway, .subtractme_takeaway {
+.addme_takeaway, .subtractme_takeaway, .addme_lunch, .subtractme_lunch{
   padding: 0 !important;
   width: 14px !important;
   height: 14px;
@@ -2672,7 +2673,7 @@ label.css-label {
   float: right;
 }
 
-.quantity-takeaway {
+.quantity-takeaway, .quantity-lunch {
   width: 27px !important;
   padding: 7px 4px;
   height: 29px;
@@ -2686,12 +2687,12 @@ label.css-label {
   border: 1px solid #CBCBCB;
 }
 
-.addme_takeaway {
+.addme_takeaway, .addme_lunch {
   background: url(images/plus1.png) no-repeat center center;
   margin-bottom: 1px;
 }
 
-.subtractme_takeaway {
+.subtractme_takeaway, .subtractme_lunch {
   background: url(images/minus1.png) no-repeat center center;
   margin-top: 5px;
 }
@@ -2723,14 +2724,15 @@ label.css-label {
 }
 
 .btn_check_out {
-  display: block;
-  margin: 10px auto 5px;
-  width: 170px !important;
-  padding: 12px 30px 12px 0 !important;
-  background: #003057 url(images/checkoutbg.png) no-repeat 127px center !important;
-  border-radius: 4px !important;
-  text-transform: none !important;
-  font-size: 20px !important;
+	display: block;
+    margin: 10px auto 5px;
+    width: 170px !important;
+    padding: 0px 30px 0px 10px !important;
+    background: #003057 url(images/checkoutbg.png) no-repeat 127px center !important;
+    border-radius: 4px !important;
+    text-transform: none !important;
+    font-size: 20px !important;
+    color: #fff;
 }
 
 .fader, #takeaway-fader{
@@ -2841,7 +2843,7 @@ label.css-label {
 	width: 250px;
 }
 
-.toggle_cart span{
+.toggle_cart span, .toggle_cart_lunch span{
 	position: absolute;
 	top: -15px;
 	left: 5px;
@@ -4812,6 +4814,7 @@ th {
 td {
 	border-top: 1px solid #ddd;
 	padding: 6px 0;
+	color: #fff;
 	padding: 0.6rem 0;
 }
 
