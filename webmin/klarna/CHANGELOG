@@ -1,0 +1,18 @@
+===========================
+Klarna Checkout PHP library
+===========================
+
+v1.1.0
+----------------
+Date: 2013-03-15
+
+    Majid G. <support@klarna.com>
+        Increasing http timeout to 10 second
+        Adding capability to change the timeout from connector
+
+v1.0.0
+----------------
+Date: 2012-11-21
+
+    Klarna <support@klarna.com>
+        Initial release.

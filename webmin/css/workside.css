@@ -1,0 +1,305 @@
+/* CSS Document */
+.workside{
+	font-family: 'Roboto', sans-serif;
+	background:#282828;
+	clear:both;
+}
+div#workside:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+div#workside {
+	background: #282828;
+}
+.workside .gradeX{
+	float:left;
+	width:32%;
+	margin-left:2%;
+	margin-bottom: 2%;
+	background:#ffffcc;
+	padding: 8px 0;
+	box-sizing:border-box;
+	min-height:200px;
+	text-align:left;
+	position:relative;
+}
+.workside .gradeX:nth-child(3n+1),
+.workside .gradeX:nth-of-type(3n+1){
+	margin-left:0;
+}
+.workside .gradeX.on-progress{
+	background:#aef8aa;	
+}
+.workside .order-cancel.pending.viewed{
+	background:#ECECEC url(images/cancelled%20copy.png) no-repeat center;
+}
+.workside .gradeX.on-progress .on-processed{
+		
+}
+.pending.no-time.viewed {
+	background: #E07373;
+}
+.workside .gradeX:nth-child(3n+1){
+}
+.workside .left{
+	position:absolute;
+	padding:20px;
+	text-align:center;
+	top:0;
+	left:0;
+	z-index:100;
+}
+.workside .right{
+	position:absolute;
+	padding:20px;
+	text-align:center;
+	top:0;
+	right:0;
+	z-index:100;
+}
+.workside .left label,
+.workside .right label{
+	display:block;
+	font-size:17px;
+	font-weight:bold;
+}
+.workside .pickuptime{
+	text-align: center;
+	font-size: 22px;
+	margin-bottom: 24px;
+	padding-top: 0;
+	font-size: 24px;
+}
+.workside .pickuptime h4{
+	margin:0;	
+}
+/*.workside .pickuptime span{
+	font-size:30px;	
+}*/
+.workside .pointer{
+	cursor: pointer;
+	padding: 20px;
+}
+.workside .pointer {
+	cursor: pointer;
+	padding: 20px;
+	position: relative;
+	height: 100%;
+	box-sizing: border-box;
+}
+.workside .table-scroll{
+	overflow:auto;	
+}
+.workside tr.menuvalues {
+	font-size: 24px;
+}
+.workside .quantity{
+	font-size:30px;	
+}
+.workside .notes {
+	font-size:16px;	
+}
+.workside input[type="checkbox"]{
+	-webkit-appearance: none;
+	background-color: #fff;
+	border: 1px solid #e9e9e7;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	padding: 13px !important;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+}
+.workside input[type="checkbox"]:active,
+.workside input[type="checkbox"]:checked:active {
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+.workside input[type="checkbox"]:checked {
+	background: #e9ecee url(images/op-processed.png) center no-repeat;
+	background-size:99%;
+	border: 1px solid #adb8c0;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+	color: #99a1a7;
+}
+.workside input.cancel-process[type="checkbox"]:checked {
+	background: #e9ecee url(images/cancel-processed.png) center no-repeat;
+}
+label.checkbox input[type="checkbox"] {display:none;}
+label.checkbox span {
+	background-color: #fff;
+	border: 1px solid #e9e9e7;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+	 width:28px;
+    height:28px;
+}
+label.checkbox input[type="checkbox"]:checked + span {
+    background: #e9ecee url(images/op-processed.png) center no-repeat;
+}
+label.checkbox span.cancel-process {
+	background: #e9ecee url(images/cancel-processed.png) center no-repeat !important;
+}
+.workside .loading{
+	position:absolute;
+	width:100%;
+	height:100%;
+	left:0;
+	top:0;
+	background: rgba(0,0,0,.4) url(../images/loader.gif) no-repeat center;	
+}
+.bong.new-blink,
+.gradeX .blink{
+    -webkit-animation-direction: normal;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-name: blink;
+    -webkit-animation-timing-function: ease;   
+}
+.bong.remind-alarm.reminder-blink {
+    -webkit-animation-direction: normal;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-name: rblink;
+    -webkit-animation-timing-function: ease;   
+}
+
+.bong.glomthamta,
+.workside .gradeX.on-progress.glomthamta{
+	background-image:url(images/glomthamta.png);
+	background-position:center;
+	background-repeat:no-repeat;
+}
+/* Chrome, Safari, Opera */
+@-webkit-keyframes blink {
+    0% {background: #ffdddd;}
+	25% {background: #e07373;}
+	27% {background: #ffdddd;}
+    100% {background: #e07373;}
+}
+/* Standard syntax */
+@keyframes blink {
+     % {background: #ffdddd;}
+	25% {background: #e07373;}
+	27% {background: #ffdddd;}
+    100% {background: #e07373;}
+}
+/* Chrome, Safari, Opera */
+@-webkit-keyframes rblink {
+    0% {background: #ffdddd;}
+	25% {background: yellow;}
+	27% {background: #ffdddd;}
+    100% {background: yellow;}
+}
+/* Standard syntax */
+@keyframes rblink {
+     0% {background: #ffdddd;}
+	25% {background: yellow;}
+	27% {background: #ffdddd;}
+    100% {background: yellow;}
+}
+
+
+/************15-3-16 Logix************/
+
+.menu-btn{
+	display: none;
+}
+
+@media (max-width:1150px){
+.workside tr.menuvalues, .workside .pickuptime {
+	font-size: 17px;
+}
+
+}
+@media only screen and (max-width:995px){
+.workside .gradeX{
+ width:48%;
+ margin: 0 1% 20px !important;
+}
+}
+@media only screen and (max-width:767px){
+.workside .gradeX {
+    width: 98%;
+    margin: 0 1% 20px !important;
+    height: auto !important;
+}	
+.nav-wrapper.admin-menu .nav ul li ul {
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.admin-menu .nav ul li {
+	display: block;
+	line-height: normal !important;
+	position: relative;
+	text-align: left;
+}
+.dashboard-li {
+	background: none;
+	padding-left: 0 !important;
+	text-indent: 0;
+}
+.controlpanel-li, .orders-li{
+	background-position: 20px center;
+}
+#notif {
+    top: 20px;
+    right: 20px;
+}
+.admin-menu .nav ul li ul::before{
+	display: none;
+}
+.navs.logout {
+    flex: none !important;
+    width: 100%;
+}
+.menu-btn{
+	display: block;
+	background: rgb(0, 0, 0) none repeat scroll 0% 0%;
+	width: 100%;
+	height: 45px;
+	border: 0px;
+	cursor: pointer;
+}
+.admin-menu .nav ul{
+	float: none;
+}
+.admin-menu .nav{
+    width: 100% !important;
+    height: 300px !important;
+	overflow-y: scroll;
+	display: none;
+}
+.nav-wrapper.admin-menu{
+	min-height: 20px;
+}
+.admin-menu .nav ul li a{
+	padding: 20px 15px !important;
+}
+.page-header-left {
+    float: none;
+}
+.orders-page .page-header-right {
+	text-align: left;
+	float: none;
+	width: 100%;
+	margin: 10px 0 0 0;
+}
+.typeselection span{
+	float: none;
+	display: block;
+}
+.tago{
+	margin: 20px 0 0 0;
+	float:none;
+	display: block;
+}
+}
+@media only screen and (max-width: 479px){
+}
+@media only screen and (max-width: 350px){
+}

@@ -1,0 +1,23 @@
+﻿
+
+
+.noteTitle{
+	background-image: url("note.gif");	
+	background-repeat: no-repeat;
+	padding-left: 20px;	
+	font-weight:bold;
+}
+
+.noteBox{
+    margin:10px;
+    padding:5px;
+    background-color:#e8f8ff;
+}
+
+.tipTitle{
+	background-image: url("tip.gif");	
+	background-repeat: no-repeat;
+	padding-left: 20px;	
+	font-weight:bold;
+}
+

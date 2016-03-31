@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Neodynamic\SDK\Web\SerialPortPrinter | WebClientPrintPHP</title>
+
+	<script type="text/javascript" src="resources/combined.js?2780970235"></script>
+	<script type="text/javascript" src="elementlist.js?909383026"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Neodynamic.html">Neodynamic<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Neodynamic.SDK.html">SDK<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Neodynamic.SDK.Web.html">Web</a>
+						</li>
+							</ul></li></ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Neodynamic.SDK.Web.ClientPrinter.html">ClientPrinter</a></li>
+				<li><a href="class-Neodynamic.SDK.Web.ClientPrintJob.html">ClientPrintJob</a></li>
+				<li><a href="class-Neodynamic.SDK.Web.DefaultPrinter.html">DefaultPrinter</a></li>
+				<li><a href="class-Neodynamic.SDK.Web.InstalledPrinter.html">InstalledPrinter</a></li>
+				<li><a href="class-Neodynamic.SDK.Web.NetworkPrinter.html">NetworkPrinter</a></li>
+				<li><a href="class-Neodynamic.SDK.Web.ParallelPortPrinter.html">ParallelPortPrinter</a></li>
+				<li><a href="class-Neodynamic.SDK.Web.PrintFile.html">PrintFile</a></li>
+				<li><a href="class-Neodynamic.SDK.Web.SerialPortHandshake.html">SerialPortHandshake</a></li>
+				<li><a href="class-Neodynamic.SDK.Web.SerialPortParity.html">SerialPortParity</a></li>
+				<li class="active"><a href="class-Neodynamic.SDK.Web.SerialPortPrinter.html">SerialPortPrinter</a></li>
+				<li><a href="class-Neodynamic.SDK.Web.SerialPortStopBits.html">SerialPortStopBits</a></li>
+				<li><a href="class-Neodynamic.SDK.Web.UserSelectedPrinter.html">UserSelectedPrinter</a></li>
+				<li><a href="class-Neodynamic.SDK.Web.Utils.html">Utils</a></li>
+				<li><a href="class-Neodynamic.SDK.Web.WebClientPrint.html">WebClientPrint</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Neodynamic.SDK.Web.html" title="Summary of Neodynamic\SDK\Web"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class SerialPortPrinter</h1>
+
+
+	<div class="description">
+	
+<p>It represents a printer which is connected through a serial port in the
+client machine.</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+			<a href="class-Neodynamic.SDK.Web.ClientPrinter.html"><span>Neodynamic\SDK\Web\ClientPrinter</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by" />
+<b><span>Neodynamic\SDK\Web\SerialPortPrinter</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Neodynamic.html">Neodynamic</a>\<a href="namespace-Neodynamic.SDK.html">SDK</a>\<a href="namespace-Neodynamic.SDK.Web.html">Web</a><br />
+		
+
+		<b>Located at</b> <a href="source-class-Neodynamic.SDK.Web.SerialPortPrinter.html#432-498" title="Go to source code">WebClientPrint.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Neodynamic.SDK.Web.SerialPortPrinter.html#471-488" title="Go to source code">__construct</a>( <span>string <var>$portName</var></span>, <span>integer <var>$baudRate</var></span>, <span>integer <var>$parity</var></span>, <span>integer <var>$stopBits</var></span>, <span>integer <var>$dataBits</var></span>, <span>integer <var>$flowControl</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Creates an instance of the SerialPortPrinter class wiht the specified
+information.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Creates an instance of the SerialPortPrinter class wiht the specified
+information.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$portName</var></dt>
+					<dd><code>string</code><br>$portName The serial port name, for example COM1.</dd>
+					<dt><var>$baudRate</var></dt>
+					<dd><code>integer</code><br>$baudRate The serial port baud rate in bits per second.</dd>
+					<dt><var>$parity</var></dt>
+					<dd><code>integer</code><br>$parity The serial port parity-checking protocol.</dd>
+					<dt><var>$stopBits</var></dt>
+					<dd><code>integer</code><br>$stopBits The serial port standard number of stopbits per byte.</dd>
+					<dt><var>$dataBits</var></dt>
+					<dd><code>integer</code><br>$dataBits The serial port standard length of data bits per byte.</dd>
+					<dt><var>$flowControl</var></dt>
+					<dd><code>integer</code><br>$flowControl The handshaking protocol for serial port transmission of data.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="serialize" id="_serialize">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_serialize">#</a>
+		<code><a href="source-class-Neodynamic.SDK.Web.SerialPortPrinter.html#490-497" title="Go to source code">serialize</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Neodynamic.SDK.Web.ClientPrinter.html#_serialize">Neodynamic\SDK\Web\ClientPrinter::serialize()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="portName" id="$portName">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Neodynamic.SDK.Web.SerialPortPrinter.html#437-441" title="Go to source code"><var>$portName</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">&quot;COM1&quot;</span></code></td>
+		<td class="description"><div>
+			<a href="#$portName" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Gets or sets the serial port name, for example COM1. Default value is
+"COM1"</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Gets or sets the serial port name, for example COM1. Default value is
+"COM1"</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="baudRate" id="$baudRate">
+		<td class="attributes"><code>
+			public  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Neodynamic.SDK.Web.SerialPortPrinter.html#442-446" title="Go to source code"><var>$baudRate</var></a>
+		</td>
+		<td class="value"><code><span class="php-num">9600</span></code></td>
+		<td class="description"><div>
+			<a href="#$baudRate" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Gets or sets the serial port baud rate in bits per second. Default value is
+9600</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Gets or sets the serial port baud rate in bits per second. Default value is
+9600</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="parity" id="$parity">
+		<td class="attributes"><code>
+			public  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Neodynamic.SDK.Web.SerialPortPrinter.html#447-452" title="Go to source code"><var>$parity</var></a>
+		</td>
+		<td class="value"><code><code><a href="class-Neodynamic.SDK.Web.SerialPortParity.html#NONE">Neodynamic\SDK\Web\SerialPortParity::<b>NONE</b></a></code></code></td>
+		<td class="description"><div>
+			<a href="#$parity" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Gets or sets the serial port parity-checking protocol. Default value is NONE
+= 0 NONE = 0, ODD = 1, EVEN = 2, MARK = 3, SPACE = 4</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Gets or sets the serial port parity-checking protocol. Default value is NONE
+= 0 NONE = 0, ODD = 1, EVEN = 2, MARK = 3, SPACE = 4</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="stopBits" id="$stopBits">
+		<td class="attributes"><code>
+			public  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Neodynamic.SDK.Web.SerialPortPrinter.html#453-458" title="Go to source code"><var>$stopBits</var></a>
+		</td>
+		<td class="value"><code><code><a href="class-Neodynamic.SDK.Web.SerialPortStopBits.html#ONE">Neodynamic\SDK\Web\SerialPortStopBits::<b>ONE</b></a></code></code></td>
+		<td class="description"><div>
+			<a href="#$stopBits" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Gets or sets the serial port standard number of stopbits per byte. Default
+value is ONE = 1 ONE = 1, TWO = 2, ONE_POINT_FIVE = 3</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Gets or sets the serial port standard number of stopbits per byte. Default
+value is ONE = 1 ONE = 1, TWO = 2, ONE_POINT_FIVE = 3</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="dataBits" id="$dataBits">
+		<td class="attributes"><code>
+			public  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Neodynamic.SDK.Web.SerialPortPrinter.html#459-463" title="Go to source code"><var>$dataBits</var></a>
+		</td>
+		<td class="value"><code><span class="php-num">8</span></code></td>
+		<td class="description"><div>
+			<a href="#$dataBits" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Gets or sets the serial port standard length of data bits per byte. Default
+value is 8</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Gets or sets the serial port standard length of data bits per byte. Default
+value is 8</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="flowControl" id="$flowControl">
+		<td class="attributes"><code>
+			public  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Neodynamic.SDK.Web.SerialPortPrinter.html#464-469" title="Go to source code"><var>$flowControl</var></a>
+		</td>
+		<td class="value"><code><code><a href="class-Neodynamic.SDK.Web.SerialPortHandshake.html#XON_XOFF">Neodynamic\SDK\Web\SerialPortHandshake::<b>XON_XOFF</b></a></code></code></td>
+		<td class="description"><div>
+			<a href="#$flowControl" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Gets or sets the handshaking protocol for serial port transmission of data.
+Default value is XON_XOFF = 1 NONE = 0, REQUEST_TO_SEND = 2,
+REQUEST_TO_SEND_XON_XOFF = 3, XON_XOFF = 1</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Gets or sets the handshaking protocol for serial port transmission of data.
+Default value is XON_XOFF = 1 NONE = 0, REQUEST_TO_SEND = 2,
+REQUEST_TO_SEND_XON_XOFF = 3, XON_XOFF = 1</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Properties inherited from <a href="class-Neodynamic.SDK.Web.ClientPrinter.html#properties">Neodynamic\SDK\Web\ClientPrinter</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Neodynamic.SDK.Web.ClientPrinter.html#$printerId"><var>$printerId</var></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		Neodynamic WebClientPrint for PHP Documentation<br/>
+Copyright &copy; 2003 - <script type="text/javascript">
+		                            var theDate = new Date()
+		                            document.write(theDate.getFullYear())
+</script> <strong>Neodynamic</strong> - All rights reserved.
+	</div>
+</div>
+</div>
+</body>
+</html>

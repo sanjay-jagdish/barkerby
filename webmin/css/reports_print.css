@@ -1,0 +1,88 @@
+/* CSS Document */
+
+.printonly{ display: none; } 
+
+@media print{
+	.noprint{ display:none; }
+	.printonly{ display:block; } 
+	input[type=submit]{ display:none; }
+	input[type=text]{ display:none; }
+	span{ display:inline-block; }
+	.alpha_btns{ display:none; }
+}
+
+body{
+	font-family:Helvetica;
+	font-size:11px;
+}
+
+.top_spacer{ height:20px; }
+
+.contents{
+	width: 960px;
+	margin: 0 auto;
+}
+
+
+.report_title{ 
+	font-family: Helvetica;
+	font-size:14px;
+	font-weight: bold;
+	margin: 4px 0px;
+} 
+
+.report_period{ 
+	font-family: Helvetica;
+	font-size:11px;
+	font-weight: regular;
+} 
+
+.report_timestamp{
+	text-align:right;
+	margin: 11px 0 0 0;
+	/* border-top: solid thin #ccc; */
+	font-family: Helvetica;
+	font-size:11px;
+	font-weight: regular;
+}
+
+.alpha_btns{
+	width:15px;
+	border: solid thin #ccc;
+	background-color:#CCC;
+	color:#000;
+	padding:3px;
+	border-radius:4px;
+	display:inline-block;
+	text-align:center;
+	cursor:pointer;
+	height:14px;
+}
+
+.alpha_btns_print{
+	width:15px;
+	border: solid thin #000;
+	background-color:#000;
+	color:#fff;
+	padding:3px;
+	border-radius:4px;
+	display:inline-block;
+	text-align:center;
+	cursor:pointer;
+	vertical-align:baseline;
+	height:14px;
+}
+
+.alpha_btns:hover{
+	border: solid thin #000;
+	background-color:#000;
+	color:#fff;
+}
+
+thead, th{
+	border-bottom:#CCC solid thin; 
+}
+
+td{
+	padding: 2px 6px;
+}
