@@ -156,13 +156,25 @@ label.checkbox span.cancel-process {
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-name: blink;
     -webkit-animation-timing-function: ease;   
+
+    animation-direction: normal;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-name: blink;
+    animation-timing-function: ease;  
 }
 .bong.remind-alarm.reminder-blink {
     -webkit-animation-direction: normal;
     -webkit-animation-duration: 1s;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-name: rblink;
-    -webkit-animation-timing-function: ease;   
+    -webkit-animation-timing-function: ease;
+
+    animation-direction: normal;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-name: rblink;
+    animation-timing-function: ease;    
 }
 
 .bong.glomthamta,

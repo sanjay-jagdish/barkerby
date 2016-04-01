@@ -114,16 +114,15 @@ if( $_GET['page'] == 'controlpanel' ){
 				 success: function(value){
 					value = Number(value);
 					if( value > 0){
-						
-							 
 						 if(jQuery('body').attr('aria-label')==1){
-							 ion.sound.pause("notification");
-							 jQuery('body').attr('aria-valuetext',1);
+							//ion.sound.pause("notification");
+							jQuery('body').attr('aria-valuetext',1);
+							jQuery('audio')[0].pause();
 						 }
 						 else{
-							 jQuery('body').attr('aria-valuetext',0);
-							 
-							 ion.sound.play("notification");
+							jQuery('body').attr('aria-valuetext',0); 
+							//ion.sound.play("notification");
+							jQuery('audio')[0].play();
 						 }
 						 
 						 jQuery(".orders-li span").html("<div id='notif'>"+value+"</div>");
@@ -131,9 +130,9 @@ if( $_GET['page'] == 'controlpanel' ){
 					}	
 					else{
 						console.log('pause - '+value);
-						ion.sound.pause("notification");
-					}	 
-					 
+						//ion.sound.pause("notification");
+						jQuery('audio')[0].pause();
+					}
 				 }
 			});
 	}
@@ -164,7 +163,7 @@ if( $_GET['page'] == 'controlpanel' ){
 			
 			//forBlinking();
 			
-		}, 2000);
+		}, 3000);
 			
 		//setInterval(function(){ jQuery('.blink').css({'background':'#E07373','color':'#000'}); }, 1000);
 		
@@ -222,13 +221,13 @@ document.onclick=reEnable
 <!-- tinyMCE -->
 <script src="scripts/tinymce.min.js"></script>
 <script>
-        tinymce.init({
-			toolbar: "undo redo | sizeselect | bold italic | fontselect |  fontsizeselect | alignleft aligncenter alignright alignjustify",
-			theme_advanced_font_sizes: "10px,12px,13px,14px,16px,18px,20px",
-    		font_size_style_values: "12px,13px,14px,16px,18px,20px",
-			selector:'textarea',
-			oninit : 'setPlainText'			
-		});
+tinymce.init({
+	toolbar: "undo redo | sizeselect | bold italic | fontselect |  fontsizeselect | alignleft aligncenter alignright alignjustify",
+	theme_advanced_font_sizes: "10px,12px,13px,14px,16px,18px,20px",
+	font_size_style_values: "12px,13px,14px,16px,18px,20px",
+	selector:'textarea',
+	oninit : 'setPlainText'			
+});
 </script>
 </script>
 <style type="text/css" title="currentStyle">
@@ -237,6 +236,12 @@ document.onclick=reEnable
 </style>
 </head>
 <body aria-valuetext="0" aria-label="">
+
+<audio controls style="display:none;">
+  <source src="sounds/notification.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+
 <div class="wrapper">
 	<?php if($_GET['page']=='dashboardold'){ ?>
 	<!-- moblile redirect script -->

@@ -168,8 +168,8 @@ function lunchmeny(){
         
         <span class="weeknum">Vecka <?php echo $week_num; ?></span>    
     
-        <h5>
-          <strong><?php echo stripslashes($menu_week_res['note_header']); ?></strong>
+        <h5 style="color: #054787; font-size: 22px; margin: 0 0 10px;">
+          <strong><?php echo strip_tags(stripslashes($menu_week_res['note_header'])); ?></strong>
         </h5>
     
         <p><?php echo stripslashes($menu_week_res['description']); ?></p>

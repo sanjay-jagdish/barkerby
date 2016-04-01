@@ -41,7 +41,7 @@
 	$qe=mysql_query("select var_value from settings where var_name='copy_email'");
 	$re=mysql_fetch_assoc($qe);
 	
-	$to = 'notifications@limoneristorante.se';
+	$to = 'grekiska.test@gmail.com';
 	
 	if($re['var_value']!=''){
 		$to = $re['var_value'];
@@ -58,7 +58,7 @@
 		$name=$rn['var_value'];
 	}
 	
-	$subject = 'Bekräftelse - Take away';
+	$subject = 'Bekräftelse';
 	
 	$mail = new PHPMailer();
 	$mail->CharSet = 'UTF-8';

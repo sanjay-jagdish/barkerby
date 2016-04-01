@@ -6381,3 +6381,22 @@ ul#wf-sort-id li input[type="submit"], ul#wf-sort-id li input[type="button"] { b
 		clear: both;
 	}
 }
+.confrm-ordr-popup{
+	text-align: center;
+}
+.confrm-ordr-popup h4{
+
+}
+
+.confrm-ordr-popup p{
+	font-style: italic;
+}
+.confrm-ordr-popup p strong{
+	font-style: normal;
+}
+
+@media only screen and (max-width: 480px){
+body.page-template-checkout-php {
+    position: static !important;
+}
+}
