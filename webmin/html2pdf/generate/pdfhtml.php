@@ -317,7 +317,7 @@ table#table-2 tr td{
     </tr>
 </table>
 <br /><br />
-<?php if($typeID==2){ ?>
+<?php if($typeID==2 || $typeID==3){ ?>
 <table id="table-2" cellspacing="0" cellpadding="5" style="min-height:300 !important;">
     <tr>
         <td style="border-bottom:1px solid #000;"><strong>Rätt</strong></td>

@@ -17,7 +17,7 @@
 	
 	define("USER",'root');
 	define("PASSWORD",'root');
-	define("DBNAME",'barkarby_mise');
+	define("DBNAME",'icington_limone2');
 	
 	$con=mysql_connect(HOST,USER,PASSWORD);
 	mysql_query("SET NAMES 'utf8'");

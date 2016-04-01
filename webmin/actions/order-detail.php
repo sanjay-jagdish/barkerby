@@ -412,6 +412,7 @@ jQuery(function(){
 	});
 	
 	$('.generate-pdf').click(function(){
+		alert('ssdf');
 		$('#fdfiframe').prop('src', '');
 		$('#fdfiframe').prop('src', 'html2pdf/generate/pdf.php?id='+<?php echo $id;?>);
 		$('.pdf-box').fadeIn();

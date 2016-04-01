@@ -436,7 +436,7 @@ if(mysql_num_rows($check_stripe_id)>0){ ?>
 	<div id="post-news">
     	<h2 class="post-header">Nyheter</h2>
         <div id="news">
-			<?php include 'news-rss-feed.php';?>
+			<?php //include 'news-rss-feed.php';?>
         </div>
     </div>
 <!-- END NEWS--->
@@ -445,7 +445,7 @@ if(mysql_num_rows($check_stripe_id)>0){ ?>
 	<div id="post-offers">
     	<h2 class="post-header">Aktuella Erbjudanden</h2>
         <div id="offers">
-			<?php include 'offers-rss-feed.php';?>
+			<?php //include 'offers-rss-feed.php';?>
         </div>
     </div>
 <!-- END OFFERS -->

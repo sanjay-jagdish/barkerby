@@ -310,7 +310,7 @@ table#table-2 tr td{
         </td>
     </tr>
 </table><hr />
-<?php if($typeID==2){ ?>
+<?php if($typeID==2 || $typeID==3){ ?>
 <table id="table-2" cellspacing="0" cellpadding="1" style="min-height:300 !important;">
     <?php
         /*$q=mysql_query("select m.name as menu, c.name as sub, m.image as img, m.price as price, rd.quantity as quantity, cu.shortname as currency, rd.notes as notes, c.id as cid, m.type as type, m.discount as discount,m.id as menu_id from reservation_detail as rd, menu as m, sub_category as c, currency as cu where m.id=rd.menu_id and c.id=m.sub_category_id and cu.id=m.currency_id and rd.reservation_id=".$id) or die(mysql_error());*/
