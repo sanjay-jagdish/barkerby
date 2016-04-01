@@ -13,16 +13,13 @@ $tableName = "lunchmeny_settings";
 wp_redirect(home_url() ); 
 exit;
 }
-
 get_header('checkout');
 include 'ajax/steps-asap.php';
 $q=mysql_query("select * from reservation_detail where reservation_id=(select id from reservation where deleted=0 and uniqueid='".$chkqnkid."' order by id desc limit 1)") or die(mysql_error());
-
 if(mysql_num_rows($q) < 1){
 wp_redirect(home_url() ); 
 exit;
 }
-
 $asapStatus = GetAsapStatus($tableName);
  if($asapStatus){
  	$status = "radio1";
@@ -31,7 +28,6 @@ $asapStatus = GetAsapStatus($tableName);
    $status = "";
    $chk = "";
  }
-
 // Get current user
 $current_user = wp_get_current_user();
 if( $current_user ) {
@@ -40,6 +36,7 @@ if( $current_user ) {
 }
 ?>
 
+<div class="checkout-page-outer">
 <div class="container clearfix">
 	<div class="page-title">
 		<h3>Kassa</h3>
@@ -318,6 +315,7 @@ if( $current_user ) {
 				<div class="row">
 					<div class="col-md-7">
 						<button type="button" class="btn btn-lg btn-red btn-full" id="main-checkout">BESTÄLL</button>
+						
 					</div>
 				</div>
 			</div>
@@ -346,10 +344,39 @@ if( $current_user ) {
 					<input type="hidden" id="email" >
 					<input type="hidden" id="pass" >
 					<input type="hidden" id="paymenttype" value="cash">
+					<div class="icon-field">
+						<button type="button" class="btn btn-lg btn-red btn-full" id="main-checkout">BESTÄLL</button>
+					</div>	
+				</div>
+				<div class="stripe-form" style="display:none;">
+<span class="payment-errors"></span>
+
+					<div class="icon-field pay-cont">
+						<input type="text" class="form-control" placeholder="Credit Card Number" data-stripe="number">
+						<i class="glyphicon glyphicon-credit-card"></i>
+					</div>
+					<div class="icon-field pay-cont">
+						<input type="text" class="form-control" placeholder="CVC" data-stripe="cvc">
+						<i class="glyphicon glyphicon-modal-window"></i>
+					</div>
+					<div class="icon-field pay-cont">
+						<input type="text" class="form-control" placeholder="Expiration Month (MM)" data-stripe="exp-month">
+						<i class="glyphicon glyphicon-calendar"></i>
+					</div>
+					<div class="icon-field pay-cont">
+						<input type="text" class="form-control" placeholder="Expiration Year (YYYY)" data-stripe="exp-year">
+						<i class="glyphicon glyphicon-calendar"></i>
+					</div>
+					<div class="icon-field pay-cont">
+					<button type="button" class="btn btn-lg btn-red btn-full" id="main-checkout1" style="display:none;" onclick="validateCC()">BESTÄLL</button>
+<input type="hidden" name="stripeToken" value="" id="stripeToken" />
+</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
+
 </div>
 
 <div class="fader"></div>
@@ -362,6 +389,27 @@ if( $current_user ) {
     </div>
 </div>
 
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">28
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <a href="<?php echo home_url(); ?>" class="close" >&times;</a>
+        <h4 class="modal-title">Bekräftelse</h4>
+      </div>
+      <div class="modal-body">
+        <p>Tack för din beställning. <br> Om beställningen har gjorts under våra öppettider så kommer en bekräftelse på din beställning att mails till dig inom kort. Vänligen kontrollera din skräpkorg om du inte har fått någon bekräftelse inom 5 minuter. <br> Om du har lagt din beställning under tiden vi har stängt så skickas mailas en bekräftelse till dig så snart vi har öppnat.</p>
+      </div>
+      <div class="modal-footer">
+        <a href="<?php echo home_url(); ?>" class="btn btn-default" >Close</a>
+      </div>
+    </div>
+28
+  </div>
+</div>
+
 <script type="text/javascript" src="<?php echo CHILD_URL; ?>/js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="<?php echo CHILD_URL; ?>/checkout-scripts/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<?php echo CHILD_URL; ?>/checkout-scripts/fancybox/jquery.fancybox.js"></script>
@@ -370,9 +418,10 @@ if( $current_user ) {
 <script src="https://cdn.auth0.com/js/lock-8.2.min.js"></script>
 
 <script type="text/javascript" src="<?php echo CHILD_URL; ?>/checkout-scripts/js/jquery.datetimepicker.full.min.js"></script>
-
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript">
 jQuery(function($){
+
 	var newuser = 0, orderTime = '', minTime = 0, maxTime = 0;
 	var current_email = "<?php echo $current_user->user_email; ?>";
 	var siteurl = $('#main-table').attr('data-rel');
@@ -419,7 +468,6 @@ jQuery(function($){
 			}
 		});
 	});
-
 	// Auth0 Signup
 	$('.auth-signup').click(function() {
 		lock.showSignup(function(err, profile, token) {
@@ -449,14 +497,12 @@ jQuery(function($){
 			}
 		});
 	});
-
-	$("#menu-primary_menu li > a").each(function() {	
+	$(".menu-primary_menu-container ul li > a").each(function() {	
 	  	var hr = $(this).attr('href');
 	  	if(hr.charAt(0) == "#"){		 
 			$(this).attr('href','<?php echo home_url(); ?>/'+ hr);
 	  	}
 	});
-
 	var dateToday = new Date();
 	var loaded = false;
 	$('#input_datetime').datetimepicker({
@@ -479,9 +525,9 @@ jQuery(function($){
 						var obj = $.parseJSON(value);
 						minTime = convertToSeconds(obj[0]);
 						maxTime = convertToSeconds(obj[1]);
-						$('#orderTime').html( obj[0] ? obj[0] : '');
-						$('#range').html( obj[0] ? obj[0]+'-'+obj[1] : 'Ingen tid tillgänglig');
-						if( !obj[0] ) {
+						$('#orderTime').html( obj[0] && obj[1] ? obj[0] : '');
+						$('#range').html( obj[0] && obj[1] ? obj[0]+'-'+obj[1] : 'Ingen tid tillgänglig');
+						if( !obj[0] && !obj[1]) {
 							$('.times').attr('disabled', true);
 						} else {
 							$('.times').attr('disabled', false);
@@ -500,9 +546,9 @@ jQuery(function($){
 					var obj = $.parseJSON(value);
 					minTime = convertToSeconds(obj[0]);
 					maxTime = convertToSeconds(obj[1]);
-					$('#orderTime').html( obj[0] ? obj[0] : '');
-					$('#range').html( obj[0] ? obj[0]+'-'+obj[1] : 'Ingen tid tillgänglig');
-					if( !obj[0] ) {
+					$('#orderTime').html( obj[0] && obj[1] ? obj[0] : '');
+					$('#range').html( obj[0] && obj[1] ? obj[0]+'-'+obj[1] : 'Ingen tid tillgänglig');
+					if( !obj[0] &&main-checkout1 !obj[1] ) {
 						$('.times').attr('disabled', true);
 					} else {
 						$('.times').attr('disabled', false);
@@ -511,7 +557,6 @@ jQuery(function($){
 			});
 		}
 	}).datetimepicker('hide');
-
 	$.datetimepicker.setLocale('se');
 	$('#radio2').on('click', function () {
 		if ($(this).is(':checked')){
@@ -522,7 +567,7 @@ jQuery(function($){
 		}
 	});		
 	
-	$('#radio1').on('click', function () {
+	$('#radio1').on('click', funcmain-checkout1tion () {
 		if ($(this).is(':checked')) {
 			$('#radio2').attr('checked', false);
 			$('#asap').val(1);
@@ -534,26 +579,35 @@ jQuery(function($){
 	$('.popup').fancybox({
 		maxWidth:800,
 	});
-
 	$(document).on('click','.create-accountt',function(){
 		$('.signup-form').show();
 		$('.provide-emailid').hide();
 	});
-
 	$(document).on('click','.show-glomt',function(){
 		$('.provide-emailid').show();
 		$('.signup-form').hide();
 	});
-
 	$('.pay-option').on('click', function () {
 	    var ptype = $(this).val(); 
 	    $("#paymenttype").val(ptype);
+
+
+	    $('.stripe-form').hide();
+	    if(ptype=="online"){
+	    $('.stripe-form').show();	
+	    $('#main-checkout').hide();
+	    $('#main-checkout1').show();
+	    }else{
+	    	$('#main-checkout1').hide();
+	    $('#main-checkout').show();
+	    }
+
 		$('.invoice-form').hide();
 		if ($('.invoice-form-show').is(':checked')){
 			$('.invoice-form').show();
+			$('#main-checkout').hide();
 		}
 	});
-
 	$(document).on("click",'#main-checkout',function() {
 	    if( current_email )
 	    {
@@ -561,23 +615,32 @@ jQuery(function($){
 	    	var phone = $('#phone').val();
 	    	if( !fullname || !phone ) 
 	    	{
-	    		alert('Vänligen fyll i ditt namn och telefonnummer för att placera en order');
+	    		alert('Uppge ditt mobilnummer för att genomföra beställningen');
 	    		$('#phone').focus();
 	    		return false;
 	    	}
-
 		    // Check if time is selected
 		    var asap = $('#asap').val();
 		    var time = $('#orderTime').html();
 		    if( asap==0 && !time ) 
 		    {
-		    	alert('Välj ordning dags att gå vidare');
+		    	alert('Ange när du vill ha din beställning');
 		    	return false;
 		    }
 		    
 		    var totalprice = $('#total-price').val();
 		    var deliver = 0;
 			var paymenttype =  $('#paymenttype').val();
+
+var stripe_token = '';
+if(paymenttype=="online"){
+	var temp_token = $("#stripeToken").val();
+	if(temp_token!=""){
+		stripe_token = "&stripeToken="+temp_token;
+	}
+}
+
+
 			var uniq =  '<?php echo $chkqnkid; ?>';
 			var cart_opt = 0;
 			var type = "<?php echo $type; ?>";
@@ -587,17 +650,20 @@ jQuery(function($){
 				url: siteurl+"/ajax/saveOrders.php",
 				type: 'POST',
 				async: false,
-				data: 'em='+encodeURIComponent(current_email)+'&fullname='+encodeURIComponent(fullname)+'&phone='+encodeURIComponent(phone)+'&newuser='+encodeURIComponent(newuser)+'&date='+encodeURIComponent(date)+'&time='+encodeURIComponent(time)+'&paymenttype='+encodeURIComponent(paymenttype)+'&uniq='+encodeURIComponent(uniq)+'&asap='+encodeURIComponent(asap)+'&deliver='+encodeURIComponent(deliver)+'&totalprice='+encodeURIComponent(totalprice)+'&type='+encodeURIComponent(type),
+				data: 'em='+encodeURIComponent(current_email)+'&fullname='+encodeURIComponent(fullname)+'&phone='+encodeURIComponent(phone)+'&newuser='+encodeURIComponent(newuser)+'&date='+encodeURIComponent(date)+'&time='+encodeURIComponent(time)+'&paymenttype='+encodeURIComponent(paymenttype)+'&uniq='+encodeURIComponent(uniq)+'&asap='+encodeURIComponent(asap)+'&deliver='+encodeURIComponent(deliver)+'&totalprice='+encodeURIComponent(totalprice)+'&type='+encodeURIComponent(type)+stripe_token,
 				success: function(value){
 				    if(value=='done'){
-						window.location="<?php echo site_url('order-received'); ?>";
+							$('#myModal').modal({
+                               backdrop: 'static',
+                               keyboard: false
+                           });
 					} else {
 						alert('Det gick inte att lämna orderdetaljer .');
 					}
 				}
 			});
 		} else {
-			alert('Logga in eller registrera dig för att göra en beställning.');
+			alert('Logga in eller skapa ett konto för att genomföra beställningen.');
 		}
 	});
 	
@@ -619,9 +685,7 @@ jQuery(function($){
 		});
 		
 		$('.fader, #special_request').fadeIn();
-
 	});
-
 	$('#addHour').click(function(){
 		var current = $('#orderTime').html();
 		var time = current.split(':');
@@ -632,10 +696,9 @@ jQuery(function($){
 			minute = current!=maxTime ? minute : '00';
 			$('#orderTime').html(hour+':'+minute);
 		} else {
-			alert('Invalid Time');
+			alert('Du har valt ett ogiltigt tid, försök igen');
 		}
 	});
-
 	$('#subHour').click(function(){
 		var current = $('#orderTime').html();
 		var time = current.split(':');
@@ -645,10 +708,9 @@ jQuery(function($){
 		if( hour>0 && current>=minTime && current<=maxTime ) {
 			$('#orderTime').html(hour+':'+minute);
 		} else {
-			alert('Invalid Time');
+			alert('Du har valt ett ogiltigt tid, försök igen');
 		}
 	});
-
 	$('#addMin').click(function(){
 		var current = $('#orderTime').html();
 		var time = current.split(':');
@@ -662,10 +724,9 @@ jQuery(function($){
 		if( hour<24 && current>=minTime && current<=maxTime ) {
 			$('#orderTime').html(hour+':'+minute);
 		} else {
-			alert('Invalid Time');
+			alert('Du har valt ett ogiltigt tid, försök igen');
 		}
 	});
-
 	$('#subMin').click(function(){
 		var current = $('#orderTime').html();
 		var time = current.split(':');
@@ -680,10 +741,9 @@ jQuery(function($){
 		if( hour>0 && current>=minTime && current<=maxTime ) {
 			$('#orderTime').html(hour+':'+minute);
 		} else {
-			alert('Invalid Time');
+			alert('Du har valt ett ogiltigt tid, försök igen');
 		}
 	});
-
 	$(document).on('click','.remove-tillval',function(){
  		var portion = $(this).attr('data-rel');
 		var portion_options = $(this).attr('data-id');
@@ -739,6 +799,33 @@ jQuery(function($){
 	});
 });
 
+
+function validateCC(){
+	Stripe.setPublishableKey('pk_test_5xbqEycbrzJY82RQgzffb5mg');
+	var $form = $(".stripe-form");
+	Stripe.card.createToken($form, stripeResponseHandler);
+}
+
+function stripeResponseHandler(status, response) {
+  var $form = $('.stripe-form');
+
+  if (response.error) {
+    // Show the errors on the form
+    $form.find('.payment-errors').text(response.error.message);
+    //$form.find('button').prop('disabled', false);
+    throw new Error("Something went badly wrong!");
+  } else {
+    // response contains id and card, which contains additional card details
+    var token = response.id;
+    // Insert the token into the form so it gets submitted to the server
+    $('#stripeToken').val(token);
+    // and submit
+    //$form.get(0).submit();
+    $('#main-checkout').click();
+  }
+  
+};
+
 function checkgetcountItem(del)
 {
 	var type = "<?php echo $_POST['type']; ?>";
@@ -776,7 +863,6 @@ function checkgetcountItem(del)
 		$('.toggle_cart span').html(str[1]);
 		$("#takeaway").fadeOut();	
 	}
-
 	if(Number(str[2]) > 0){
 		$("#takeaway-lunch").fadeIn();	
 	    $('.toggle_cart_lunch span').fadeIn();
@@ -787,14 +873,12 @@ function checkgetcountItem(del)
 		$("#takeaway-lunch").fadeOut();	
 	}
 }   	
-
 // Convert time to seconds
 function convertToSeconds(time)
 {
 	if( !time ) {
 		return 0;
 	}
-
 	var a = time.split(':');
 	var seconds = (+a[0]) * 60 * 60 + (+a[1]) * 60; 
 	return seconds;

@@ -9,7 +9,7 @@ body{
 }
 .checkout-page h3{
 	font-size:35px;
-	color:#d41f25;
+	color:#294B70;
 	font-weight:700;
 	text-align:center;
 }
@@ -48,7 +48,7 @@ body{
 
 .delvry-apap input[type=radio].css-checkbox:checked + label.css-label {
 	background-position: center -48px;
-	color:#d41f25;
+	color:#294B70;
 }
 .delvry-apap label.css-label {
 	background-image:url('../images/delvry-apap.png');
@@ -92,7 +92,7 @@ body{
 
 .delvry-time input[type=radio].css-checkbox:checked + label.css-label {
 	background-position: center -48px;
-	color:#d41f25;
+	color:#294B70;
 }
 .delvry-time label.css-label {
 	background-image:url('../images/delvry-time.png');
@@ -140,7 +140,7 @@ body{
 
 .get-food input[type=radio].css-checkbox:checked + label.css-label {
 	background-position: center -48px;
-	color:#d41f25;
+	color:#294B70;
 }
 .get-food label.css-label {
 	background-image:url('../images/get-food.png');
@@ -162,7 +162,7 @@ input#input_datetime {
 	width:25px;
 	height:25px;
 	line-height: 23px;
-	background: #D41F25;
+	background: #294B70;
 	color:#fff;
 	border:0px;
 	outline:none;
@@ -334,7 +334,7 @@ textarea.form-control{
         overflow:auto;  
 }
 .setting-btn.active{
-	background: #d41f25;
+	background: #294B70;
 }
 .your-info{
 	padding-top:30px;
@@ -347,7 +347,7 @@ textarea.form-control{
 .your-info p span{
 	cursor:pointer;
 	font-weight:600;
-	color: #D41F25 !important;
+	color: #294B70 !important;
 }
 .icon-field{
   position: relative;
@@ -373,10 +373,10 @@ textarea.form-control{
   display: inline-block;		
 }
 .your-info .chckbox-cont input[type=checkbox].css-checkbox + label.css-label span{
-	color: #D41F25 !important;
+	color: #294B70 !important;
 }
 .btn-red{
-	background: #d41f25;
+	background: #294B70;
 	color: #fff;
 	font-weight:600;
 }
@@ -399,7 +399,7 @@ textarea.form-control{
   margin-bottom: 40px;
 }
 .page-title h3{
-  color: #D41F25;
+  color: #294B70;
   text-align: center;
   font-size: 40px;
   margin: 30px 0 15px;
@@ -431,12 +431,12 @@ textarea.form-control{
   text-align: center;
   padding-top: 48px;
   color: #787878;
-  margin: 0 0 30px;
+  margin: 0 0 60px;
 }
 
 .online-pay input[type=radio].css-checkbox:checked + label.css-label {
 	background-position: center -48px;
-	color:#d41f25;
+	color:#294B70;
 }
 .online-pay label.css-label {
 	background-image:url('../images/online-pay.png');
@@ -479,7 +479,7 @@ textarea.form-control{
 
 .cash-pay input[type=radio].css-checkbox:checked + label.css-label {
 	background-position: center -48px;
-	color:#d41f25;
+	color:#294B70;
 }
 .cash-pay label.css-label {
 	background-image:url('../images/cash-pay.png');
@@ -522,7 +522,7 @@ textarea.form-control{
 
 .invoice-pay input[type=radio].css-checkbox:checked + label.css-label {
 	background-position: center -48px;
-	color:#d41f25;
+	color:#294B70;
 }
 .invoice-pay label.css-label {
 	background-image:url('../images/invoice.png');
@@ -543,7 +543,7 @@ a.popup.policy {
   position: absolute;
   top: 0px;
   right: 0px;
-  color: #D41F25;
+  color: #294B70;
   font-weight: 600;
 }
 .fancybox-close {
@@ -561,7 +561,7 @@ a.popup.policy {
 }
 .popup-data h3 {
   text-align: center;
-  color: #D41F25;
+  color: #294B70;
   font-weight: 600;
   font-size: 20px;
 }
@@ -656,4 +656,13 @@ html {
 .xdsoft_datetimepicker .xdsoft_month{
 	margin: 0px;
 }
+}
+.wrap .container{
+	width: 100%;
+}
+.checkout-page-outer {
+    margin: 138px 0 0;
+}
+.icon-field.pay-cont i{
+	top: 11px;
 }

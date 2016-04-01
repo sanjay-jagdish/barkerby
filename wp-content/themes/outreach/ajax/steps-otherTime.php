@@ -11,7 +11,7 @@ $q=mysql_query("select id, start_time as starttime,end_time as endtime, advance_
 $rs=mysql_fetch_assoc($q);
 $advancetime=$rs['advance_time'] + 15;
 $selected_start_time = $rs['starttime'];
-
+$selected_end_time = $rs['endtime'];
 // Validation for current date
 if( $date == $currentDate ) 
 {
@@ -39,8 +39,9 @@ if( $date == $currentDate )
 	} else {
 		$selected_start_time = $hour.':'.$minutes;
 	}
+$selected_end_time = strtotime($rs['endtime']) >= strtotime($current_time) ? $rs['endtime'] : '';	
 }
-echo json_encode(array($selected_start_time, $rs['endtime']));
+echo json_encode(array($selected_start_time, $selected_end_time));
 
 function makeTimesArray($time1, $time2)
 {
