@@ -78,7 +78,7 @@
 	}
 	
 	
-	if($status==14){
+	if($status==14 ){
 		
 		$q=mysql_query("select fname,lname, email from account where id=(select account_id from reservation where id='".$id."')");
 		$r=mysql_fetch_assoc($q);
@@ -99,10 +99,9 @@
 						Din beställning har avbokats. Hör av dig till oss om du har några frågor. <br>
 						Din order togs emot av: ".getNameofSignee($id)."<br><br>
 						 
-						Grekiska Kolgrillsbaren Barkarby<br />
-						Barkarbyvägen 45 <br>
-						177 38 Järfälla<br> 
-						08-511 600 30
+						Ristorante Limone Italiano<br />
+						Stora gatan 4<br />
+						021-417560<br />
 					</div>
 				</body>
 			</html>
@@ -594,7 +593,7 @@
 			
 		$name=$r['fname'].' '.$r['lname'];
 					
-		$subject = 'Bekräftelse - Take away';
+		$subject = 'Bekräftelse';
 			
 		// message
 		$message = "
@@ -603,7 +602,7 @@
 					<div style='font-size:16px;'>".$themsg."
 						<br><br>
 						 
-						<strong>Välkommen till Limone Ristorante Italiano!</strong><br><br>
+						<strong>Välkomna till Grekiska Kolgrillsbaren Barkarby!</strong><br><br>
 		   
 					    Stora gatan 4<br>
 					    021-417560

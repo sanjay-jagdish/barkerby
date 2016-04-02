@@ -41,7 +41,7 @@ if( $date == $currentDate )
 	}
 $selected_end_time = strtotime($rs['endtime']) >= strtotime($current_time) ? $rs['endtime'] : '';	
 }
-echo json_encode(array($selected_start_time, $selected_end_time));
+echo json_encode(array($selected_start_time, $selected_end_time, $rs['starttime']));
 
 function makeTimesArray($time1, $time2)
 {

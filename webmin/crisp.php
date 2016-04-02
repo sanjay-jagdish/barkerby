@@ -163,7 +163,7 @@ if( $_GET['page'] == 'controlpanel' ){
 			
 			//forBlinking();
 			
-		}, 3000);
+		}, 2000);
 			
 		//setInterval(function(){ jQuery('.blink').css({'background':'#E07373','color':'#000'}); }, 1000);
 		

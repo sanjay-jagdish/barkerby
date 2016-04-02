@@ -35,7 +35,6 @@ if( $current_user ) {
 	$userdata = $wpdb->get_row($query);
 }
 ?>
-
 <div class="checkout-page-outer">
 <div class="container clearfix">
 	<div class="page-title">
@@ -351,23 +350,23 @@ if( $current_user ) {
 				<div class="stripe-form" style="display:none;">
 <span class="payment-errors"></span>
 
-					<div class="icon-field pay-cont">
+					<div class="icon-field">
 						<input type="text" class="form-control" placeholder="Credit Card Number" data-stripe="number">
 						<i class="glyphicon glyphicon-credit-card"></i>
 					</div>
-					<div class="icon-field pay-cont">
+					<div class="icon-field">
 						<input type="text" class="form-control" placeholder="CVC" data-stripe="cvc">
 						<i class="glyphicon glyphicon-modal-window"></i>
 					</div>
-					<div class="icon-field pay-cont">
+					<div class="icon-field">
 						<input type="text" class="form-control" placeholder="Expiration Month (MM)" data-stripe="exp-month">
 						<i class="glyphicon glyphicon-calendar"></i>
 					</div>
-					<div class="icon-field pay-cont">
+					<div class="icon-field">
 						<input type="text" class="form-control" placeholder="Expiration Year (YYYY)" data-stripe="exp-year">
 						<i class="glyphicon glyphicon-calendar"></i>
 					</div>
-					<div class="icon-field pay-cont">
+					<div class="icon-field">
 					<button type="button" class="btn btn-lg btn-red btn-full" id="main-checkout1" style="display:none;" onclick="validateCC()">BESTÄLL</button>
 <input type="hidden" name="stripeToken" value="" id="stripeToken" />
 </div>
@@ -376,9 +375,7 @@ if( $current_user ) {
 		</div>
 	</div>
 </div>
-
 </div>
-
 <div class="fader"></div>
 <div id="special_request">
 	<div class="special_request_wrap">
@@ -391,7 +388,7 @@ if( $current_user ) {
 
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">28
+  <div class="modal-dialog confrm-ordr-popup">
 
     <!-- Modal content-->
     <div class="modal-content">
@@ -400,13 +397,16 @@ if( $current_user ) {
         <h4 class="modal-title">Bekräftelse</h4>
       </div>
       <div class="modal-body">
-        <p>Tack för din beställning. <br> Om beställningen har gjorts under våra öppettider så kommer en bekräftelse på din beställning att mails till dig inom kort. Vänligen kontrollera din skräpkorg om du inte har fått någon bekräftelse inom 5 minuter. <br> Om du har lagt din beställning under tiden vi har stängt så skickas mailas en bekräftelse till dig så snart vi har öppnat.</p>
+        <p>Tack för din beställning. </p>
+        <p><strong>Om beställningen har gjorts under våra öppettider så kommer en bekräftelse på din beställning att mails till dig inom kort.</strong></p>
+        <p> Vänligen kontrollera din skräpkorg om du inte har fått någon bekräftelse inom 5 minuter.</p>
+        <p>Om du har lagt din beställning under tiden vi har stängt så skickas mailas en bekräftelse till dig så snart vi har öppnat.</p>
       </div>
       <div class="modal-footer">
         <a href="<?php echo home_url(); ?>" class="btn btn-default" >Close</a>
       </div>
     </div>
-28
+
   </div>
 </div>
 
@@ -425,6 +425,7 @@ jQuery(function($){
 	var newuser = 0, orderTime = '', minTime = 0, maxTime = 0;
 	var current_email = "<?php echo $current_user->user_email; ?>";
 	var siteurl = $('#main-table').attr('data-rel');
+	var logo = "<?php echo site_url()?>/webmin/images/e2flogo.png";
 	var ABSPATH = "<?php echo ABSPATH; ?>";
 	var adminurl = "<?php echo admin_url('admin-ajax.php');?>";
 	var AUTH0_CLIENT_ID = 'NGPPsIJAXVho281vlZPAEq7CCFs0695v'; 
@@ -435,9 +436,32 @@ jQuery(function($){
 		AUTH0_DOMAIN
     );
 	
+	var options = {
+		icon: logo,
+		dict: {
+			loadingTitle: 'loa..',
+    		close: 'close',
+		    signin: {
+		      	title: "Logga in",
+		      	serverErrorText: 'There was an error processing the sign in.',
+		      	strategyEmailInvalid: 'The email is invalid.',
+		      	strategyDomainInvalid: 'The domain {domain} has not been setup.',
+		      	wrongEmailPasswordErrorText: 'Invalid email or password.',
+		    },
+		    signup: {
+		    	title: 'Registrera dig',
+	            serverErrorText: 'There was an error processing the sign up.',
+	            enterpriseEmailWarningText: 'This domain {domain} has been configured for Single Sign On and you can\'t create an account. Try signing in instead.'
+	        },
+	        reset: {
+	            serverErrorText: 'There was an error processing the reset password.'
+	        }
+		}
+	};
+	
 	// Auth0 Login
 	$('.auth-login').click(function() {
-		lock.showSignin(function(err, profile, token) {
+		lock.showSignin(options, function(err, profile, token) {
 			if (!err)
 			{
 				// Save the JWT token.
@@ -470,7 +494,7 @@ jQuery(function($){
 	});
 	// Auth0 Signup
 	$('.auth-signup').click(function() {
-		lock.showSignup(function(err, profile, token) {
+		lock.showSignup(options, function(err, profile, token) {
 			if (!err)
 			{ 
 			  	// Save the JWT token.
@@ -526,7 +550,7 @@ jQuery(function($){
 						minTime = convertToSeconds(obj[0]);
 						maxTime = convertToSeconds(obj[1]);
 						$('#orderTime').html( obj[0] && obj[1] ? obj[0] : '');
-						$('#range').html( obj[0] && obj[1] ? obj[0]+'-'+obj[1] : 'Ingen tid tillgänglig');
+						$('#range').html( obj[0] && obj[1] ? obj[2]+'-'+obj[1] : 'Ingen tid tillgänglig');
 						if( !obj[0] && !obj[1]) {
 							$('.times').attr('disabled', true);
 						} else {
@@ -547,8 +571,8 @@ jQuery(function($){
 					minTime = convertToSeconds(obj[0]);
 					maxTime = convertToSeconds(obj[1]);
 					$('#orderTime').html( obj[0] && obj[1] ? obj[0] : '');
-					$('#range').html( obj[0] && obj[1] ? obj[0]+'-'+obj[1] : 'Ingen tid tillgänglig');
-					if( !obj[0] &&main-checkout1 !obj[1] ) {
+					$('#range').html( obj[0] && obj[1] ? obj[2]+'-'+obj[1] : 'Ingen tid tillgänglig');
+					if( !obj[0] && !obj[1] ) {
 						$('.times').attr('disabled', true);
 					} else {
 						$('.times').attr('disabled', false);
@@ -567,7 +591,7 @@ jQuery(function($){
 		}
 	});		
 	
-	$('#radio1').on('click', funcmain-checkout1tion () {
+	$('#radio1').on('click', function () {
 		if ($(this).is(':checked')) {
 			$('#radio2').attr('checked', false);
 			$('#asap').val(1);

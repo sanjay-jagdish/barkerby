@@ -6383,6 +6383,7 @@ ul#wf-sort-id li input[type="submit"], ul#wf-sort-id li input[type="button"] { b
 }
 .confrm-ordr-popup{
 	text-align: center;
+	top: 130px;
 }
 .confrm-ordr-popup h4{
 
