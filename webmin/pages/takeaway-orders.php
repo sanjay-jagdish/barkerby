@@ -432,5 +432,5 @@ DATE_FORMAT(STR_TO_DATE(r.date, '%m/%d/%Y'),'%b %d, %Y') as date, DATE_FORMAT(r.
 	else{
 		echo 'test';	
 	}
-	
+	mysql_close($con);
 ?>

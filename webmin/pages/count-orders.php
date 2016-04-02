@@ -21,6 +21,6 @@
 		}
 		
 	}
-
+mysql_close($con);
 	echo $view;
 ?>

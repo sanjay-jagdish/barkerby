@@ -41,7 +41,9 @@
                 <td class="<?php if($r[8]==1){ if($r[10]==0) echo 'blink'; }else{ if($r[6]==8) echo 'blink'; }  ?>"><?php echo orderStatus($r[6]); if($r[6]==12){ echo ' <br> '.$r[9].' min'; } ?></td>
                 <td class="<?php if($r[8]==1){ if($r[10]==0) echo 'blink'; }else{ if($r[6]==8) echo 'blink'; }  ?>"><a href="#" onclick="showDetail('<?php echo $r[7];?>','<?php echo $r[8];?>')"><img src="images/info.png"></a></td>
             </tr>
-     <?php } ?>   
+     <?php } 
+mysql_close($con);
+     ?>   
     </tbody>
     <tfoot>
         <tr>

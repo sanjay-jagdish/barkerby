@@ -375,4 +375,5 @@
 }else{
 	echo 'test';	
 }
+mysql_close($con);
 ?>

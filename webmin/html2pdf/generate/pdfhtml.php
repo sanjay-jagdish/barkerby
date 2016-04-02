@@ -410,5 +410,7 @@ table#table-2 tr td{
         <td style="border-top:1px solid #000;"><strong><?php echo $total+$opt_tot_all.' '.$currency; ?></strong></td>
     </tr>
 </table>
-<?php } ?>
+<?php } 
+mysql_close($con);
+?>
 </page>

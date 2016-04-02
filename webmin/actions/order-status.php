@@ -641,5 +641,5 @@
 		
 	
 	echo $_SESSION['login']['name'].'**'.$subject.'**'.$message.'**'.$to.'**'.$name.'**'.$messageforuser;
-	
+	mysql_close($con);
 ?>

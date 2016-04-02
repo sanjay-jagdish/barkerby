@@ -82,5 +82,5 @@
 	$mail->send();
 	
 	//end email for admin
-
+mysql_close($con);
 ?>

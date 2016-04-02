@@ -3114,7 +3114,7 @@ jQuery(function() {
 			 }
 		});		
 		
-   }, 500);
+   }, 2000);
   
     
 	/* Android */

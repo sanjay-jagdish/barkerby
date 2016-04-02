@@ -590,5 +590,6 @@ function proCheck(id){
 		</div>
  <?php } 
 	}
+mysql_close($con);	
  ?>
 </div>
