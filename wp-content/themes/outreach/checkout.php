@@ -521,7 +521,7 @@ jQuery(function($){
 			}
 		});
 	});
-	$(".menu-primary_menu-container ul li > a").each(function() {	
+	$("#menu-primary_menu li > a").each(function() {	
 	  	var hr = $(this).attr('href');
 	  	if(hr.charAt(0) == "#"){		 
 			$(this).attr('href','<?php echo home_url(); ?>/'+ hr);
