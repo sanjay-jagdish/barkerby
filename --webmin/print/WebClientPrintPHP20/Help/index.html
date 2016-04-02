@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>WebClientPrintPHP</title>
+
+	<script type="text/javascript" src="resources/combined.js"></script>
+	<script type="text/javascript" src="elementlist.js"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+<link rel="stylesheet" type="text/css" media="all" href="neohelp.css" />
+<script type="text/javascript" src="sh/scripts/shCore.js"></script>
+<script type="text/javascript" src="sh/scripts/shBrushXml.js"></script>
+<script type="text/javascript" src="sh/scripts/shBrushPhp.js"></script>
+<script type="text/javascript" src="sh/scripts/shBrushJScript.js"></script>
+<link type="text/css" rel="stylesheet" href="sh/styles/shCore.css"/>
+<link type="text/css" rel="stylesheet" href="sh/styles/shThemeDefault.css"/>
+<script type="text/javascript">
+    SyntaxHighlighter.config.clipboardSwf = 'sh/scripts/clipboard.swf';
+    SyntaxHighlighter.all();
+</script>
+
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+<span>Overview</span>
+
+<div>
+			<h3>WebClientPrint for PHP</h3>
+			<ul>
+				<li><a href="#About">About WebClientPrint for PHP</a></li>
+				<li><a href="#UsingWCP">Using WebClientPrint in your PHP Dev Tool</a></li>
+				<li><a href="#wcp-server-side">The WebClientPrint Server Component</a></li>
+				<li><a href="#wcpp">The WCPP Client Utility</a></li>
+				<li><a href="#license-reg">License Registration</a></li>
+				<li><a href="#deployment">Deployment</a></li>
+			</ul>
+</div>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Neodynamic.html">Neodynamic<span></span></a>
+						<ul>
+				<li><a href="namespace-Neodynamic.SDK.html">SDK<span></span></a>
+						<ul>
+				<li><a href="namespace-Neodynamic.SDK.Web.html">Web</a>
+						</li>
+							</ul></li></ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Neodynamic.SDK.Web.ClientPrinter.html">Neodynamic\SDK\Web\ClientPrinter</a></li>
+				<li><a href="class-Neodynamic.SDK.Web.ClientPrintJob.html">Neodynamic\SDK\Web\ClientPrintJob</a></li>
+				<li><a href="class-Neodynamic.SDK.Web.DefaultPrinter.html">Neodynamic\SDK\Web\DefaultPrinter</a></li>
+				<li><a href="class-Neodynamic.SDK.Web.InstalledPrinter.html">Neodynamic\SDK\Web\InstalledPrinter</a></li>
+				<li><a href="class-Neodynamic.SDK.Web.NetworkPrinter.html">Neodynamic\SDK\Web\NetworkPrinter</a></li>
+				<li><a href="class-Neodynamic.SDK.Web.ParallelPortPrinter.html">Neodynamic\SDK\Web\ParallelPortPrinter</a></li>
+				<li><a href="class-Neodynamic.SDK.Web.PrintFile.html">Neodynamic\SDK\Web\PrintFile</a></li>
+				<li><a href="class-Neodynamic.SDK.Web.SerialPortHandshake.html">Neodynamic\SDK\Web\SerialPortHandshake</a></li>
+				<li><a href="class-Neodynamic.SDK.Web.SerialPortParity.html">Neodynamic\SDK\Web\SerialPortParity</a></li>
+				<li><a href="class-Neodynamic.SDK.Web.SerialPortPrinter.html">Neodynamic\SDK\Web\SerialPortPrinter</a></li>
+				<li><a href="class-Neodynamic.SDK.Web.SerialPortStopBits.html">Neodynamic\SDK\Web\SerialPortStopBits</a></li>
+				<li><a href="class-Neodynamic.SDK.Web.UserSelectedPrinter.html">Neodynamic\SDK\Web\UserSelectedPrinter</a></li>
+				<li><a href="class-Neodynamic.SDK.Web.Utils.html">Neodynamic\SDK\Web\Utils</a></li>
+				<li><a href="class-Neodynamic.SDK.Web.WebClientPrint.html">Neodynamic\SDK\Web\WebClientPrint</a></li>
+			</ul>
+
+
+
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-Exception.html">Exception</a></li>
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" autofocus />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li class="active">
+<span>Overview</span>			</li>
+			<li>
+<span>Namespace</span>			</li>
+			<li>
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content">
+	<h1>WebClientPrint for PHP</h1>
+
+<div id="About">
+<h1>About WebClientPrint for PHP</h1>
+<p>
+<strong>WebClientPrint for PHP</strong> is a lightweight and plugin-free solution for <strong>Client-side Raw Data Printing</strong> scenarios for <strong>Windows, Linux & Mac</strong> clients, exclusively <strong>designed for PHP</strong> projects. With our WebClientPrint solution, you can easily send raw data, text and native commands to printers installed at the client machine without showing or displaying any print dialog box! 
+</p>
+<h2>Features at a Glance</h2>
+<ul>
+    <li><strong>Server-side Technology</strong>
+        <ul>
+            <li>WebClientPrint classes written entirely in PHP</li>
+            <li>Requires PHP 5.3 or greater</li>
+            <li>Renders pure HTML/Javascript solution using jQuery framework</li>
+            <li>Plug-in free approach! No ActiveX, No Flash, No Silverlight, No Java</li>
+        </ul>
+    </li>
+    <li><strong>Client-side Technology</strong>
+        <ul>
+
+						<li><b>WCPP Utility</b> (a native app for Windows, Linux &amp; Mac without any dependencies!) Simple, small and easy one-time install! <span style="COLOR: red;"><s>No ActiveX, No Flash, No Silverlight, No Java, No .NET Framework</s></span></li>
+
+						<li><b>Cross Browser</b> (supporting old and modern versions of main brands) Internet Explorer, Mozilla Firefox, Google Chrome, Opera, Safari</li>
+
+					    <li><b>Cross Platform support!</b> Windows 98, 2000, ME, XP, Vista, Windows 7 or Windows 8.x (Desktop-mode); <strong>Debian &amp; Red Hat-based distros with GNOME-based Desktop:</strong> Debian 6 or greater, Ubuntu 10.04 or greater, Linux Mint 7 or greater, Fedora 11 or greater, CentOS 5.3 or greater; <strong>Mac (Intel): </strong>OS X 10.5 (Leopard) or greater</li>
+
+					</ul>
+
+    </li>
+    <li><strong>Client-side Printers Support</strong>
+        <ul>
+            <li>WebClientPrint does support any kind of type and brand printers! Thermal Label Barcode printers, POS receipt printers, RFID printers, Dot-Matrix printers, Kiosk printers, ID Card printers, Laser, Inkjet and more...</li>
+            <li>Client Printers Connectivity support: installed Windows printers (for USB connection), Shared Printers on the client machine network with a UNC name/path, printers connected to Parallel Port (e.g. LPT1) Centronics or Serial Port RS-232 (e.g. COM1) as well as IP/Ethernet Network printers.</li>
+            <li>Send any Printer Command Language! Most known like ESC/P, PCL, PostScript, ZPL, EPL, IPL, DPL, EZPL, ZGL, SBPL, RCL  WPL, CLP, IBM Proprinter, CPL, Dymo ESC codes, SPL, TCPL, TSPL-EZ, DASCOM</li>
+        </ul>
+    </li>
+    <li><strong>Installation and Deployment</strong>
+        <ul>
+            <li>Easy-to-install</li>
+            <li>Simple Xcopy deployment</li>
+        </ul>
+    </li>
+</ul>
+</div>
+
+<hr />
+	
+<div id="UsingWCP">
+<h1>Using WebClientPrint in your PHP Dev Tool</h1>
+<p>
+<strong>WebClientPrint</strong> can be used with <em>any development tool (IDE)</em> that provides support for <strong>PHP 5.3 (or greater)</strong> projects.
+</p>
+
+<h2>Referencing the WebClientPrint component</h2>
+
+<p>
+To use the <a href="#wcp-server-side">WebClientPrint server-side component</a> in your PHP project, you must copy the <strong>WebClientPrint.php</strong> file to your PHP website project root folder. In addition, you must create the <strong>wcpcache</strong> folder and give it file write permission. Please take a look at the sample project for further details.
+</p>
+</div>
+
+
+<hr />
+
+<div id="wcp-server-side">
+<h1>The WebClientPrint server component</h1>
+<p>
+<b>In this section</b>
+</p>
+<ul>
+    <li><a href="#Overview">Overview</a></li>
+    <li><a href="#Client-Print-Jobs">Client Print Jobs</a></li>
+    <li><a href="#Creating-Client-Print-Jobs">Creating Client Print Jobs</a></li>
+    <li><a href="#Client-Printer-Types">Client Printer Types</a></li>
+    <li><a href="#Printer-Commands">Printer Commands</a></li>
+    <li><a href="#Print-Files">Printing Common File Formats</a></li>
+    <li><a href="#Sending-the-ClientPrintJob-to-the-client">Sending the ClientPrintJob to the client</a></li>
+    <li><a href="#WebClientPrint-Scripting">WebClientPrint Scripting</a></li>
+    <li><a href="#How-to-detect-if-WCPP-is-installed-at-the-client-machine">How to detect if WCPP is installed at the client machine</a></li>
+</ul>
+<br />
+<h2 id="Overview">Overview</h2>
+<p>
+The <strong>WebClientPrint</strong> is a <strong>client-server solution</strong>. The server-side component is a set of classes contained in a unique file called <strong>WebClientPrint.php</strong> which is used in your PHP website to generate "<strong>Client Print Jobs</strong>".
+</p>
+<p>
+A <strong>Client Print Job</strong> allows you to specify:
+</p>
+<ul>
+<li>What <strong>client printer</strong> to use, for example:
+<ul>
+<li>Use "the Default printer" of the client machine. Printing will be performed without displaying any dialog!</li>
+<li>Use "a specific installed printerâs name" on the client machine. Printing will be performed without displaying any dialog! This also applies for Shared Printers on the client machine network with a UNC name/path!</li>
+<li>Display a "printer dialog" to let the user to select the printer</li>
+<li>Explicitly specify the client printer settings for parallel (LPT) Centronics or serial RS-232 ports or IP/Ethernet Network printers.</li>
+</ul>
+</li>
+<li>And the <strong>commands</strong> or <strong>file</strong> you want to print or send to the client printer.</li>
+</ul>
+<p>
+The <strong>WebClientPrint</strong> server component requires:
+</p>
+<ul>
+    <li><a href="http://www.php.net">PHP</a> 5.3 or greater!</li>
+    <li><a href="http://www.jquery.com">jQuery</a> 1.4.1 or greater! </li>
+</ul>    
+
+<br />
+
+<h2 id="Client-Print-Jobs" >Client Print Jobs</h2>
+<p>
+A <strong>Client Print Job (CPJ)</strong> contains info about the print job to be processed at the client side by the <a href="#wcpp">WCPP</a> utility. The info includes the <strong>type of printer</strong> to be used and that is <strong>available at the client side</strong> as well as the <strong>data, text or raw commands</strong> you want <strong>to send or print</strong> to such printer.
+</p>
+
+<br />
+
+<h2 id="Creating-Client-Print-Jobs">Creating Client Print Jobs</h2>
+<p>
+A <strong>CPJ</strong> is specified by creating an instance of the <a href="class-Neodynamic.SDK.Web.ClientPrintJob.html">Neodynamic\SDK\Web\ClientPrintJob</a> class. The target printer is specified through the <strong>$clientPrinter</strong> property and the data, text or raw commands are specified through the <strong>$printerCommands</strong> property. That's it! The <a href="#Client-Printer-Types">Client Printer Types</a> and <a href="#Printer-Commands">Printer Commands</a> topics provide details and sample code of those main properties.
+</p>
+
+<br />
+
+<h2 id="Client-Printer-Types">Client Printer Types</h2>
+<p>
+The <strong>Client Printer</strong> is specified through the <strong>$clientPrinter</strong> property and it accepts an object that should be an instance of any of the following ClientPrint-derived classes:
+</p>
+
+<ul>
+<li><a href="#DefaultPrinter">DefaultPrinter</a></li>
+<li><a href="#UserSelectedPrinter">UserSelectedPrinter</a></li>
+<li><a href="#InstalledPrinter">InstalledPrinter</a></li>
+<li><a href="#ParallelPortPrinter">ParallelPortPrinter</a></li>
+<li><a href="#SerialPortPrinter">SerialPortPrinter</a></li>
+<li><a href="#NetworkPrinter">NetworkPrinter</a></li>
+</ul>
+
+<p>
+Read on to see how to create CPJ for each of the supported client printer types.
+</p>
+
+<br />
+<h3 id="DefaultPrinter">DefaultPrinter</h3>
+<p>
+The <a href="class-Neodynamic.SDK.Web.DefaultPrinter.html">Neodynamic\SDK\Web\DefaultPrinter</a> allows you to print to the client's printer which is set up as the <strong>"default printer"</strong>. The printing is performed <strong>without displaying any dialog</strong> to the user. Here is a snippet code of how to use this option:
+</p>
+
+<pre class="brush: php;gutter: false;">
+include 'WebClientPrint.php';
+use Neodynamic\SDK\Web\ClientPrintJob;
+use Neodynamic\SDK\Web\DefaultPrinter;
+
+//...
+
+//Create a ClientPrintJob obj that will be processed at the client side by the WCPP
+$cpj = new ClientPrintJob();
+$cpj->clientPrinter = new DefaultPrinter();
+$cpj->printerCommands = 'PRINTER_COMMANDS_GO_HERE';
+
+//...
+</pre>
+
+<br />
+<h3 id="UserSelectedPrinter">UserSelectedPrinter</h3>
+<p>
+The <a href="class-Neodynamic.SDK.Web.UserSelectedPrinter.html">Neodynamic\SDK\Web\UserSelectedPrinter</a> allows you to <strong>let the user to</strong> dynamically <strong>select which printer</strong> he/she wants to use by <strong>displaying a Print Dialog box</strong>. That print dialog will list all the installed printers in the user's machine. Here is a snippet code of how to use this option:
+</p>
+<pre class="brush: php;gutter: false;">
+include 'WebClientPrint.php';
+use Neodynamic\SDK\Web\ClientPrintJob;
+use Neodynamic\SDK\Web\UserSelectedPrinter;
+
+//...
+
+//Create a ClientPrintJob obj that will be processed at the client side by the WCPP
+$cpj = new ClientPrintJob();
+$cpj->clientPrinter = new UserSelectedPrinter(); //let the user to select the printer by a print dialog box
+$cpj->printerCommands = 'PRINTER_COMMANDS_GO_HERE';
+
+//...
+</pre>
+
+
+<br />
+<h3 id="InstalledPrinter">InstalledPrinter</h3>
+<p>
+The <a href="class-Neodynamic.SDK.Web.InstalledPrinter.html">Neodynamic\SDK\Web\InstalledPrinter</a> allows you to specify the <strong>"Printer Name" of an installed printer at the client machine</strong>. By "installed" it means, a printer which is listed in the <strong>Printers section of Windows, Linux or Mac OS</strong>. Those printers are generally installed by using a driver provided by the manufacturer.
+</p>
+
+<div class="noteBox">
+<span class="noteTitle">NOTE</span><br />
+For <strong>Raw printing</strong>, installing the <strong>"Generic / Text Only"</strong> driver that comes with Windows OS (and similar driver on Linux & Mac OS) is sufficient in many cases. The <strong>"Generic / Text Only"</strong> driver is also useful when you cannot get the original driver from the manufacturer because it does not support a given version of Windows or the printer is too old, etc.
+</div>
+
+<p>
+So, suppose the user has a printer installed which name is <strong>"MyLocalPrinter"</strong>. Here is a snippet code of how to use this option:
+</p>
+
+<pre class="brush: php;gutter: false;">
+include 'WebClientPrint.php';
+use Neodynamic\SDK\Web\ClientPrintJob;
+use Neodynamic\SDK\Web\InstalledPrinter;
+
+//...
+
+//Create a ClientPrintJob obj that will be processed at the client side by the WCPP
+$cpj = new ClientPrintJob();
+$cpj->clientPrinter = new InstalledPrinter('MyLocalPrinter'); //set the installed printer's name on the client machine
+$cpj->printerCommands = 'PRINTER_COMMANDS_GO_HERE';
+
+//...
+</pre>
+
+<br />
+<p>
+<span class="tipTitle">Special case for Shared Network printers</span><br /><br />
+When the user has an installed printer which is a <strong>Shared Network Printer</strong> (i.e. a printer attached to another computer on the network), then you can use the InstalledPrinter option to specify such kind of printer. The correct way to specify the printer's name in these cases is by using the <strong>UNC (Universal Naming Convention)</strong> name/path to reach the printer.
+</p>
+<p>
+So, suppose the user has a network printer installed which <strong>UNC</strong> path is <strong>"\\anotherPC\CoolBrandPrinter"</strong>. Here is a snippet code of how to use this option:
+</p>
+
+<pre class="brush: php;gutter: false;">
+include 'WebClientPrint.php';
+use Neodynamic\SDK\Web\ClientPrintJob;
+use Neodynamic\SDK\Web\InstalledPrinter;
+
+//...
+
+//Create a ClientPrintJob obj that will be processed at the client side by the WCPP
+$cpj = new ClientPrintJob();
+$cpj->clientPrinter = new InstalledPrinter('\\anotherPC\CoolBrandPrinter'); //set the installed network printer's UNC path/name
+$cpj->printerCommands = 'PRINTER_COMMANDS_GO_HERE';
+
+//...
+</pre>
+
+
+<br />
+<h3 id="ParallelPortPrinter">ParallelPortPrinter</h3>
+<p>
+The <a href="class-Neodynamic.SDK.Web.ParallelPortPrinter.html">Neodynamic\SDK\Web\ParallelPortPrinter</a> allows you to specify the <strong>parallel port (LPT)</strong> of the client machine that the printer is connected to. The client does not need to install the printer through Windows OS. However, a valid LPT port needs to be available and the printer connected to such port through a Centronics interface.
+</p>
+<div class="noteBox">
+<span class="noteTitle">NOTE</span><br />
+For <strong>Linux & Mac OS</strong>, Parallel Port printers must be installed through <strong>CUPS</strong> and then set the assigned printer name through the <a href="#InstalledPrinter">InstalledPrinter</a> option.
+</div>
+<p>
+Here is a snippet code of how to use this option:
+</p>
+
+
+<pre class="brush: php;gutter: false;">
+include 'WebClientPrint.php';
+use Neodynamic\SDK\Web\ClientPrintJob;
+use Neodynamic\SDK\Web\ParallelPortPrinter;
+
+//...
+
+//Create a ClientPrintJob obj that will be processed at the client side by the WCPP
+$cpj = new ClientPrintJob();
+$cpj->clientPrinter = new ParallelPortPrinter('LPT1'); //use the printer available at LPT1 port on the client machine
+$cpj->printerCommands = 'PRINTER_COMMANDS_GO_HERE';
+
+//...
+</pre>
+
+
+<br />
+<h3 id="SerialPortPrinter">SerialPortPrinter</h3>
+<p>
+The <a href="class-Neodynamic.SDK.Web.SerialPortPrinter.html">Neodynamic\SDK\Web\SerialPortPrinter</a> allows you to specify the <strong>serial port (RS-232)</strong> settings of the client printer. The client does not need to install the printer through Windows OS. However, a valid serial port needs to be available and the printer connected to such port. Please refer to the client's printer manual for details about the serial port settings. 
+</p>
+<div class="noteBox">
+<span class="noteTitle">NOTE</span><br />
+For <strong>Linux & Mac OS</strong>, Serial RS232 Port printers must be installed through <strong>CUPS</strong> and then set the assigned printer name through the <a href="#InstalledPrinter">InstalledPrinter</a> option.
+</div>
+<p>
+Here is a snippet code of how to use this option:
+</p>
+
+<pre class="brush: php;gutter: false;">
+include 'WebClientPrint.php';
+use Neodynamic\SDK\Web\ClientPrintJob;
+use Neodynamic\SDK\Web\SerialPortPrinter;
+use Neodynamic\SDK\Web\SerialPortHandshake;
+use Neodynamic\SDK\Web\SerialPortParity;
+use Neodynamic\SDK\Web\SerialPortStopBits;
+
+
+//...
+
+//Create a ClientPrintJob obj that will be processed at the client side by the WCPP
+$cpj = new ClientPrintJob();
+//use the printer available at COM1 port and these settings
+//NOTE: Refer to the printer manual for details
+$cpj->clientPrinter = new SerialPortPrinter('COM1', 9600, SerialPortParity::NONE, SerialPortStopBits::ONE, 8, SerialPortHandshake::XON_XOFF); 
+$cpj->printerCommands = 'PRINTER_COMMANDS_GO_HERE';
+
+//...
+</pre>
+
+<br />
+<h3 id="NetworkPrinter">NetworkPrinter</h3>
+<p>
+The <a href="class-Neodynamic.SDK.Web.NetworkPrinter.html">Neodynamic\SDK\Web\NetworkPrinter</a> allows you to specify a <strong>TCP/IP Ethernet-enabled printer</strong> that can be reached from the client machine. The client printer in this case can be specified by using the <strong>IP address or DNS name</strong> as well as the <strong>port number</strong>. 
+</p>
+<div class="noteBox">
+<span class="noteTitle">NOTE</span><br />
+For <strong>Linux & Mac OS</strong>, IP/Ethernet printers should be installed through <strong>CUPS</strong> and then set the assigned printer name through the <a href="#InstalledPrinter">InstalledPrinter</a> option.
+</div>
+<p>
+Here is a snippet code of how to use this option:
+</p>
+
+<pre class="brush: php;gutter: false;">
+include 'WebClientPrint.php';
+use Neodynamic\SDK\Web\ClientPrintJob;
+use Neodynamic\SDK\Web\NetworkPrinter;
+
+//...
+
+//Create a ClientPrintJob obj that will be processed at the client side by the WCPP
+$cpj = new ClientPrintJob();
+$cpj->clientPrinter = new NetworkPrinter('10.0.0.8', 9100); //set the printer's IP address and port number
+$cpj->printerCommands = 'PRINTER_COMMANDS_GO_HERE';
+
+//...
+</pre>
+
+<br />
+
+<h2 id="Printer-Commands">Printer Commands</h2>
+<p>
+The printer commands you want to send to the client printer is specified through the <strong>$printerCommands</strong> property of the <a href="class-Neodynamic.SDK.Web.ClientPrintJob.html">Neodynamic\SDK\Web\ClientPrintJob</a> class. The <strong>$printerCommands</strong> property accepts a String type. 
+</p>
+
+<h3>String Format for Printer Commands</h3>
+<p>
+As stated before, the <strong>$printerCommands</strong> property accepts a String type for the commands you want to send to the client printer through a <a href="class-Neodynamic.SDK.Web.ClientPrintJob.html">Neodynamic\SDK\Web\ClientPrintJob</a> object.
+</p>
+<p>
+Some Printer Command/Programming Languages feature non-printable or non-human-readable characters in their syntax. Common samples are the ESC/P language which uses ASCII Dec 27 (ESC), ASCII Dec 10 (LF), ASCII Dec 13 (CR), etc; thermal printer languages like Zebra ZPL which sometimes needs to specify ASCII Dec 29 (GS), ASCII Dec 30 (RS), ASCII Dec 4 (EOT), etc. 
+</p>
+<p>
+These non-printable chars could require many string concatenations. To avoid such situation and to provide a better readability of your printer commands, WebClientPrint allows you to format any character by expressing it in Hexadecimal notation within the string commands. 
+</p>
+<p>
+For example, suppose you need to send <strong>ESC/P codes</strong> for <strong>"Set page length in inches"</strong> which syntax is as follows: <b>[ESC] C [NUL] n</b>
+<br /><br />Where:
+</p>
+
+<ul>
+<li>[ESC]: is ASCII Hex 1B</li>
+<li>C: is ASCII Hex 43</li>
+<li>[NUL]: is ASCII 00</li>
+<li>n: is a number in the range 1 < n < 22</li>
+</ul>
+
+<p>
+Then to specify this command as a string and using the VB or C# Hexadecimal notation:
+</p>
+
+<pre class="brush: php;gutter: false;">
+//set the commands to send to the printer
+$cpj->printerCommands = '0x1B C 0x00 5';
+
+//enable Hex notation for commands
+$cpj->formatHexValues = true;
+</pre>
+
+<br />
+
+<h2 id="Print-Files">Printing Common File Formats</h2>
+<p>
+In addition to print native commands, you can also use WebClientPrint solution to send and print common file formats like PDF, TXT, DOC, XLS, JPG, PNG, TIFF (Multipage), etc.
+</p>
+The Print File feature has the following requirements:
+<table class="table table-bordered">
+
+                <thead>
+
+                    <tr style="background-color:#ececec; font-weight:bold;color:#666">
+
+                        <td style="width:20%">&nbsp;</td>
+
+                        <td style="width:40%">Windows Clients</td>
+
+                        <td style="width:40%">Linux &amp; Mac Clients</td>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>DOC, DOCX</td>
+
+                        <td>Microsoft Word is required</td>
+
+                        <td>LibreOffice is required</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>XLS, XLSX</td>
+
+                        <td>Microsoft Excel is required</td>
+
+                        <td>LibreOffice is required</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>PDF</td>
+
+                        <td>Adobe Acrobat or Foxit Reader is required</td>
+
+                        <td>Natively supported!</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>TXT</td>
+
+                        <td>Notepad is required</td>
+
+                        <td>Natively supported!</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>JPEG</td>
+
+                        <td>Natively supported!</td>
+
+                        <td>Natively supported!</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>PNG</td>
+
+                        <td>Natively supported!</td>
+
+                        <td>Natively supported!</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>BMP</td>
+
+                        <td>Natively supported!</td>
+
+                        <td>Natively supported!</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Printer Support</td>
+
+                        <td>You can print files to local installed printers ONLY! Parallel, Serial and IP/Ethernet printers are NOT supported.</td>
+
+                        <td>You can print files to any installed printers through CUPS system.</td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+<p>
+The file you want to send to the client printer is specified through the <strong>$printFile</strong> property of the <a href="class-Neodynamic.SDK.Web.ClientPrintJob.html">Neodynamic\SDK\Web\ClientPrintJob</a> class. The <strong>$printFile</strong> property accepts an instance of the <a href="class-Neodynamic.SDK.Web.PrintFile.html">Neodynamic\SDK\Web\PrintFile</a> class. 
+</p>
+<p>The following snipped shows how to set up and print a PDF file that is located in a PHP website folder:</p>
+
+
+<pre class="brush: php;gutter: false;">
+//temp file name that will be created at the client machine
+$tempFileName = uniqid().'.pdf';
+//Create a PrintFile object
+$fileToPrint = new PrintFile('files/LoremIpsum.pdf', $tempFileName, NULL);
+//Create a ClientPrintJob and set the PrintFile
+$cpj = new ClientPrintJob();
+$cpj->printFile = $fileToPrint;
+</pre>
+<br />
+The demo sample projects shipped with the installer package has a complete code for testing this feature.
+<br /><br />
+<h3>Printing multiple files is possible too!</h3>
+<p>In addition to printing a single file, you can send to the client printer <strong>multiple files!</strong> For example, you could want to print a PDF file, plus an image file. Or multiple Word docs plus other Excel sheets!<br />
+The files you want to send to the client printer are specified through the <strong>$printFileGroup</strong> property of the <a href="class-Neodynamic.SDK.Web.ClientPrintJob.html">Neodynamic\SDK\Web\ClientPrintJob</a> class. The <strong>$printFileGroup</strong> property is an array of <a href="class-Neodynamic.SDK.Web.PrintFile.html">Neodynamic\SDK\Web\PrintFile</a> objects.
+</p>
+<p>The following snipped shows how to set up and print a PDF file plus a Word (DOC) file that are located in a PHP website folder:</p>
+
+<pre class="brush: php;gutter: false;">
+//...
+
+//Create array of PrintFile objects you want to print
+$fileGroup = array(
+    new PrintFile('files/PaymentInstructions.pdf', 'PaymentInstructions.pdf', NULL),
+    new PrintFile('files/Invoice.doc', 'Invoice.doc', NULL)
+
+//Create a ClientPrintJob and set the PrintFile objects
+$cpj = new ClientPrintJob();
+//set files to print
+$cpj->printFileGroup = $fileGroup;
+
+/...
+);
+
+
+</pre>
+<br /><br />
+
+<h2 id="Sending-the-ClientPrintJob-to-the-client">Sending the ClientPrintJob to the client</h2>
+<p>
+After you create a <a href="class-Neodynamic.SDK.Web.ClientPrintJob.html">Neodynamic\SDK\Web\ClientPrintJob</a> object, set its main properties like the target <a href="class-Neodynamic.SDK.Web.ClientPrinter.html">$clientPrinter</a> and the <strong>$printerCommands</strong> or <a href="class-Neodynamic.SDK.Web.PrintFile.html">$printFile</a> you want to print; then the final step is to send the ClientPrintJob to the client machine from PHP. To do this, you just invoke the <strong>sendToClient</strong> function of the <a href="class-Neodynamic.SDK.Web.ClientPrintJob.html">Neodynamic\SDK\Web\ClientPrintJob</a> class. Here is a snippet of how you should do this:
+</p>
+
+<pre class="brush: php;gutter: false;">
+//Send ClientPrintJob back to the client so it can be processed by the WCPP
+echo $cpj->sendToClient();
+</pre>
+
+<br />
+<h2 id="WebClientPrint-Scripting">WebClientPrint Scripting</h2>
+<p>
+The <a href="class-Neodynamic.SDK.Web.WebClientPrint.html">Neodynamic\SDK\Web\WebClientPrint</a> server component allows you create <a href="class-Neodynamic.SDK.Web.ClientPrintJob.html">Neodynamic\SDK\Web\ClientPrintJob</a> objects that are sent to the client machine where the <a href="#wcpp">WCPP</a> utility will process them. To launch the <a href="#wcpp">WCPP</a> installed at the client machine, you need to add some script code to your web page. The <a href="class-Neodynamic.SDK.Web.WebClientPrint.html">Neodynamic\SDK\Web\WebClientPrint</a> class provides you with all the needed to perform this task without efforts at all.
+</p>
+
+<br />
+<h3 id="Registering-the-WebClientPrint-Script">Registering the WebClientPrint Script</h3>
+<p>
+The first step before scripting to <a href="class-Neodynamic.SDK.Web.WebClientPrint.html">Neodynamic\SDK\Web\WebClientPrint</a> is to add a simple line of code in the PHP markup code of your web page. This must be done once in your page so you can use the <span class="sourcecode">jsWebClientPrint</span> (a javascript object) later on. The page is the one from where the user will perform the printing action e.g. through a button, hyperlink, script function, etc.
+</p>
+<p>
+So, open the PHP page and add the following line of code inside the HTML <span class="sourcecode">&lt;body&gt;</span>:
+</p>
+
+<br />
+<div class="noteBox">
+<span class="noteTitle">NOTE</span><br />
+Remember to add a link to <a href="http://www.jquery.com">jQuery</a> 1.4.1 or greater in the page where you are going to use WebClientPrint script code.
+</div>
+<br />
+
+<pre class="brush: xml;gutter: false;">
+&lt;?php
+  //Specify the ABSOLUTE URL to the php file that will create the ClientPrintJob object
+  //Suppose GenPrintJOb.php is a file that creates a ClientPrintJob object
+  echo WebClientPrint::createScript(Utils::getRoot().'/GenPrintJob.php')
+?&gt;
+</pre>
+
+<br />
+
+<h3>Printing by using jsWebClientPrint</h3>
+<p>
+<span class="sourcecode">jsWebClientPrint</span> is the javascript object that you will use to launch the <a href="#wcpp">WCPP</a> <strong>utility at the client machine</strong>. Before trying to use it, you must ensure you have done what is stated in the <a href="#Registering-the-WebClientPrint-Script">"Registering the WebClientPrint Script"</a> topic.
+</p>
+<p>
+The <span class="sourcecode">jsWebClientPrint</span> object features a <span class="sourcecode">print()</span> method that you can invoke from HTML or javascript code. The <span class="sourcecode">print()</span> method is the one which invokes the <a href="#wcpp">WCPP</a> utility at the client machine so it can process the <strong>ClientPrintJob</strong> generated from your PHP website.
+</p>
+<p>
+You can pass to the <span class="sourcecode">print()</span> method any number of useful data/parameters that you might need to analyze in the method of your server class that generates the <strong>ClientPrintJob</strong> objects. In our sample code demos, we usually pass to the <span class="sourcecode">print()</span> method the user's <strong>Session ID</strong> that we use then to determine what kind of <strong>ClientPrintJob</strong> needs to be generated. So, in our sample code demos, you will find a javascript code that looks like the following:
+</p>
+
+<br />
+
+<pre class="brush: xml;gutter: false;">
+&lt;a href="#" onclick="jsWebClientPrint.print('sid=&lt;?php echo session_id(); ?&gt;');"&gt;Print...&lt;/a&gt;
+</pre>
+
+<br />
+
+<h3>Get Installed Printers</h3>
+<p>
+<span class="sourcecode">jsWebClientPrint</span> allows you to get the list of installed printers available at the client machine by using the <span class="sourcecode">getPrinters()</span> function. By "installed printers" it means the printers that are listed and installed under the client OS (Windows, Linux or Mac).
+</p>
+<p>
+Here's a simple code about how to use this feature. The code has an HTML button that when clicked, it invokes the <span class="sourcecode">getPrinters()</span> function. There's also an HTML select element that will be filled with the installed printers if the code on getting the printers successes.
+</p>
+
+<pre class="brush: xml;gutter: false;">
+&lt;input type="button" value="Load Installed Printers..." onclick="javascript:jsWebClientPrint.getPrinters();" /&gt;
+&lt;br /&gt;
+&lt;select id="installedPrintersList"&gt;&lt;/select&gt;
+</pre>
+
+<br />
+<pre class="brush: js;gutter: false;">
+&lt;script type="text/javascript"&gt;
+       
+	var wcppGetPrintersDelay_ms = 5000; //5 sec
+
+	function wcpGetPrintersOnSuccess(){
+	    // Display client installed printers
+	    if(arguments[0].length > 0){
+	        var p=arguments[0].split("|");
+	        var options = '';
+	        for (var i = 0; i < p.length; i++) {
+	            options += '&lt;option&gt;' + p[i] + '&lt;/option&gt;';
+	        }
+	        $('#installedPrintersList').html(options);
+	        $('#installedPrintersList').focus();                                         
+	    }else{
+	        alert("No printers are installed in your system.");
+	    }
+	}
+	
+	function wcpGetPrintersOnFailure() {
+	    // Do something if printers cannot be got from the client
+	    alert("No printers are installed in your system.");
+	}
+    
+&lt;/script&gt;
+</pre>
+
+<p>The variable named as <span class="sourcecode">wcppGetPrintersDelay_ms</span> holds how much time (<b>in milliseconds</b>) the script code needs to wait for the installed printers list sent by WCPP from the client side. In the sample code above, we set it to 5000 ms (i.e. 5 seconds) but you can change it to whatever you want.</p>
+
+<br />
+
+<h3>Commanding the WCPP through jsWebClientPrint</h3>
+<p>
+In addition to the <span class="sourcecode">print()</span> method, the <span class="sourcecode">jsWebClientPrint</span> object features the <span class="sourcecode">send()</span> method which allows you to send to the <a href="wcpp.html">WCPP</a> installed at the client side some useful commands or parameters. The following is the list of supported commands:
+</p>
+<ul>
+<li>
+<p><b>About</b><br />
+Use the <b>-about</b> parameter to display a message box at the client machine which will show the user what version of <a href="#wcpp">WCPP</a> is installed in his/her machine.
+<br />Sample code:<br />
+</p>
+<pre class="brush: xml;gutter: false;">
+&lt;a href="#" onclick="jsWebClientPrint.send('-about');"&gt;About WCPP...&lt;/a&gt;
+</pre>
+</li>
+
+<li>
+<p><b>Proxy Settings</b><br />
+If the user of your website connects to it through a proxy server, then you might need to specify the proxy settings to the <a href="#wcpp">WCPP</a> utility. You can set up that data by sending the <b>-proxyHost</b>, <b>-proxyPort</b>, <b>-proxyUser</b>, and <b>-proxyPass</b> commands.
+<br />Sample code:<br />
+</p>
+<pre class="brush: xml;gutter: false;">
+&lt;a href="#" onclick="jsWebClientPrint.send('-proxyHost:10.0.0.20 -proxyPort:8080 -proxyUser:TheUser -proxyPass:ABC123');"&gt;Set Proxy for WCPP...&lt;/a&gt;
+</pre>
+</li>
+
+</ul>
+
+
+<br />
+<h2 id="How-to-detect-if-WCPP-is-installed-at-the-client-machine">How to detect if WCPP is installed at the client machine</h2>
+<p>
+The <a href="#wcpp">WCPP</a> utility that the user needs to have it installed <strong>is a key component of the WebClientPrint solution</strong>. So, it is very important you can detect somehow if the <a href="#wcpp">WCPP</a> is already installed at the client machine from your PHP website. In the sample code project that is installed with the <strong>WebClientPrint</strong> package, you will find a complete sample source code using the detecting technique. However, here are the basic steps involved in this task.
+</p>
+
+<h3>Registering the WCPP detection Script</h3>
+<p>
+You have to add a simple line of code in the PHP HTML markup code of your web page. The page is the one you will be using for detecting if the user has the <a href="#wcpp">WCPP</a> installed or not. It should be the initial page the user should visit before trying to go to the page where you provide the <strong>WebClientPrint</strong> functionality.
+</p>
+<p>
+So, open the PHP page and add the following line of code inside the HTML <span class="sourcecode">&lt;body&gt;</span>:
+</p>
+<br />
+<div class="noteBox">
+<span class="noteTitle">NOTE</span><br />
+Remember to add a link to <a href="http://www.jquery.com">jQuery</a> 1.4.1 or greater in the page.
+</div>
+<br />
+
+<pre class="brush: xml;gutter: false;">
+&lt;?php
+  // Create WCPP detection script
+  echo WebClientPrint::createWcppDetectionScript();
+?&gt;
+</pre>
+
+<br />
+
+<h3>Handling the WCPP detection with JavaScript</h3>
+<p>
+When you register the <a href="#wcpp">WCPP</a> detection script in your page, you can handle the detection result i.e. success or failure and act according to it. You have to write javascript code inside two special functions for handling the detection result. Those functions are named as <span class="sourcecode">wcppDetectOnSuccess()</span> and <span class="sourcecode">wcppDetectOnFailure()</span>
+</p>
+<p>
+So, in the page you are using for <strong>"WCPP detection"</strong>, you should add a javascript code like the following:
+</p>
+<br />
+<pre class="brush: js;gutter: false;">
+&lt;script type="text/javascript"&gt;
+       
+    var wcppPingDelay_ms = 10000; //10 sec
+
+    function wcppDetectOnSuccess(){
+        //WCPP utility is installed at the client side
+        //redirect to WebClientPrint sample page
+
+	//TIP! You can get the WCPP Version installed through arguments[0]
+	
+        window.location.href = "URL_TO_SAMPLE_PAGE"; 
+	
+    }
+
+    function wcppDetectOnFailure() {
+        //It seems WCPP is not installed at the client side
+        //kindly ask the user to install it
+        
+	    PROVIDE_DOWNLOAD_LINK_TO_WCPP_INSTALLER
+                
+    }       
+    
+&lt;/script&gt;
+</pre>
+<br />
+The variable named as <span class="sourcecode">wcppPingDelay_ms</span> holds how much time (<b>in milliseconds</b>) the detection script needs to wait for a ping from the WCPP at the client side. In the sample code above, we set it to 10000 ms (i.e. 10 seconds) but you can change it to whatever you want.
+
+
+<br />
+
+</div>
+
+<hr />
+
+<div id="wcpp">
+<h1>The WCPP client utility</h1>
+<h2>Overview</h2>
+<p>
+<strong>Each client machine</strong> that wants to print locally from your PHP website by using the WebClientPrint solution <strong>will require to install</strong> a very small utility called <strong>WebClientPrint Processor (WCPP)</strong>.
+</p>
+<p>
+<strong>WCPP</strong> is a lightweight <strong>native app (without any dependencies)</strong> that processes all the <a href="#Client-Print-Jobs">Client Print Jobs</a> generated by the <a href="#wcp-server-side">WebClientPrint server-side component</a>.
+</p>
+<p>
+<strong>WCPP</strong> is great because it is a native app that <strong>does not require</strong> the client to install any other dependencies or frameworks (like Java, .NET, ActiveX, Silverlight, Flash, etc.) and <strong>runs on Windows, Linux & Mac!</strong> You can <strong>keep your current enterprise hardware</strong>, <strong>save money</strong> and start porting your systems to PHP websites. 
+</p>
+<p>
+The client machine requirements are:
+</p>
+<ul>
+
+							<li><strong>Windows Clients</strong>
+
+								<ul>
+
+                                    <li><strong>OS: </strong>Windows 98, 2000, ME, XP, Vista, Windows 7 or Windows 8.x (Desktop-mode)</li>
+
+									<li><strong>BROWSER: </strong>Internet Explorer 6 or greater (IE10/11 in Desktop Mode), Mozilla Firefox 2.0 or greater, Google Chrome 11 or greater, Opera 9.0 or greater, Safari 3.0 or greater</li>
+
+								</ul>
+
+							</li>	
+
+                            <li><strong>Linux Clients</strong>
+
+								<ul>
+
+									<li><strong>OS: </strong>Debian 6 or greater (GNOME), Ubuntu 10.04 or greater (Unity/GNOME), Linux Mint 7 or greater (GNOME), Fedora 11 or greater (GNOME), CentOS 5.3 or greater (GNOME)</li>
+
+									<li><strong>BROWSER: </strong>Mozilla Firefox shipped with the OS or latest version, Google Chrome latest version</li>
+
+								</ul>
+
+							</li>	
+
+                            <li><strong>Mac Clients</strong>
+
+								<ul>
+
+									<li><strong>OS: </strong>Mac OS X 10.5 (Leopard) or greater / Intel</li>
+
+									<li><strong>BROWSER:</strong> Safari shipped with the OS or latest version, Mozilla Firefox latest version, Google Chrome latest version</li>
+
+								</ul>
+
+							</li>		
+
+						</ul>	
+<br />
+<h2>WCPP Installer Packages</h2>
+<p>
+The WCPP Installer Packages are available at <a href="http://www.neodynamic.com/downloads/wcpp">http://www.neodynamic.com/downloads/wcpp</a>
+<br />
+You can host it on your own website but please consider linking it to Neodynamic's website.
+It will help you and your users to always get the latest builds of WCPP and ensure the utility comes from us.
+</p>
+<br />
+<h2>WCPP Security Protection</h2>
+<p>
+Both the <strong>WCPP Installer for Windows</strong> as well as the <strong>WCPP program file (wcpp.exe)</strong> are <strong>digitally-signed</strong> with a <strong>Windows Authenticode certificate</strong> issued by <strong>DigiCert Assured ID Code Signing CA-1</strong> to protect you, your end-users and us from malware and tampering.
+</p>
+<p>
+You must instruct and educate your end-users to install the <strong>WCPP</strong> utility only if it comes from our company i.e. the <strong>Publisher is Neodynamic SRL</strong> as shown in the following figures.
+</p>
+<img src="wcpp-open-file-publisher.png" alt="WCPP Open File - Security Warning" />
+<br /><br />
+<img src="wcpp-code-signing-certificate.png" alt="WCPP Code Signing Certificate" />
+<br /><br /><br />
+</div>
+
+
+<hr />
+
+<div id="license-reg">
+<h1>License Registration</h1>
+<p>
+When you buy a commercial version of <strong>WebClientPrint for PHP</strong> you are provided with license information to register the product in your projects.
+</p>
+<p>
+To register <strong>WebClientPrint</strong> in the PHP project where you are referencing it, you must open the <strong>WebClientPrint.php</strong> file and set up the <strong>$licenseOwner & $licenseKey</strong> properties of <a href="class-Neodynamic.SDK.Web.WebClientPrint.html">Neodynamic\SDK\Web\WebClientPrint</a> class like follows.
+</p>
+
+<pre class="brush: php; gutter: false;">
+WebClientPrint::$licenseOwner = 'YOUR_LICENSE_OWNER_GOES_HERE';
+WebClientPrint::$licenseKey = 'YOUR_LICENSE_KEY_GOES_HERE';
+</pre>
+
+
+</div>
+
+<hr />
+
+<div id="deployment">
+<h1>Deployment</h1>
+<p>
+All the functionality of <strong>WebClientPrint for PHP</strong> is contained in a unique file called <strong>WebClientPrint.php</strong>
+</p>
+<p>
+The <strong>WebClientPrint.php</strong> must be located in the root folder of your PHP website when you deploy it to a web server.
+</p>
+<p>
+You also have to create the <strong>wcpcache</strong> folder at the root folder of your PHP website and give it <strong>File Write permission</strong>.
+</p>
+<p>
+Finally, you have to modify the <strong>$licenseOwner & $licenseKey</strong> properties of <a href="class-Neodynamic.SDK.Web.WebClientPrint.html">Neodynamic\SDK\Web\WebClientPrint</a> class in the <strong>WebClientPrint.php</strong> file accord. Here is an example:
+</p>
+<pre class="brush: php; gutter: false;">
+//IMPORTANT SETTINGS:
+//===================
+//Set ABSOLUTE URL to WebClientPrint.php file
+WebClientPrint::$webClientPrintAbsoluteUrl = Utils::getRoot().'/WebClientPrint.php';
+//Set wcpcache folder RELATIVE to WebClientPrint.php file
+//FILE WRITE permission on this folder is required!!!
+WebClientPrint::$wcpCacheFolder = 'wcpcache/';
+//===================
+</pre>
+<br />
+<div class="noteBox">
+<span class="noteTitle">NOTE</span><br />
+Remember that <strong>WebClientPrint is a client-server</strong> solution. The server side component i.e. <strong>WebClientPrint.php</strong> is deployed as mentioned above. The client-side part i.e. the <strong>WCPP</strong> utility needs to be installed at the client machine. Refer to <a href="#wcpp">"The WCPP client utility"</a> topic for further details.
+</div>
+<br /><br />
+
+
+</div>
+
+
+</div>
+
+	<div id="footer">
+		Neodynamic WebClientPrint for PHP Documentation<br/>
+Copyright &copy; 2003 - <script type="text/javascript">
+		                            var theDate = new Date()
+		                            document.write(theDate.getFullYear())
+</script> <strong>Neodynamic</strong> - All rights reserved.
+	</div>
+</div>
+</div>
+</body>
+</html>

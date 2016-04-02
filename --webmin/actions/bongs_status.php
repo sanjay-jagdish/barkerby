@@ -1,0 +1,1 @@
+<?php 	include '../config/config.php';	$id = $_POST['id'];	$action = $_POST['action'];	if($action=='checked'){		mysql_query("update reservation set bongs_status = 1 where id=$id") or die('chck'.mysql_error());	}else{		mysql_query("update reservation set bongs_status = 0 where id=$id") or die('unchck'.mysql_error());	}?>
