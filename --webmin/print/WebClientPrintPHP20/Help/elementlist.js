@@ -1,3 +1,0 @@
-
-var ApiGen = ApiGen || {};
-ApiGen.elements = [["c","Exception"],["c","Neodynamic\\SDK\\Web\\ClientPrinter"],["c","Neodynamic\\SDK\\Web\\ClientPrintJob"],["c","Neodynamic\\SDK\\Web\\DefaultPrinter"],["c","Neodynamic\\SDK\\Web\\InstalledPrinter"],["c","Neodynamic\\SDK\\Web\\NetworkPrinter"],["c","Neodynamic\\SDK\\Web\\ParallelPortPrinter"],["c","Neodynamic\\SDK\\Web\\PrintFile"],["c","Neodynamic\\SDK\\Web\\SerialPortHandshake"],["c","Neodynamic\\SDK\\Web\\SerialPortParity"],["c","Neodynamic\\SDK\\Web\\SerialPortPrinter"],["c","Neodynamic\\SDK\\Web\\SerialPortStopBits"],["c","Neodynamic\\SDK\\Web\\UserSelectedPrinter"],["c","Neodynamic\\SDK\\Web\\Utils"],["c","Neodynamic\\SDK\\Web\\WebClientPrint"]];

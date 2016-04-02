@@ -1,1 +1,0 @@
-<?php session_start();	include '../config/config.php';	$minutes = $_POST['minuter'];		mysql_query("update settings set var_value='$minutes' where var_name = 'reminder_minutes'") or die(mysql_error());	echo 'success';?>
