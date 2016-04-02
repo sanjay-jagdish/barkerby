@@ -199,7 +199,7 @@ if( $_GET['page'] == 'controlpanel' ){
 	}
 ?>
 <!-- for data table -->
-<script type="text/javascript" language="javascript" src="scripts/data-table/media/js/jquery.dataTables.js"></script>
+<script type="text/javascript" language="javascript" src="scripts/data-table/media/js/jquery.dataTables.min.js"></script>
 <!-- Disable 
 <SCRIPT LANGUAGE="JavaScript">  
  
