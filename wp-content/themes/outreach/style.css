@@ -192,7 +192,9 @@ body {
 
 /* Header
 ------------------------------------------------------------ */
-
+#inputs{
+	display: none;
+}
 #header {
 	background: #026ad1 url(images/header-bg.jpg) no-repeat center center;
 	background-size: cover;
@@ -2573,7 +2575,7 @@ label.css-label {
 	position: fixed;
 	bottom: -3px;
 	padding-bottom: 3px;
-	z-index: 9999999999;
+	z-index: 22;
 	width: 290px;
 	max-width: 90%;
 	background: #223A5E;
@@ -2979,12 +2981,12 @@ label.css-label {
 	height: 30px;
 	display: inline-block;
 	float: left;
-	background: #4D151D;
+	background: #054787;
 }
 
 .portion-head .remove-tillval{
 	float: left;
-	background: #D53E3E url(images/2015/remove-portion-white.png) no-repeat center center;
+	background: #D53E3E url(images/remove-portion-white.png) no-repeat center center;
 	color: transparent;
 	text-indent: 99999999px;
 	height: 30px;
@@ -2992,7 +2994,7 @@ label.css-label {
 	display: inline-block;
 }
 
-.portion-head .remove-tillval:hover{ background: #EC5454 url(images/2015/remove-portion-white.png) no-repeat center center; }
+.portion-head .remove-tillval:hover{ background: #EC5454 url(images/remove-portion-white.png) no-repeat center center; }
 
 .request-msg-row {
 	padding: 0 10px;
