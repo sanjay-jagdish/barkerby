@@ -256,6 +256,8 @@ function add_script(){
 
 <script type="text/javascript">
 jQuery(function(){
+	var webmin = "<?php echo site_url();?>/webmin";
+	jQuery('#footer a:last').attr('href', webmin);
 	jQuery('#menu-primary_menu li:nth-child(1) a').addClass('li-active');
 	
 	jQuery('#menu-primary_menu li a').click(function(){
