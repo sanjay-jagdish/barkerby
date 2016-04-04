@@ -120,7 +120,7 @@
 	
 ?>
 <img src="miseenplace.png" style="margin-left:-8px;"/><br /><br /><br />
-<div style="text-align:center;"><img src="http://www.limoneristorante.se/wp-content/themes/crisp_version3/images/limone.png" /></div><br /><br />
+<div style="text-align:center;"><img src="http://www.grekiska.icington.com/wp-content/uploads/2015/03/webmin-logo-black.png" /></div><br /><br />
 <style>
 table tr td p{
 	padding:0 0 15px;
@@ -289,7 +289,7 @@ table#table-2 tr td{
 				}
 				else if($payment=='invoice'){
 					echo 'Faktura<br />';
-					$inv_query = mysql_query("select * from invoice where reservation_unique_id = '$uniqueid'") or die(mysql_error());
+					$inv_query = mysql_query("select * from invoice where reservation_unique_id = '".$uniqueid."') or die(mysql_error());
 					if($inv = mysql_fetch_assoc($inv_query)){
 						echo 'Företag: '.$inv['business'].'<br />';
 						echo 'Orgnr: '.$inv['org_number'].'<br />';
@@ -330,12 +330,12 @@ table#table-2 tr td{
     <?php
         /*$q=mysql_query("select m.name as menu, c.name as sub, m.image as img, m.price as price, rd.quantity as quantity, cu.shortname as currency, rd.notes as notes, c.id as cid, m.type as type, m.discount as discount,m.id as menu_id from reservation_detail as rd, menu as m, sub_category as c, currency as cu where m.id=rd.menu_id and c.id=m.sub_category_id and cu.id=m.currency_id and rd.reservation_id=".$id) or die(mysql_error());*/
 		
-		$q=mysql_query("select m.name as menu, m.image as img, m.price as price, rd.quantity as quantity, cu.shortname as currency, rd.notes as notes, m.type as type, m.discount as discount,m.id as menu_id, rd.lunchmeny as lunchmeny, m.discount_unit as unit from reservation_detail as rd, menu as m, currency as cu where m.id=rd.menu_id and cu.id=m.currency_id and m.deleted=0 and rd.reservation_id=$id and rd.lunchmeny=0") or die(mysql_error());
+		$q=mysql_query("select m.name as menu, m.image as img, m.price as price, rd.quantity as quantity, cu.shortname as currency, rd.notes as notes, m.type as type, m.discount as discount,m.id as menu_id, rd.lunchmeny as lunchmeny, m.discount_unit as unit from reservation_detail as rd, menu as m, currency as cu where m.id=rd.menu_id and cu.id=m.currency_id and m.deleted=0 and rd.reservation_id=".$id." and rd.lunchmeny=0") or die(mysql_error());
 						
 		
 		if(mysql_num_rows($q)==0){
 		
-		$q=mysql_query("select m.name as menu, m.image as img, rd.price as price, rd.quantity as quantity, cu.shortname as currency, rd.notes as notes, m.type as type, m.discount as discount,m.id as menu_id, rd.lunchmeny as lunchmeny from reservation_detail as rd, menu_lunch_items as m, currency as cu where m.id=rd.menu_id and cu.id=m.currency_id and m.deleted=0 and rd.reservation_id=$id and rd.lunchmeny=1") or die(mysql_error());
+		$q=mysql_query("select m.name as menu, m.image as img, rd.price as price, rd.quantity as quantity, cu.shortname as currency, rd.notes as notes, m.type as type, m.discount as discount,m.id as menu_id, rd.lunchmeny as lunchmeny from reservation_detail as rd, menu_lunch_items as m, currency as cu where m.id=rd.menu_id and cu.id=m.currency_id and m.deleted=0 and rd.reservation_id=".$id." and rd.lunchmeny=1") or die(mysql_error());
 		}
 						
         $count=0;
@@ -370,7 +370,7 @@ table#table-2 tr td{
         </td>
         <td valign="top" style="font-size:10px;" width="120"><?php
             
-                $opt_sql = "select a.name as name,a.price as price, dish_num from reservation_menu_option as a where reservation_unique_id = '$uniqueid' and a.menu_id=$r[menu_id]";
+                $opt_sql = "select a.name as name,a.price as price, dish_num from reservation_menu_option as a where reservation_unique_id ='".$uniqueid."'' and a.menu_id=$r[menu_id]";
                 
                 $opt_query = mysql_query($opt_sql) or die(mysql_error());
                 if(mysql_num_rows($opt_query)>0){
