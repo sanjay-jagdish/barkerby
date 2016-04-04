@@ -28,7 +28,7 @@ if($rss){
 				<div class="offers-info">
 					<h4><a target="_blank" href="' . $link . '">' .$title. '</a></h4>
 					<p>' .$description . '</p>
-					<span>Price: </span><b style="font-size: 14px;">$$$</b><a href="#" class="btn-purchase">Purchase</a>
+					<!-- span>Price: </span><b style="font-size: 14px;">$$$</b><a href="#" class="btn-purchase">Purchase</a -->
 				</div>
 			 </div>';
  		
