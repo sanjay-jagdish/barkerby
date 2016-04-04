@@ -1291,8 +1291,8 @@ if($ttype == 2){
 		$newcatdesc='';
 	}
 	
-	echo '<h4 class="cat_name">' .$cat_name. '</h4>'.$newcat_desc.'
-			<p class="cat_desc">' .$newcatdesc. '</p>';
+	echo '<h4 class="cat_name">' .utf8_encode($cat_name). '</h4>'.utf8_encode($newcat_desc).'
+			<p class="cat_desc">' .utf8_encode($newcatdesc). '</p>';
 	
 	
 	//START GET MENUS UNDER MAIN CATEGORY
@@ -1315,15 +1315,15 @@ if($ttype == 2){
                            }
 
 						$menu_id_2 = $row2['id'];
-						$menu_name_2 = $row2['name'];
+						$menu_name_2 = utf8_encode($row2['name']);
 						$use_price_2 = ($row2['takeaway_price']=='0.00') ? $row2['price'] : $row2['takeaway_price'];
 						$menu_price_2 = '<span class="menu-price"> '. $row2['price'] .':-</span>';
-						$menu_description_2 = strip_tags($row2['description']);
+						$menu_description_2 = utf8_encode(strip_tags($row2['description']));
 						?>	
 							<div class="section-devider">
 									<div class="left-side">
-										<h4><?php echo $menu_name_2. ' '; if($menu_name_2!=''){echo $use_price_2;}?></h4>
-										<p><?php echo $menu_description_2. ' '; if($menu_name_2==''){echo $use_price_2;}?></p>
+										<h4><?php echo utf8_encode($menu_name_2). ' '; if($menu_name_2!=''){echo $use_price_2;}?></h4>
+										<p><?php echo utf8_encode($menu_description_2). ' '; if($menu_name_2==''){echo $use_price_2;}?></p>
 									</div>
                                      <span class="outerinputs">
 						
@@ -1359,8 +1359,8 @@ if($ttype == 2){
 		
 		while($row3 = mysql_fetch_array($res3)){
 			$subcat_id = $row3['id'];
-			$subcat_name = $row3['name'];
-			$subcat_desc = $row3['description'];
+			$subcat_name = utf8_encode($row3['name']);
+			$subcat_desc = utf8_encode($row3['description']);
 			
 			//START MENU DIVISION
 			echo '<div class="meny_division column_'. $cnt2 .'">';
@@ -1385,14 +1385,14 @@ if($ttype == 2){
 
                            }
 						$menu_id_4 = $row4['id'];
-						$menu_name_4 = $row4['name'];
+						$menu_name_4 = utf8_encode($row4['name']);
 						$use_price_4 = ($row4['takeaway_price']=='0.00') ? $row4['price'] : $row4['takeaway_price'];
 						$menu_price_4 = '<span class="menu-price"> '. $row4['price'] .':-</span>';
-						$menu_description_4 = strip_tags($row4['description']);
+						$menu_description_4 = utf8_encode(strip_tags($row4['description']));
 						?>	
 							<div class="section-devider">
 									<div class="left-side">
-										<h4><?php echo $menu_name_4 . ' '; if($menu_name_4!=''){echo $use_price_4;}?></h4>
+										<h4><?php echo $menu_name_4. ' '; if($menu_name_4!=''){echo $use_price_4;}?></h4>
 										<p><?php echo $menu_description_4. ' '; if($menu_name_4==''){echo $use_price_4;}?></p>
 									</div>
                                      <span class="outerinputs">

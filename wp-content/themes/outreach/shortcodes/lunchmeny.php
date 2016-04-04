@@ -169,10 +169,10 @@ function lunchmeny(){
         <span class="weeknum">Vecka <?php echo $week_num; ?></span>    
     
         <h5 style="color: #054787; font-size: 22px; margin: 0 0 10px;">
-          <strong><?php echo strip_tags(stripslashes($menu_week_res['note_header'])); ?></strong>
+          <strong><?php echo utf8_encode(strip_tags(stripslashes($menu_week_res['note_header']))); ?></strong>
         </h5>
     
-        <p><?php echo stripslashes($menu_week_res['description']); ?></p>
+        <p><?php echo utf8_encode(stripslashes($menu_week_res['description'])); ?></p>
     
     </div>
     
@@ -231,7 +231,7 @@ function lunchmeny(){
 					if($header_monfri['id'] > 0 && $header_monfri['contents']!=''){
 					?>	
                     <div class="themenu-inner">
-                    	<?php echo stripslashes($header_monfri['contents']); ?>
+                    	<?php echo utf8_encode(stripslashes($header_monfri['contents'])); ?>
                     </div>
                     <?php	
 					}
@@ -251,7 +251,7 @@ function lunchmeny(){
 					?>
                         <div class="themenu-inner">
                         <div class="left-pos">
-                            <h3><?php echo $courses_res['name']; ?></h3>
+                            <h3><?php echo utf8_encode($courses_res['name']); ?></h3>
                             <p class="testp<?php echo $counts; ?>">
 							<?php 
 								//get menu price
@@ -259,7 +259,7 @@ function lunchmeny(){
 									$menu_price = number_format($courses_res['price']).' '.$currency_res['shortname'];						        
 								}
 							
-								echo '<div class="testp'.$counts.'"><p>' .stripslashes($courses_res['description']).'</p></div>';
+								echo '<div class="testp'.$counts.'"><p>' .utf8_encode(stripslashes($courses_res['description'])).'</p></div>';
 							?>
 							<style type="text/css">
                                 .testp<?php echo $counts; ?> p:nth-last-child(2):after{
@@ -457,7 +457,7 @@ function lunchmeny(){
 									$menu_price = number_format($courses_res['price']).' '.$currency_res['shortname'];						        
 								}
 							
-								echo '<div class="testp'.$counts.'"><p>' .stripslashes($courses_res['description']).'</p></div>';
+								echo '<div class="testp'.$counts.'"><p>' .utf8_encode(stripslashes($courses_res['description'])).'</p></div>';
 								
 								$child=2;
 								if(trim($courses_res['description'])==''){
@@ -517,7 +517,7 @@ function lunchmeny(){
                         $footer = mysql_fetch_assoc($footer_qry);
                         
                         if($footer['id'] > 0 && $footer['contents']!=''){
-                        	$footer_texts = stripslashes($footer['contents']);
+                        	$footer_texts = utf8_encode(stripslashes($footer['contents']));
 						?>	
                         <div class="themenu-inner">
                             <?php echo $footer_texts; ?>
@@ -550,7 +550,7 @@ function lunchmeny(){
 
 		       if($num_courses>0){
 			  ?>
-	                <div class="footerlm"><?php echo stripslashes($menu_week_res['note_footer']); ?></div>
+	                <div class="footerlm"><?php echo utf8_encode(stripslashes($menu_week_res['note_footer'])); ?></div>
 	
 			 <?php
 			   }

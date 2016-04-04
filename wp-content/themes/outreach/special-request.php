@@ -389,11 +389,8 @@ jQuery(function(){
 			success: function(value){
 				
 				getcountItem(0);
-				
-				if(jQuery('.cart-opt').length==2){
-					
+				if(jQuery('.cart-opt').length < 2){
 					jQuery('.remove-tillval, .cart-opt input[type=button]').hide();
-					
 				}
 				
 				jQuery('.cart_content').load(siteurl+"takeaway-cart.php");
@@ -415,9 +412,8 @@ jQuery(function(){
 		var siteurl = jQuery('.takeaway_cart_wrap').attr('data-rel');
 	
 		jQuery('.close-modals').click(function(){
-			
 			getcountItem(1);
-			
+			jQuery('.cart_content').load(siteurl+"/takeaway-cart.php");
 			var ids = jQuery(this).attr('data-rel');
 			jQuery(ids).fadeOut('fast');
 			
