@@ -983,6 +983,8 @@ function showDetail(id,typeid){
 	jQuery('.fade, .orderbox').fadeIn();	
 		jQuery.ajax({
 			 url: "actions/viewedReservation.php",
+			 type: 'POST',
+			 data: 'typeId='+encodeURIComponent(typeid),
 			 success: function(value){
 				 
 				 if(value!=0){
@@ -3099,6 +3101,8 @@ jQuery(function() {
   		
 		jQuery.ajax({
 			 url: "actions/viewedReservation.php",
+			 type: 'POST',
+			 data: 'typeId=1',
 			 success: function(value){
 				 
 				 var count = Number(value);
