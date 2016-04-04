@@ -93,6 +93,7 @@
 	jQuery('.fade, .orderbox').fadeIn();	
 		jQuery.ajax({
 			 url: "actions/viewedReservation.php",
+			 type: 'POST',
 			 data: 'typeId='+encodeURIComponent(typeid),
 			 success: function(value){
 				 

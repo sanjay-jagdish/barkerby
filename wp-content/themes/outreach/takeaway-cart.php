@@ -95,4 +95,5 @@
 	else{
 		echo '<span style="margin: 0 0 0 5px; color:#fff;">Kundvagnen är tom</span>';
 	}
+	
 ?>

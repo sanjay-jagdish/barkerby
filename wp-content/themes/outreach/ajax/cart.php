@@ -1,6 +1,4 @@
 <?php
-								
-
 	function getOptionTotal($menu_id,$chkqnkid){
 		$total=0;
 		

@@ -445,4 +445,5 @@ jQuery(function(){
 </script>
 <?php	
 	}
+mysql_close($con);	
 ?>

@@ -3,9 +3,10 @@
 function takeAway(){
 $menys='';
 $query=mysql_query("select * from category where deleted=0 order by IF( `order` = '', 1, 0), LENGTH(`order`),`order`, id");
+
 if(mysql_num_rows($query) > 0){
 	while($r=mysql_fetch_assoc($query)){
-		     
+		    
  			//Start select menus direct from main category
 			$qrr=mysql_query("select name,description,id,price,currency_id,discount,discount_unit,type,takeaway_price from menu where cat_id=".$r['id']." and type<>'1' and deleted=0 and featured=1 order by IF( `order` = '', 1, 0), LENGTH(`order`),`order`, id") or die(mysql_error());
 			
@@ -25,15 +26,16 @@ if(mysql_num_rows($query) > 0){
 				
 			}
 			
-			
-			if($countcatmenu!=0 | $countsubcatmenu!=0){  //checker if it has dishes
+            
+			if($countcatmenu!=0 || $countsubcatmenu!=0){  //checker if it has dishes
 				
 				$menys.='<div class="meny_division column_'.$r['id'].'"> 
 					<h4 style="margin-bottom: 5px !important; font-size: 25px;">'.$r['name'].'</h4>
 					<span style="font-size: 16px; padding:0 0 32px; color:black; display:block;">'.$r['description'].'</span>';
 			
 			
-			if($countcatmenu > 0){
+			if($countcatmenu > 0 ){
+
 				while($rrr=mysql_fetch_assoc($qrr)){
 					
 						//for the mandatory tillvals
@@ -156,6 +158,7 @@ if(mysql_num_rows($query) > 0){
 		
 	}
 }
+
 //prev button class is pay
 //return '<div class="takeaway-wrapper" style="overflow:hidden; padding: 30px 0;">'.$menys.'<div style="clear:both"> <span id="sum" data-rel="0">Att betala 0</span><input type="button" class="pay" value="TILL KASSAN"/><div class="errormsg" style="display:none"></div></div></div>';
 	$qs=mysql_query("select var_value from settings where var_name='takeaway_content'");

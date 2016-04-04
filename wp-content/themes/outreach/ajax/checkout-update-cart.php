@@ -1,5 +1,4 @@
 <?php
-								
 	include 'config.php';
 	function getOptionTotal($menu_id,$chkqnkid){
 		$total=0;

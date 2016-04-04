@@ -1,8 +1,8 @@
-                                                                <div id="calendar-wrapper">
+<div id="calendar-wrapper">
 <?php
 require('../config/config.php');
 ini_set('display_errors',0);
-
+$max_table='';
 $time_block_left_padding = 2;// pixels
 $time_interval_width = 24; // 48 pixels; width of <td>  
 
@@ -414,7 +414,7 @@ if($time_check==0){
 //get the quotient by dividing it with the time_interval
 //get the closest time equal to the time intervals 
 $time_elapsed = (strtotime(date('H:i')) - strtotime($res_det['start_time'])) / 60;
-$interval_unit = round($time_elapsed / $res_det['time_interval']);
+$interval_unit = if($res_det['time_interval'] != 0){round($time_elapsed / $res_det['time_interval'])};
 $time_limit = date('Hi', strtotime($res_det['start_time'].' + '.$interval_unit*$res_det['time_interval'].' minutes'));
 
 ?>
@@ -631,11 +631,13 @@ $(function(){
 		  var array = [<?php echo $days_disabled; ?>]; //'02/22/2014','02/23/2014','02/28/2014'
 		  
 		  jQuery( "#chartdate" ).datepicker({
-			  minDate: 0, 
+			  minDate: 0,
+
 			  firstDay: '<?php echo $row['var_value']; ?>',
 				<?php
 				if($_GET['date']!=''){
 				$sel_date = explode('-',$_GET['date']);
+
 				?>
 				defaultDate: new Date(<?php echo $sel_date[0].','.(int)($sel_date[1]-1).','.$sel_date[2]; ?>),
 				<?php	  

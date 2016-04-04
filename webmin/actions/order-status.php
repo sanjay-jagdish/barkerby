@@ -604,9 +604,8 @@
 						<br><br>
 						 
 						<strong>Välkomna till Grekiska Kolgrillsbaren Barkarby!</strong><br><br>
-		   
-					    Stora gatan 4<br>
-					    021-417560
+		                 Barkarbyvägen 45 i Järfälla<br>
+                         08-511 600 30
 					</div>
 				</body>
 			</html>

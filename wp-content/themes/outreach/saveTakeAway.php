@@ -702,5 +702,5 @@
 	else{
 		echo 'Invalid';
 	}
-	
+	mysql_close($con);	
 ?>

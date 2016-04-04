@@ -1303,6 +1303,15 @@ if($ttype == 2){
 					echo '<div class="meny_division column_'. $cnt1 .'">';
 					
 					while($row2 = mysql_fetch_array($res2)){
+                        $qtill_2 = mysql_query("select id from menu_option_details where menu_id='".$row2['id']."' and single_option=1") or die(mysql_error());
+						    $count_tillvals_2 = mysql_num_rows($qtill_2);
+                           if($count_tillvals_2 > 0){
+                           	$tillvals_2 =1;
+                           }else{
+                            $tillvals_2 =0;
+
+                           }
+
 						$menu_id_2 = $row2['id'];
 						$menu_name_2 = $row2['name'];
 						$use_price_2 = ($row2['takeaway_price']=='0.00') ? $row2['price'] : $row2['takeaway_price'];
@@ -1314,9 +1323,18 @@ if($ttype == 2){
 										<h4><?php echo $menu_name_2. ' '; if($menu_name_2!=''){echo $use_price_2;}?></h4>
 										<p><?php echo $menu_description_2. ' '; if($menu_name_2==''){echo $use_price_2;}?></p>
 									</div>
-									<span class="outerinputs">
-										<img src="<?php echo CHILD_URL; ?>/images/Lagg-till.png" class="takeimg <?php echo $cartname; ?>" data-id="<?php echo $menu_id_2; ?>" data-title="<?php echo $use_price_2; ?>">
-									</span>
+                                     <span class="outerinputs">
+						
+						<img src="<?php echo CHILD_URL; ?>/images/Lagg-till.png" class="takeimg tacart" data-id="<?php echo $menu_id_2; ?>" data-rel="<?php echo $menu_name_2.'<span>'.$menu_description_2.'</span>'; ?>" data-tillval="<?php echo $tillvals_2; ?>">
+						<span id="inputs">						
+						<input type="button" value="+" class="addme_takeaway" data-rel="<?php echo $menu_id_2; ?>">
+						<input type="text" class="quantity-takeaway quantity-<?php echo $menu_id_2; ?>" data-rel="<?php echo $menu_id_2; ?>" placeHolder="0" data-title="<?php echo $use_price_2; ?>" />
+						<input type="button" value="-" class="subtractme_takeaway" data-rel="<?php echo $menu_id_2; ?>">
+						</span>
+						
+						</span>
+
+	
 								</div>
 					   <?php				
 					}

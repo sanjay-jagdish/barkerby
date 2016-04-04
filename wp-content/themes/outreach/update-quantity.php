@@ -7,4 +7,5 @@
 	else{
 		mysql_query("delete from reservation_detail where id='".$_POST['id']."'");
 	}
+	
 ?>	

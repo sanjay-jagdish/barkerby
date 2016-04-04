@@ -383,7 +383,7 @@ DATE_FORMAT(STR_TO_DATE(r.date, '%m/%d/%Y'),'%b %d, %Y') as date, DATE_FORMAT(r.
 			//getting the orders
 			
 			 $qd=mysql_query("select rt.description as descrip, concat(a.fname,' ',a.lname) as name, 
-DATE_FORMAT(STR_TO_DATE(r.date, '%m/%d/%Y'),'%b %d, %Y') as date, DATE_FORMAT(r.time,'%H:%i') as time, r.number_people as numpeople, r.number_table as numtable, r.approve as approve, r.id as rid, rt.id as rtid, r.lead_time as lead, r.acknowledged as ack, r.viewed as viewed, r.date_time as datetime, r.asap as asap, r.asap_datetime as asaptime, r.deliver as deliver, DATE_FORMAT(r.asap_datetime,'%Y-%m-%d %k:%i:%s') as dtf, date_format(r.asap_datetime,'%b %d, %Y') as asapdate, date_format(r.asap_datetime,'%H:%i') as asaptime, r.bongs_status as bongs, datediff(STR_TO_DATE(concat(r.date,r.time), '%m/%d/%Y %H:%i'), now()) as count_days, datediff(STR_TO_DATE(asap_datetime, '%m/%d/%Y %H:%i'), now()) as acount_days, r.payment_mode as payment_mode, r.kco_payment as kco_payment from reservation_type as rt, account as a, reservation as r where rt.id=r.reservation_type_id and a.id=r.account_id and r.deleted=0 and rt.id in (2,3) and r.processed=0 and a.deleted=0 and viewed=1 and r.approve!=8 order by asapdate, asaptime") or die(mysql_error());
+DATE_FORMAT(STR_TO_DATE(r.date, '%m/%d/%Y'),'%b %d, %Y') as date, DATE_FORMAT(r.time,'%H:%i') as time, r.number_people as numpeople, r.number_table as numtable, r.approve as approve, r.id as rid, rt.id as rtid, r.lead_time as lead, r.acknowledged as ack, r.viewed as viewed, r.date_time as datetime, r.asap as asap, r.asap_datetime as asapdatetime, r.deliver as deliver, DATE_FORMAT(r.asap_datetime,'%Y-%m-%d %k:%i:%s') as dtf, date_format(r.asap_datetime,'%b %d, %Y') as asapdate, date_format(r.asap_datetime,'%H:%i') as asaptime, r.bongs_status as bongs, datediff(STR_TO_DATE(concat(r.date,r.time), '%m/%d/%Y %H:%i'), now()) as count_days, datediff(STR_TO_DATE(asap_datetime, '%m/%d/%Y %H:%i'), now()) as acount_days, r.payment_mode as payment_mode, r.kco_payment as kco_payment from reservation_type as rt, account as a, reservation as r where rt.id=r.reservation_type_id and a.id=r.account_id and r.deleted=0 and rt.id in (2,3) and r.processed=0 and a.deleted=0 and viewed=1 and r.approve!=8 order by asapdate, asaptime") or die(mysql_error());
 			
 			while($rn=mysql_fetch_assoc($qd)){
 				
@@ -713,7 +713,7 @@ DATE_FORMAT(STR_TO_DATE(r.date, '%m/%d/%Y'),'%b %d, %Y') as date, DATE_FORMAT(r.
 							$subtotal=$price*$r['quantity'];
 							
 					
-							$opt_sql = "select a.name as name,a.price as price, dish_num from reservation_menu_option as a where reservation_unique_id = '$uniqueid' and a.menu_id=$r[menu_id] order by dish_num";
+							$opt_sql = "select a.name as name,a.price as price, dish_num from reservation_menu_option as a where reservation_unique_id = '".$uniqueid."' and a.menu_id=$r[menu_id] order by dish_num";
 							
 							$opt_query = mysql_query($opt_sql) or die(mysql_error());
 							if(mysql_num_rows($opt_query)>0){
@@ -741,7 +741,7 @@ DATE_FORMAT(STR_TO_DATE(r.date, '%m/%d/%Y'),'%b %d, %Y') as date, DATE_FORMAT(r.
 							
 							$subtotal=$price*$r['quantity'];
 							
-							$opt_sql = "select a.name as name,a.price as price, dish_num from reservation_menu_option as a where reservation_unique_id = '$uniqueid' and a.menu_id=$r[menu_id] order by dish_num";
+							$opt_sql = "select a.name as name,a.price as price, dish_num from reservation_menu_option as a where reservation_unique_id = '".$uniqueid."' and a.menu_id=$r[menu_id] order by dish_num";
 							
 							$opt_query = mysql_query($opt_sql) or die(mysql_error());
 							if(mysql_num_rows($opt_query)>0){

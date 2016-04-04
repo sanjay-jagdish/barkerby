@@ -80,6 +80,6 @@
 	
 	echo mysql_num_rows($qi);*/
 	echo $theresid;
-	
+	mysql_close($con);	
 	
 ?>
