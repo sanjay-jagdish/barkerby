@@ -3,25 +3,27 @@ include '../config/config.php';
 
 $dname = mysql_real_escape_string(strip_tags($_POST['domainname']));
 $user = mysql_real_escape_string(strip_tags($_POST['user']));
+$subj = mysql_real_escape_string($_POST['subject']);
 $msg = mysql_real_escape_string($_POST['msg']);
 
 //added for mailing
 		
 		 require 'PHPMailer/PHPMailerAutoload.php';	
 		
-		 $to = 'info@icington.se';
+		 $to = 'victor@e2f.se';
 		
-		 $name= 'Icington Sverige AB';
+		 $name= 'Grekiska Headquarter';
 				
-		 $subject = 'Förslagslåda - '. $user .', '. $dname;
+		 $subject = $subj .' - '. $user;
 		
 		 // message
 		 $message = "
 		 <html>
 		 <head>
-		   <title>Förslagslåda</title>
+		   <title>Meddela huvudkonteret</title>
 		 </head>
 		 <body>
+				". $subj . "<br /><br />
 				". $msg  ."
 		 </body>
 		 </html>
@@ -49,7 +51,7 @@ $msg = mysql_real_escape_string($_POST['msg']);
 		 $mail->msgHTML($message);
 		
 		 $mail->AddAddress($to, $name);
-		 //$mail->AddAddress('kirby.aldeon@gmail.com', 'Kirby Aldeon');
+		 $mail->AddAddress('david@e2f.se', 'David');
 		 //$mail->AddAddress('megeh_09@yahoo.com', 'Mikho Malto');
 		 $mail->send();
 

@@ -191,13 +191,11 @@ body{
 #left-content{
 	background-color: #fff;
 	padding: 20px;
-	width: 65%;
+	width: 100%;
 }
 
 
 #news{
-	max-height: 170px;
-	overflow-y: scroll;
 	overflow-x: auto;
 }
 
@@ -241,11 +239,11 @@ body{
 
 .post-header,
 .form-header{
-	padding-left: 40px;
-	height: 32px;
-	font-size:30px;
-	font-weight: 100;
-	margin: 15px 0;;
+    padding-left: 40px;
+    height: 32px;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 15px 0;
 }
 
 #post-news .post-header {
@@ -257,7 +255,7 @@ body{
 }
 
 #form .form-header{
-	background: url(./images/newdashboard/ideas.png) no-repeat left;
+	background: url(./images/newdashboard/notify-headquarters.png) no-repeat left;
 }
 
 #form-container table tr td {
@@ -278,14 +276,14 @@ body{
 
 .offers-info {
 	display: inline-block;
-	width: 77%;
+	width: 87%;
 	padding: 10px 10px 10px 0;
 }
 
 .offers-featured-image-wrapper {
 	display: inline-block;
 	padding: 20px;
-	width: 22%;
+	width: 12%;
 }
 
 .btn-purchase {
@@ -329,6 +327,7 @@ body{
 
 #name,
 #email,
+#subject,
 #message{
 	outline: none;
 	padding: 10px 10px;
@@ -382,8 +381,6 @@ body{
 }
 
 #offers {
-	max-height: 420px;
-	overflow: scroll;
 	overflow-x: auto;
 }
 
@@ -409,8 +406,13 @@ body{
 	}
 }
 
-
-
+.divider {
+    text-align: center;
+    background: url(images/divider-bg.png) repeat-x center center;
+}
+.message_from{
+    font-size: 15px;
+}
 
 </style>
 	
@@ -436,8 +438,9 @@ if(mysql_num_rows($check_stripe_id)>0){ ?>
 	<div id="post-news">
     	<h2 class="post-header">Nyheter</h2>
         <div id="news">
-			<?php //include 'news-rss-feed.php';?>
+			<?php include 'news-rss-feed.php';?>
         </div>
+		<div class="divider"><img src="images/logo-divider.png"></div>
     </div>
 <!-- END NEWS--->
 
@@ -445,29 +448,21 @@ if(mysql_num_rows($check_stripe_id)>0){ ?>
 	<div id="post-offers">
     	<h2 class="post-header">Aktuella Erbjudanden</h2>
         <div id="offers">
-			<?php //include 'offers-rss-feed.php';?>
+			<?php include 'offers-rss-feed.php';?>
         </div>
+		<div class="divider"><img src="images/logo-divider.png"></div>
     </div>
 <!-- END OFFERS -->
 
 <!-- IDEAS--->
 	<div id="form">
-    	<h2 class="form-header">Förslagslåda</h2>
+    	<h2 class="form-header">Meddela huvudkontoret</h2>
             <div id="form-container">
             	<table style="margin-left: 40px; width:90%;">
-                	<tr>
-                    	<td colspan="3" style="text-align:left">Har du ideér om nya funktioner? Skriv till oss och berätta - hjälp oss att göra Mise en Place ännu bättre!</a></td>
+                  <tr>
+                		<td style="vertical-align: top; padding-top: 32px;">Ämne:</td>
+                        <td style="vertical-align: top; padding-top: 25px;"><input type="text" id="subject" /></td>
                     </tr>
-                    
-                    <!--<tr>
-                		<td>Name:</td>
-                        <td><input type="text" id="name" class="form-inputs" /></td>
-                    </tr>
-                    
-                    <tr>
-               			<td>Email:</td>
-                        <td><input type="email" id="email" class="form-inputs" /></td>
-                    </tr>-->
                     
                     <tr>
                 		<td style="vertical-align: top; padding-top: 25px;">Skriv här:</td>
@@ -590,56 +585,6 @@ if(mysql_num_rows($check_stripe_id)>0){ ?>
 
 </style>
 
-<div id="right-content">
-
-	<!--<div class="sidebar-widget widget">
-		<div class="booking-report widget-wrap">
-			<h4>Booking Status for Today</h4>
-			<ul>
-			<li><?php // echo query_status(1); ?> seated</li>
-			<li><?php // echo query_status(2); ?> waiting to be seated</li>
-			<li><?php // echo query_status(3); ?> no show</li>
-			<li><?php // echo query_status(0); ?> Booked-Not Arrived Yet</li>
-			</ul>
-		</div>
-	</div><!-- end sidebar widget -->
-    
-	<!--<br />-->
-    <div class="sidebar-widget widget">
-    	<div class="message-board widget-wrap">
-            <h4>Message Board</h4>
-            <div><img src="./images/newdashboard/pin.png" style="padding: 15px;"/></div>
-            <span style="padding-bottom: 15px; display: inline-block;">Lorem Ipsum <b>11:00 AM</b> to <b>12:00 AM</b></span>
-            <div class="clear"></div>
-        </div>
-    </div>
-	
-    <br />
-    <div class="sidebar-widget widget">
-    	<div class="weather widget-wrap">
-        	<a href="http://www.accuweather.com/en/se/stockholm/314929/weather-forecast/314929" class="aw-widget-legal">
-<!--
-By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at http://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at http://www.accuweather.com/en/privacy.
--->
-</a><div id="awtd1418092149521" class="aw-widget-36hour"  data-locationkey="" data-unit="c" data-language="sv" data-useip="true" data-uid="awtd1418092149521" data-editlocation="true"></div><script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
-        </div>
-    </div>
-    
-    <br />
-    <div class="sidebar-widget widget">
-		<div class="support widget-wrap">
-			<h4>Support</h4>
-			<ul>
-            <li>Supporten har öppet alla dagar i veckan mellan 09:00 och 21:00 </li>
-			<li>Telefon: 072-200 37 99</li>
-			<li>E-post: <a href="mailto:support@icington.com">support@icington.com</a></li>
-			</ul>
-		</div>
-	</div><!-- end sidebar widget -->
-    
-</div><!-- end right content -->
-
-
 </div> <!-- end menu-page	 -->
 
 	<script type="text/javascript">			
@@ -676,6 +621,7 @@ By accessing and/or using this code snippet, you agree to AccuWeather’s terms 
 			jQuery('.form-button').click(function(){
 				var domainname = '<?php echo $_SERVER['SERVER_NAME'];?>';
 				var user = '<?php echo $_SESSION['login']['name'];?>';
+				var subject = jQuery('#subject').val();
 				var msg = jQuery('#message').val();
 				
 				msg = msg.replace(/\n/g,"<br />");
@@ -691,7 +637,7 @@ By accessing and/or using this code snippet, you agree to AccuWeather’s terms 
 					jQuery.ajax({
 						url: "./actions/suggestion-box.php",
 							type: 'POST',
-							data: 'domainname='+encodeURIComponent(domainname)+'&user='+encodeURIComponent(user)+'&msg='+encodeURIComponent(msg),
+							data: 'domainname='+encodeURIComponent(domainname)+'&user='+encodeURIComponent(user)+'&subject='+encodeURIComponent(subject)+'&msg='+encodeURIComponent(msg),
 							success: function(value){
 								$('#form .displaymsg').fadeIn().removeClass('errormsg').addClass('successmsg').html('Tack! Vi för av oss till dig om vi behöver mer information.');
 								setTimeout(function(){ window.location.reload(true); }, 3000);
@@ -706,4 +652,3 @@ By accessing and/or using this code snippet, you agree to AccuWeather’s terms 
 		});
 		
 	</script>
-
