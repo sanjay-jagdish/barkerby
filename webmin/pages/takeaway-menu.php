@@ -286,7 +286,7 @@ function create_drop_down_subcat( $td_id, $cat_id, $sub_id ){
             <h2>
             	<?php
                 	
-					echo 'Menyinställningar - Take away';
+					echo 'Menyinställningar - Takeout';
 				?>
             </h2>
         </div>
@@ -336,8 +336,8 @@ function create_drop_down_subcat( $td_id, $cat_id, $sub_id ){
 											<th>Beskrivning</th>
 											<th>Bild</th>
 											<th>Pris</th>
-											<th>Take away rabatt</th>
-											<th>Take away pris</th>
+											<th>Takeout rabatt</th>
+											<th>Takeout pris</th>
 											<th>Visa</th>
 											<th>Typ</th>
 											<th>Ordningsföljd</th>
@@ -444,8 +444,8 @@ function create_drop_down_subcat( $td_id, $cat_id, $sub_id ){
 											<th>Beskrivning</th>
 											<th>Bild</th>
 											<th>Pris</th>
-											<th>Take away rabatt</th>
-											<th>Take away pris</th>
+											<th>Takeout rabatt</th>
+											<th>Takeout pris</th>
 											<th>Visa</th>
 											<th>Typ</th>
 											<th>Ordningsföljd</th>
@@ -477,8 +477,8 @@ function create_drop_down_subcat( $td_id, $cat_id, $sub_id ){
                             <th>Beskrivning</th>
                             <th>Bild</th>
                             <th>Pris</th>
-                            <th>Take away rabatt</th>
-                        	<th>Take away pris</th>
+                            <th>Takeout rabatt</th>
+                        	<th>Takeout pris</th>
                             <th>Visa</th>
                             <th>Typ</th>
                             <th>Ordningsföljd</th>
@@ -586,8 +586,8 @@ function create_drop_down_subcat( $td_id, $cat_id, $sub_id ){
                             <th>Beskrivning</th>
                             <th>Bild</th>
                             <th>Pris</th>
-                            <th>Take away rabatt</th>
-                        	<th>Take away pris</th>
+                            <th>Takeout rabatt</th>
+                        	<th>Takeout pris</th>
                             <th>Visa</th>
                             <th>Typ</th>
                             <th>Ordningsföljd</th>
@@ -621,8 +621,8 @@ function create_drop_down_subcat( $td_id, $cat_id, $sub_id ){
                             <th>Beskrivning</th>
                             <th>Bild</th>
                             <th>Pris</th>
-                            <th>Take away rabatt</th>
-                        	<th>Take away pris</th>
+                            <th>Takeout rabatt</th>
+                        	<th>Takeout pris</th>
                             <th>Visa</th>
                             <th>Typ</th>
                             <th>Ordningsföljd</th>
@@ -738,8 +738,8 @@ function create_drop_down_subcat( $td_id, $cat_id, $sub_id ){
                             <th>Beskrivning</th>
                             <th>Bild</th>
                             <th>Pris</th>
-                            <th>Take away rabatt</th>
-                        	<th>Take away pris</th>
+                            <th>Takeout rabatt</th>
+                        	<th>Takeout pris</th>
                             <th>Visa</th>
                             <th>Typ</th>
                             <th>Ordningsföljd</th>

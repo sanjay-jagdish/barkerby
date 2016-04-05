@@ -576,7 +576,7 @@
             <h2>
             	<?php
                 	
-					echo 'Inställningar - Take away';
+					echo 'Inställningar - Takeout';
 				?>
             </h2>
         </div>
@@ -589,7 +589,7 @@
     
     <div class="page-content">
     	<div class="typeselection">
-        	<span id="ta1" <?php if(!isset($_GET['tab'])){ echo 'class="active"'; }?>>Take away</span>
+        	<span id="ta1" <?php if(!isset($_GET['tab'])){ echo 'class="active"'; }?>>Takeout</span>
            <!-- <span id="ta2">Order Status</span>-->
             <!--<span id="ta3" <?php //if(isset($_GET['tab'])){ echo 'class="active"'; }?>>Menypresentation</span>-->
             <span id="ta4">Påminnelseinställningar</span>
@@ -936,7 +936,7 @@
                 
                 <fieldset>
                     <legend>
-                        Menypresentation för take away
+                        Menypresentation för takeout
                     </legend>
                     
                     <div class="left_name"><!--Text:--></div>
@@ -1085,7 +1085,7 @@
                 
                 <fieldset>
                     <legend>
-                        Menypresentation för take away
+                        Menypresentation för takeout
                     </legend>
                     
                     <div class="left_name"><!--Text:--></div>
