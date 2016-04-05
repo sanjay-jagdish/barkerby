@@ -492,6 +492,7 @@ jQuery(function($){
 			}
 		});
 	});
+
 	// Auth0 Signup
 	$('.auth-signup').click(function() {
 		lock.showSignup(options, function(err, profile, token) {
@@ -521,12 +522,14 @@ jQuery(function($){
 			}
 		});
 	});
+
 	$("#menu-primary_menu li > a").each(function() {	
 	  	var hr = $(this).attr('href');
 	  	if(hr.charAt(0) == "#"){		 
 			$(this).attr('href','<?php echo home_url(); ?>/'+ hr);
 	  	}
 	});
+	
 	var dateToday = new Date();
 	var loaded = false;
 	$('#input_datetime').datetimepicker({
@@ -582,6 +585,7 @@ jQuery(function($){
 		}
 	}).datetimepicker('hide');
 	$.datetimepicker.setLocale('se');
+
 	$('#radio2').on('click', function () {
 		if ($(this).is(':checked')){
 			$('#radio1').attr('checked', false);
@@ -603,27 +607,28 @@ jQuery(function($){
 	$('.popup').fancybox({
 		maxWidth:800,
 	});
+
 	$(document).on('click','.create-accountt',function(){
 		$('.signup-form').show();
 		$('.provide-emailid').hide();
 	});
+
 	$(document).on('click','.show-glomt',function(){
 		$('.provide-emailid').show();
 		$('.signup-form').hide();
 	});
+
 	$('.pay-option').on('click', function () {
 	    var ptype = $(this).val(); 
 	    $("#paymenttype").val(ptype);
-
-
 	    $('.stripe-form').hide();
 	    if(ptype=="online"){
-	    $('.stripe-form').show();	
-	    $('#main-checkout').hide();
-	    $('#main-checkout1').show();
+		    $('.stripe-form').show();	
+		    $('#main-checkout').hide();
+		    $('#main-checkout1').show();
 	    }else{
 	    	$('#main-checkout1').hide();
-	    $('#main-checkout').show();
+	    	$('#main-checkout').show();
 	    }
 
 		$('.invoice-form').hide();
@@ -632,6 +637,7 @@ jQuery(function($){
 			$('#main-checkout').hide();
 		}
 	});
+
 	$(document).on("click",'#main-checkout',function() {
 	    if( current_email )
 	    {
@@ -656,14 +662,13 @@ jQuery(function($){
 		    var deliver = 0;
 			var paymenttype =  $('#paymenttype').val();
 
-var stripe_token = '';
-if(paymenttype=="online"){
-	var temp_token = $("#stripeToken").val();
-	if(temp_token!=""){
-		stripe_token = "&stripeToken="+temp_token;
-	}
-}
-
+			var stripe_token = '';
+			if(paymenttype=="online"){
+				var temp_token = $("#stripeToken").val();
+				if(temp_token!=""){
+					stripe_token = "&stripeToken="+temp_token;
+				}
+			}
 
 			var uniq =  '<?php echo $chkqnkid; ?>';
 			var cart_opt = 0;
@@ -710,6 +715,7 @@ if(paymenttype=="online"){
 		
 		$('.fader, #special_request').fadeIn();
 	});
+
 	$('#addHour').click(function(){
 		var current = $('#orderTime').html();
 		var time = current.split(':');
@@ -723,6 +729,7 @@ if(paymenttype=="online"){
 			alert('Du har valt ett ogiltigt tid, försök igen');
 		}
 	});
+
 	$('#subHour').click(function(){
 		var current = $('#orderTime').html();
 		var time = current.split(':');
@@ -735,6 +742,7 @@ if(paymenttype=="online"){
 			alert('Du har valt ett ogiltigt tid, försök igen');
 		}
 	});
+
 	$('#addMin').click(function(){
 		var current = $('#orderTime').html();
 		var time = current.split(':');
@@ -751,6 +759,7 @@ if(paymenttype=="online"){
 			alert('Du har valt ett ogiltigt tid, försök igen');
 		}
 	});
+
 	$('#subMin').click(function(){
 		var current = $('#orderTime').html();
 		var time = current.split(':');
@@ -768,6 +777,7 @@ if(paymenttype=="online"){
 			alert('Du har valt ett ogiltigt tid, försök igen');
 		}
 	});
+
 	$(document).on('click','.remove-tillval',function(){
  		var portion = $(this).attr('data-rel');
 		var portion_options = $(this).attr('data-id');
@@ -823,16 +833,15 @@ if(paymenttype=="online"){
 	});
 });
 
-
 function validateCC(){
 	Stripe.setPublishableKey('pk_test_5xbqEycbrzJY82RQgzffb5mg');
 	var $form = $(".stripe-form");
 	Stripe.card.createToken($form, stripeResponseHandler);
 }
 
-function stripeResponseHandler(status, response) {
+function stripeResponseHandler(status, response) 
+{
   var $form = $('.stripe-form');
-
   if (response.error) {
     // Show the errors on the form
     $form.find('.payment-errors').text(response.error.message);
@@ -847,7 +856,6 @@ function stripeResponseHandler(status, response) {
     //$form.get(0).submit();
     $('#main-checkout').click();
   }
-  
 };
 
 function checkgetcountItem(del)
@@ -896,7 +904,8 @@ function checkgetcountItem(del)
 		$('.toggle_cart_lunch span').html(str[2]);
 		$("#takeaway-lunch").fadeOut();	
 	}
-}   	
+}
+
 // Convert time to seconds
 function convertToSeconds(time)
 {
