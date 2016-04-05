@@ -138,48 +138,18 @@ if( $current_user ) {
 				
 				<div id='userdata' style="display:<?php echo $current_user->ID?'block':'none'?>">
 					<div class="form-group">
-						<label for="telefon">Telefon</label>
+						<label for="telefon">*Telefonnummer</label>
 						<input type="text" name="phone" class="form-control required" id="phone" required value="<?php echo $userdata->mobile_number; ?>">
 					</div>
 					<div class="form-group">
-						<label for="fullname">Name</label>
+						<label for="fullname">*Namn</label>
 						<input type="text" name="name" class="form-control required" id="fullname" required value="<?php echo $userdata->fname; ?>">
 					</div>
 				</div>
 				
 				<p id='loggedin' style="display:<?php echo $current_user->ID? 'block': 'none';?>">
-					Welcome <span id='current_email'><?php echo $current_user->user_email; ?> </span> <a href="<?php echo wp_logout_url( site_url('checkout/?type='.$type) ); ?>">Logout?</a>
+					Välkommen <span id='current_email'><?php echo $current_user->user_email; ?> </span> <a href="<?php echo wp_logout_url( site_url('checkout/?type='.$type) ); ?>">Logga ut?</a>
 				</p>
-
-				<!-- <form method="Post" id="login-form">
-					<div class="icon-field">
-						<input type="text" class="form-control" placeholder="E-Post" name="email" id="email" >
-						<i class="flaticon-back"></i>
-					</div>
-					<div class="icon-field">
-						<input type="password" class="form-control" placeholder="Losenord" name="pass" id="pass" >
-						<i class="flaticon-web"></i>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<div class="chckbox-cont">
-								<input type="checkbox" name="checkboxG52" id="checkboxG52" class="css-checkbox" >
-								<label for="checkboxG52" class="css-label">Kom ihag mig</label>
-							</div>
-						</div>
-						<div class="col-md-6 text-right">
-							<p><span class="show-glomt">Glomt losenord</span></p>
-						</div>
-					</div>
-					<div class="chckbox-cont">
-						<input type="checkbox" name="checkboxG55" id="checkboxG55" class="css-checkbox" required>
-						<label for="checkboxG55" class="css-label">Jag har last och godkanner</label>
-						<a href="#policy" class="popup policy">anvandarvillkoren</a>
-					</div>
-					<div class="btn-cont">
-						<button type="button" class="btn btn-lg btn-red btn-full" id="login-button">LOGGA IN</button>
-					</div>
-				</form> -->
 			</div>
 
 			<div id="policy" style="display:none;">
@@ -197,91 +167,6 @@ if( $current_user ) {
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 					<h4>Lorem ipsum dolor</h4>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore $asapStatusmagna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-				</div>
-			</div>
-
-			<div class="col-md-8">
-				<div class="signup-form">
-					<div class="row">
-						<div class="col-md-6">
-							<div class="icon-field">
-								<input type="text" class="form-control" placeholder="Fornamn">
-								<i class="flaticon-black"></i>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="icon-field">
-								<input type="text" class="form-control" placeholder="Efternamn">
-								<i class="flaticon-black"></i>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="icon-field">
-								<input type="text" class="form-control" placeholder="E-post">
-								<i class="flaticon-back"></i>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="icon-field">
-								<input type="text" class="form-control" placeholder="Mobilnummer">
-								<i class="flaticon-technology"></i>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="icon-field">
-					  <input type="text" class="form-control" placeholder="Gatuadress">
-								<i class="flaticon-internet"></i>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="icon-field">
-								<input type="text" class="form-control" placeholder="Ort">
-								<i class="flaticon-map"></i>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="icon-field">
-								<input type="text" class="form-control" placeholder="Postnummer">
-								<i class="flaticon-tool-1"></i>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="icon-field">
-								<select class="form-control">
-									<option value="Sweden">Sweden</option>
-								</select>
-								<i class="flaticon-web"></i>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="icon-field">
-								<input type="text" class="form-control" placeholder="Lösenord">
-								<i class="flaticon-back"></i>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="icon-field">
-								<input type="text" class="form-control" placeholder="Upprepa lösenord">
-								<i class="flaticon-back"></i>
-							</div>
-						</div>
-					</div>						
-				</div>
-				<div class="provide-emailid">
-					<div class="row">
-						<div class="col-md-6">
-							<h4>Uppge din e-postadress:</h4>
-							<form>
-								<div class="icon-field">
-									<input type="text" class="form-control" placeholder="E-Post">
-									<i class="flaticon-back"></i>
-								</div>
-								<div class="btn-cont">
-									<button type="button" class="btn btn-lg btn-red btn-full" >LOGGA IN</button>
-								</div>
-							</form>	
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -440,18 +325,25 @@ jQuery(function($){
 		icon: logo,
 		dict: {
 			loadingTitle: 'loa..',
-    		close: 'close',
 		    signin: {
 		      	title: "Logga in",
-		      	serverErrorText: 'There was an error processing the sign in.',
-		      	strategyEmailInvalid: 'The email is invalid.',
-		      	strategyDomainInvalid: 'The domain {domain} has not been setup.',
-		      	wrongEmailPasswordErrorText: 'Invalid email or password.',
+		      	serverErrorText: 'Något gick fel med din inloggning.',
+		      	wrongEmailPasswordErrorText: 'Fel angiven e-post eller lösenord',
+		      	emailPlaceholder: 'E-post',
+		      	passwordPlaceholder: 'Lösenord',
+		      	separatorText: 'Eller',
+		      	returnUserLabel: 'Förra gången loggade du in med…',
+		      	all: 'Inte ditt konto?',
+		      	userConsentFailed: 'Något gick fel. Försök igen.'
 		    },
 		    signup: {
-		    	title: 'Registrera dig',
-	            serverErrorText: 'There was an error processing the sign up.',
-	            enterpriseEmailWarningText: 'This domain {domain} has been configured for Single Sign On and you can\'t create an account. Try signing in instead.'
+		    	title: 'Skapa konto',
+	            serverErrorText: 'Något gick fel med din inloggning.',
+	            emailPlaceholder: 'E-post',
+	            passwordPlaceholder: 'Ange ett lösenord',
+	            separatorText: 'Eller',
+	            headerText: 'Eller uppge din e-post och lösenord',
+	            userExistsErrorText: 'The user already exists.',
 	        },
 	        reset: {
 	            serverErrorText: 'There was an error processing the reset password.'
@@ -663,7 +555,7 @@ jQuery(function($){
 		    var deliver = 0;
 			var paymenttype =  $('#paymenttype').val();
 			if(paymenttype == ''){
-				alert('select payment type');
+				alert('Select payment type');
 				return false;
 			}
 
@@ -687,10 +579,10 @@ jQuery(function($){
 				data: 'em='+encodeURIComponent(current_email)+'&fullname='+encodeURIComponent(fullname)+'&phone='+encodeURIComponent(phone)+'&newuser='+encodeURIComponent(newuser)+'&date='+encodeURIComponent(date)+'&time='+encodeURIComponent(time)+'&paymenttype='+encodeURIComponent(paymenttype)+'&uniq='+encodeURIComponent(uniq)+'&asap='+encodeURIComponent(asap)+'&deliver='+encodeURIComponent(deliver)+'&totalprice='+encodeURIComponent(totalprice)+'&type='+encodeURIComponent(type)+stripe_token,
 				success: function(value){
 				    if(value=='done'){
-							$('#myModal').modal({
-                               backdrop: 'static',
-                               keyboard: false
-                           });
+						$('#myModal').modal({
+                           backdrop: 'static',
+                           keyboard: false
+                       	});
 					} else {
 						alert('Det gick inte att lämna orderdetaljer .');
 					}
