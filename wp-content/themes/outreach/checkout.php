@@ -294,13 +294,13 @@ if( $current_user ) {
 				<div class="row">
 					<div class="col-md-4">
 						<div class="online-pay">
-							<input type="radio" name="radiopay_lite" id="radiop1" class="css-checkbox pay-option" checked="checked" value="online" />
+							<input type="radio" name="radiopay_lite" id="radiop1" class="css-checkbox pay-option"  value="online" />
 							<label for="radiop1" class="css-label radGroup1">Betala online</label>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="cash-pay">
-							<input type="radio" name="radiopay_lite" id="radiop2" class="css-checkbox pay-option" value="cash" checked/>
+							<input type="radio" name="radiopay_lite" id="radiop2" class="css-checkbox pay-option" value="cash" />
 							<label for="radiop2" class="css-label radGroup1">Betalas vid avhämtning</label>
 						</div>
 					</div>
@@ -312,7 +312,7 @@ if( $current_user ) {
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-7">
+					<div class="col-md-7 col-md-offset-2">
 						<button type="button" class="btn btn-lg btn-red btn-full" id="main-checkout">BESTÄLL</button>
 						
 					</div>
@@ -342,9 +342,9 @@ if( $current_user ) {
 					</div>
 					<input type="hidden" id="email" >
 					<input type="hidden" id="pass" >
-					<input type="hidden" id="paymenttype" value="cash">
+					<input type="hidden" id="paymenttype" value="">
 					<div class="icon-field">
-						<button type="button" class="btn btn-lg btn-red btn-full" id="main-checkout">BESTÄLL</button>
+						<button type="button" class="btn btn-lg btn-red btn-full" id="main-checkout2">BESTÄLL</button>
 					</div>	
 				</div>
 				<div class="stripe-form" style="display:none;">
@@ -612,18 +612,19 @@ jQuery(function($){
 		$('.signup-form').hide();
 	});
 	$('.pay-option').on('click', function () {
+
 	    var ptype = $(this).val(); 
 	    $("#paymenttype").val(ptype);
 
 
 	    $('.stripe-form').hide();
 	    if(ptype=="online"){
-	    $('.stripe-form').show();	
-	    $('#main-checkout').hide();
-	    $('#main-checkout1').show();
+	    	$('.stripe-form').show();	
+	    	$('#main-checkout').hide();
+	    	$('#main-checkout1').show();
 	    }else{
 	    	$('#main-checkout1').hide();
-	    $('#main-checkout').show();
+	   		$('#main-checkout').show();
 	    }
 
 		$('.invoice-form').hide();
@@ -655,6 +656,10 @@ jQuery(function($){
 		    var totalprice = $('#total-price').val();
 		    var deliver = 0;
 			var paymenttype =  $('#paymenttype').val();
+			if(paymenttype == ''){
+				alert('select payment type');
+				return false;
+			}
 
 var stripe_token = '';
 if(paymenttype=="online"){

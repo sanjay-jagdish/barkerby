@@ -414,7 +414,7 @@ if($time_check==0){
 //get the quotient by dividing it with the time_interval
 //get the closest time equal to the time intervals 
 $time_elapsed = (strtotime(date('H:i')) - strtotime($res_det['start_time'])) / 60;
-$interval_unit = if($res_det['time_interval'] != 0){round($time_elapsed / $res_det['time_interval'])};
+$interval_unit = round($time_elapsed / $res_det['time_interval']);
 $time_limit = date('Hi', strtotime($res_det['start_time'].' + '.$interval_unit*$res_det['time_interval'].' minutes'));
 
 ?>
