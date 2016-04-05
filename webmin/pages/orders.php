@@ -2,6 +2,7 @@
 include_once('redirect.php'); 
 session_start();
 //for the auto-complete of user accounts signatory
+
 $account_list='';
 $assigned_accounts = array();
 $qq=mysql_query("select * from account where type_id<>5 and deleted=0");
