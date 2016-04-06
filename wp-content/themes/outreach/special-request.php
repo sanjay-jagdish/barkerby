@@ -394,7 +394,7 @@ jQuery(function(){
 				}
 				
 				jQuery('.cart_content').load(siteurl+"takeaway-cart.php");
-				jQuery('.prod-cont').load(siteurl+"ajax/cart.php");
+				
 			}
 		 });	
 			

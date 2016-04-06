@@ -1,5 +1,5 @@
 <?php session_start();
-	include '../config/config.php';
+	include_once '../config/config.php';
 	
 	function processedBy($id){
 		if($id!=''){
@@ -313,13 +313,9 @@ function proceedOrderAction(){
 				proceedOrder(signature);
 			}
 		}
-		
-	
-	
 }
-jQuery(function(){
-	
-	
+
+jQuery(function($){
 	jQuery('.cancelbox input[type=button]').click(function(){
 		var val=jQuery('.cancelbox textarea').val();
 		
@@ -362,32 +358,21 @@ jQuery(function(){
 		}
 		
 	});
-	
-	
-	jQuery('.order-status').each(function() {
 		
-        jQuery('.order-status').click(function(){
-		
-			jQuery('.order-status').each(function(){
-				jQuery(this).removeClass('choosed-action');
-			});
-			
-			jQuery(this).addClass('choosed-action');
-			
-			
-			var id =jQuery(this).attr('data-rel');
-	
-			if(id==12){
-				jQuery('.custombox .displaymsg').hide();
-				jQuery('.fade2, .custombox').fadeIn();
-			}
-			else{
-				jQuery('.thecustom').html('');
-				proceedOrderAction();
-			}
-		});
-		
-    });
+    jQuery('.order-status').click(function(){
+		jQuery('.order-status').removeClass('choosed-action');
+		jQuery(this).addClass('choosed-action');		
+		var id =jQuery(this).attr('data-rel');
+		if(id==12)
+		{
+			jQuery('.custombox .displaymsg').hide();
+			jQuery('.fade2, .custombox').fadeIn();
+		}
+		else{
+			jQuery('.thecustom').html('');
+			proceedOrderAction();
+		}
+	});
 	
 	jQuery('.custombox input[type=button]').click(function(){
 		var ctime=jQuery('.customtime').val();

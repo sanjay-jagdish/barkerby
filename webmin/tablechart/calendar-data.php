@@ -3,6 +3,7 @@
 require('../config/config.php');
 ini_set('display_errors',0);
 $max_table='';
+$days_disabled='';
 $time_block_left_padding = 2;// pixels
 $time_interval_width = 24; // 48 pixels; width of <td>  
 

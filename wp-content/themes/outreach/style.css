@@ -6553,7 +6553,13 @@ ul#wf-sort-id li input[type="submit"], ul#wf-sort-id li input[type="button"] { b
 body.page-template-checkout-php {
     position: static !important;
 }
+
+#special_request #btn_skip{
+	margin-top: 40px;
 }
+}
+
+
 @media only screen and (max-width: 767px){
 #glt-translate-trigger{
 	font-size: 12px;
@@ -6660,3 +6666,4 @@ body.page-template-checkout-php {
     top: 175px;
 }
 }
+

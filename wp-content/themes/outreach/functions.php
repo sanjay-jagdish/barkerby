@@ -2171,47 +2171,47 @@ function script_catering(){
 									if(check==0){
 										
 											//save orders
-											$.ajax({
-													url: "<?php echo CHILD_URL; ?>/takeaway-orders.php",
-													type: 'POST',
-													async:false,
-													data: 'uniq='+encodeURIComponent(uniq)+'&menu_id='+encodeURIComponent(menuid)+'&quan='+encodeURIComponent(quan)+'&price='+encodeURIComponent(price)+'&tillval_count='+tillval_count,
-													success: function(value){
-														var resid = value;
-														if(tillval_count>0){
-											
-															$('.special_request_content').html('<center><img src="'+siteurl+'/images/loader.gif'+'"></center>');
-															$.ajax({
-																url: "<?php echo CHILD_URL; ?>/special-request.php",
-																type: 'POST',
-																async:false,
-																data: 'id='+encodeURIComponent(resid)+'&menu_det='+encodeURIComponent(menu_det)+'&siteurl='+encodeURIComponent('<?php echo CHILD_URL; ?>')+'&temp_tillval=1&price='+encodeURIComponent(price)+'&check=second',
-																success: function(value){
-																	$('.special_request_content').html(value);
-																}
-															});
-															
-															$('.fader, #special_request').fadeIn();
-															
-															$('#btn_skip').click(function(){
-																//for the cart
-																getcountItem(0);
-															});	 
-														
-														}
-														else{
-														   
-															$('#takeaway .cart_content').html('<center><img src="'+siteurl+'/images/loader.gif'+'"></center>');
-															$('#takeaway .cart_content').load("<?php echo CHILD_URL.'/takeaway-cart.php';?>");
-															
-															//for the cart
-															getcountItem(0);
-															
-														}
-														
-														
-													}
-											});
+				$.ajax({
+						url: "<?php echo CHILD_URL; ?>/takeaway-orders.php",
+						type: 'POST',
+						async:false,
+						data: 'uniq='+encodeURIComponent(uniq)+'&menu_id='+encodeURIComponent(menuid)+'&quan='+encodeURIComponent(quan)+'&price='+encodeURIComponent(price)+'&tillval_count='+tillval_count+'&lunchmeny=0',
+						    success: function(value){
+							var resid = value;
+							if(tillval_count>0){
+				
+								$('.special_request_content').html('<center><img src="'+siteurl+'/images/loader.gif'+'"></center>');
+								$.ajax({
+									url: "<?php echo CHILD_URL; ?>/special-request.php",
+									type: 'POST',
+									async:false,
+									data: 'id='+encodeURIComponent(resid)+'&menu_det='+encodeURIComponent(menu_det)+'&siteurl='+encodeURIComponent('<?php echo CHILD_URL; ?>')+'&temp_tillval='+tillval_count+'&price='+encodeURIComponent(price)+'&check=second',
+									success: function(value){
+										$('.special_request_content').html(value);
+									}
+								});
+								
+								$('.fader, #special_request').fadeIn();
+								
+								$('#btn_skip').click(function(){
+									//for the cart
+									getcountItem(0);
+								});	 
+							
+							}
+							else{
+							   
+								$('#takeaway .cart_content').html('<center><img src="'+siteurl+'/images/loader.gif'+'"></center>');
+								$('#takeaway .cart_content').load("<?php echo CHILD_URL.'/takeaway-cart.php';?>");
+								
+								//for the cart
+								getcountItem(0);
+								
+							}
+							
+							
+						}
+				});
 											
 											//end save orders
 										
@@ -2254,9 +2254,6 @@ function script_catering(){
 								var quan = 1;
 								var price = $(this).attr('data-title');
 								var siteurl = $('.takeaway_lunch_cart_wrap').attr('data-rel');
-								//added by Karbhe
-								//var isMobile = (/android|webos|iphone|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()));
-								//if(isMobile){ quan = 1; }
 								
 								var check = getPanic();
 								
@@ -2290,7 +2287,7 @@ function script_catering(){
 										$.ajax({
 												url: "<?php echo CHILD_URL; ?>/lunch-orders.php",
 												type: 'POST',
-												data: 'uniq='+encodeURIComponent(uniq)+'&menu_id='+encodeURIComponent(menuid)+'&quan='+encodeURIComponent(quan)+'&price='+encodeURIComponent(price)+'&lunchmeny=true',
+												data: 'uniq='+encodeURIComponent(uniq)+'&menu_id='+encodeURIComponent(menuid)+'&quan='+encodeURIComponent(quan)+'&price='+encodeURIComponent(price)+'&lunchmeny=1',
 												success: function(value){
 														   
 															$('#takeaway-lunch .lunch_cart_content').html('<center><img src="'+siteurl+'/images/loader.gif'+'"></center>');

@@ -1,6 +1,6 @@
 <?php session_start();
-	include '../config/config.php';
-	require 'PHPMailer/PHPMailerAutoload.php';	
+	include_once '../config/config.php';
+	//require 'PHPMailer/PHPMailerAutoload.php';	
 	
 	function getNameofSignee($id){
 		$q=mysql_query("select concat(fname,' ',lname) as name from account where id=(select signatory from reservation_status_history where reservation_id='".$id."' order by id desc limit 1)") or die(mysql_error());
@@ -602,7 +602,6 @@
 				<body>
 					<div style='font-size:16px;'>".$themsg."
 						<br><br>
-						 
 						<strong>Välkomna till Grekiska Kolgrillsbaren Barkarby!</strong><br><br>
 		                 Barkarbyvägen 45 i Järfälla<br>
                          08-511 600 30
