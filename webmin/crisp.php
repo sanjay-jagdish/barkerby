@@ -490,6 +490,17 @@ tinymce.init({
                     </ul>
                 
                 </li>
+                
+                <li class="nav-sidor navs"><a href="javascript:void(0)" class="sidor-li">Sidor</a>
+                
+                	<ul>
+                    	<li class="nav-hem navs <?php echo showNav($nav_advanced_settings,''); ?>"><a href="?page=sidor&code=hem">Hem</a></li>
+                        <li class="nav-delikatesskorgar navs <?php echo showNav($nav_advanced_settings,''); ?>"><a href="?page=sidor&code=avhamtning">Avhämtning</a></li>
+                        <li class="nav-kontakt navs <?php echo showNav($nav_advanced_settings,''); ?>"><a href="?page=sidor&code=kontakt">Kontakt</a></li>
+                    </ul>
+                
+                </li>
+
              
              
              	<!--<a href="?page=reports" class="reports-li main">Rapporter</a>-->

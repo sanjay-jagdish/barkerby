@@ -1235,6 +1235,29 @@ function gotoModal(){
  
 remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
 
+//*** E2F Custom Content ***//
+
+function e2f_cc($atts){
+	
+	ob_start();
+	$atts = shortcode_atts(
+			array(
+				'code' => '',
+			), $atts, 'e2f_cc' );
+
+	if(trim($atts['code'])!=''){
+		
+		$qry1 = "SELECT content FROM custom_content WHERE short_code='".$atts['code']."' AND visibility = 1";
+		$res1 = mysql_query($qry1) or die("Error " . mysql_error());
+		$row1 = mysql_fetch_array($res1);
+		
+		echo $row1['content'];
+	}
+	
+	return ob_get_clean();
+}
+add_shortcode( 'E2F_CC', 'e2f_cc' );
+add_filter('widget_text', 'do_shortcode');
 
 //*******************MENU SHORTCODE*******************//
 
