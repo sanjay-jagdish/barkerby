@@ -2,39 +2,73 @@
 /*
 Template Name: checkout process 
 */
+
+
+
 $type = $_GET['type'];
 if($type == 'takeaway'){
-$chkqnkid = $_COOKIE['takeaway_id']; 
-$tableName = "takeaway_settings";
+	$chkqnkid = $_COOKIE['takeaway_id']; 
+	$tableName = "takeaway_settings";
 }else if($type == 'lunch'){
-$chkqnkid = $_COOKIE['lunchmeny_id']; 
-$tableName = "lunchmeny_settings";
-}else{	
-wp_redirect(home_url() ); 
-exit;
+	$chkqnkid = $_COOKIE['lunchmeny_id']; 
+	$tableName = "lunchmeny_settings";
+} else {	
+	wp_redirect(home_url() ); 
+	exit;
 }
+
 get_header('checkout');
+
 include 'ajax/steps-asap.php';
 $q=mysql_query("select * from reservation_detail where reservation_id=(select id from reservation where deleted=0 and uniqueid='".$chkqnkid."' order by id desc limit 1)") or die(mysql_error());
-if(mysql_num_rows($q) < 1){
-wp_redirect(home_url() ); 
-exit;
+if(mysql_num_rows($q) < 1)
+{
+	wp_redirect(home_url() ); 
+	exit;
 }
+
+// Get selected days to be shown in calendar
+$query = "select days, DATE(start_datetime) as start_date,DATE(end_datetime) as end_date from takeaway_settings where deleted=0";
+$rs = mysql_query( $query );
+$dates = array();
+while($row = mysql_fetch_assoc($rs)) {
+	//$dates = array_merge($dates, createDateRangeArray($row['start_date'], $row['end_date']));
+}
+
+function createDateRangeArray($strDateFrom, $strDateTo)
+{
+    $aryRange = array($strDateFrom);
+    $iDateFrom = mktime(1,0,0,substr($strDateFrom,5,2), substr($strDateFrom,8,2),substr($strDateFrom,0,4));
+    $iDateFrom = strtotime($strDateFrom);
+
+    $iDateTo = mktime(1,0,0,substr($strDateTo,5,2), substr($strDateTo,8,2),substr($strDateTo,0,4));
+    $iDateTo = strtotime($strDateTo);
+
+    if ($iDateTo > $iDateFrom)
+    {
+        //array_push($aryRange, date('Y-m-d',$iDateFrom));
+        while ($iDateFrom < $iDateTo)
+        {
+            $iDateFrom += 86400; // add 24 hours
+            array_push($aryRange, date('Y-m-d', $iDateFrom));
+        }
+    }
+    return $aryRange;
+}
+//$dates = array_unique($dates);
+
+// Get asap availability
 $asapStatus = GetAsapStatus($tableName);
- if($asapStatus){
- 	$status = "radio1";
- 	$chk = "checked";
- }else{
-   $status = "";
-   $chk = "";
- }
+
 // Get current user
 $current_user = wp_get_current_user();
-if( $current_user ) {
+if( $current_user ) 
+{
 	$query = "select * from `account` where id='".$current_user->ID."'";
 	$userdata = $wpdb->get_row($query);
 }
 ?>
+
 <div class="checkout-page-outer">
 <div class="container clearfix">
 	<div class="page-title">
@@ -199,7 +233,6 @@ if( $current_user ) {
 				<div class="row">
 					<div class="col-md-7 col-md-offset-2">
 						<button type="button" class="btn btn-lg btn-red btn-full" id="main-checkout">BESTÄLL</button>
-						
 					</div>
 				</div>
 			</div>
@@ -298,20 +331,18 @@ if( $current_user ) {
 <script type="text/javascript" src="<?php echo CHILD_URL; ?>/js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="<?php echo CHILD_URL; ?>/checkout-scripts/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<?php echo CHILD_URL; ?>/checkout-scripts/fancybox/jquery.fancybox.js"></script>
-
 <script type="text/javascript" src="<?php echo CHILD_URL; ?>/checkout-scripts/js/ajax.js"></script>
 <script src="https://cdn.auth0.com/js/lock-8.2.min.js"></script>
-
 <script type="text/javascript" src="<?php echo CHILD_URL; ?>/checkout-scripts/js/jquery.datetimepicker.full.min.js"></script>
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript">
 jQuery(function($){
-
 	var newuser = 0, orderTime = '', minTime = 0, maxTime = 0;
 	var current_email = "<?php echo $current_user->user_email; ?>";
 	var siteurl = $('#main-table').attr('data-rel');
 	var logo = "<?php echo site_url()?>/webmin/images/e2flogo.png";
 	var ABSPATH = "<?php echo ABSPATH; ?>";
+	var tablename = "<?php echo $tableName; ?>";
 	var adminurl = "<?php echo admin_url('admin-ajax.php');?>";
 	var AUTH0_CLIENT_ID = 'NGPPsIJAXVho281vlZPAEq7CCFs0695v'; 
 	var AUTH0_DOMAIN = 'e2f.eu.auth0.com';
@@ -324,7 +355,7 @@ jQuery(function($){
 	var options = {
 		icon: logo,
 		dict: {
-			loadingTitle: 'loa..',
+			loadingTitle: 'loading..',
 		    signin: {
 		      	title: "Logga in",
 		      	serverErrorText: 'Något gick fel med din inloggning.',
@@ -423,34 +454,42 @@ jQuery(function($){
 	});
 	
 	var dateToday = new Date();
+	// var allowDates = <?php echo json_encode($dates); ?>;
+	// console.log(allowDates);
 	var loaded = false;
 	$('#input_datetime').datetimepicker({
 		inline: true,
 		timepicker: 0,
 		dayOfWeekStart: 1,
 		minDate: dateToday,
+		defaultDate: '',
 	    scrollMonth: 0,
 	    maxDate: new Date(dateToday.getFullYear(), dateToday.getMonth()+2, -1),
 	    yearEnd: false,
-	    monthEnd: false, 
+	    monthEnd: false,
+	    //allowDates: allowDates,
+	    //formatDate:'Y-m-d',
 		onGenerate:function(dp,$input){
 			if(!loaded)
 			{
 				$.ajax({
 					url: siteurl+"/ajax/steps-otherTime.php",
 					type: 'POST',
-					data: 'datetime='+dp.toDateString()+'&tablename=takeaway_settings',
+					data: 'datetime='+dp.toDateString()+'&tablename='+tablename,
 					success: function(value){
-						var obj = $.parseJSON(value);
-						minTime = convertToSeconds(obj[0]);
-						maxTime = convertToSeconds(obj[1]);
-						$('#orderTime').html( obj[0] && obj[1] ? obj[0] : '');
-						$('#range').html( obj[0] && obj[1] ? obj[2]+'-'+obj[1] : 'Ingen tid tillgänglig');
-						if( !obj[0] && !obj[1]) {
-							$('.times').attr('disabled', true);
-						} else {
+						var value = $.parseJSON(value);
+						if( typeof value !== 'undefined' && value.can_order )
+						{
 							$('.times').attr('disabled', false);
+							$('#orderTime').html(value.order_start_time);
+							$('#range').html(value.opening_time + '-' + value.closing_time);
+						} else {
+							$('.times').attr('disabled', true);
+							$('#range').html('STÄNGT');
+							$('#orderTime').html('');
 						}
+						minTime = convertToSeconds(value.order_start_time);
+						maxTime = convertToSeconds(value.order_end_time);
 					}
 				});
 				loaded=true; 
@@ -460,18 +499,21 @@ jQuery(function($){
 			$.ajax({
 				url: siteurl+"/ajax/steps-otherTime.php",
 				type: 'POST',
-				data: 'datetime='+dp.toDateString()+'&tablename=takeaway_settings',
+				data: 'datetime='+dp.toDateString()+'&tablename='+tablename,
 				success: function(value){
-					var obj = $.parseJSON(value);
-					minTime = convertToSeconds(obj[0]);
-					maxTime = convertToSeconds(obj[1]);
-					$('#orderTime').html( obj[0] && obj[1] ? obj[0] : '');
-					$('#range').html( obj[0] && obj[1] ? obj[2]+'-'+obj[1] : 'Ingen tid tillgänglig');
-					if( !obj[0] && !obj[1] ) {
-						$('.times').attr('disabled', true);
-					} else {
+					var value = $.parseJSON(value);
+					if( typeof value !== 'undefined' && value.can_order )
+					{
 						$('.times').attr('disabled', false);
+						$('#orderTime').html(value.order_start_time);
+						$('#range').html(value.opening_time + '-' + value.closing_time);
+					} else {
+						$('.times').attr('disabled', true);
+						$('#range').html('STÄNGT');
+						$('#orderTime').html('');
 					}
+					minTime = convertToSeconds(value.order_start_time);
+					maxTime = convertToSeconds(value.order_end_time);
 				}
 			});
 		}
@@ -806,7 +848,7 @@ function checkgetcountItem(del)
 // Convert time to seconds
 function convertToSeconds(time)
 {
-	if( !time ) {
+	if( !time || time=='undefined' ) {
 		return 0;
 	}
 	var a = time.split(':');

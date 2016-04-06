@@ -1,28 +1,64 @@
 <?php
-	
+
 include 'config.php';	
 
-$dayName=date('D', strtotime($_POST['datetime']));
+$dayName = date('D', strtotime($_POST['datetime']));
 
 $date = date('Y-m-d', strtotime($_POST['datetime']));
 $currentDate = date('Y-m-d');
 
-$q=mysql_query("select id, start_time as starttime,end_time as endtime, advance_time from ".$_POST['tablename']." where days like '%".$dayName."%' and deleted=0 limit 1") or die(mysql_error());
-$rs=mysql_fetch_assoc($q);
-$advancetime=$rs['advance_time'];
-$selected_start_time = $rs['starttime'];
-$selected_end_time = $rs['endtime'];
-// Validation for current date
-if( $date == $currentDate ) 
-{
-	$start_time = $rs['starttime'];
-	$current_time = date('H:i');
-	$selected_start_time = strtotime($start_time) > strtotime($current_time) ? $start_time : $current_time;
+$query = "select id, start_time as starttime,end_time as endtime, advance_time from ".$_POST['tablename']." where days like '%".$dayName."%' and deleted=0 limit 1";
+$rs = mysql_fetch_assoc( mysql_query( $query ) );
+$times = array('can_order' => 0);
 
-	$date = new DateTime(date('Y-m-d').' '.$selected_start_time);
-	$newdate = $date->add(new DateInterval("P0Y0DT0H".$advancetime."M"));
-	$minutes = $newdate->format("i");
-	$hour = $newdate->format("H");
+if( $rs )
+{
+	$opening_time = $rs['starttime'];
+	$closing_time = $rs['endtime'];
+	$advance_time = $rs['advance_time'];
+	$current_time = date('H:i');
+
+	$current_time = date('H:i', strtotime('+1 minutes'));
+
+	$order_start_time = $opening_time;
+	$order_end_time = $closing_time;
+
+	// Validation for current date
+	if( $date == $currentDate ) 
+	{
+		$datetime = new DateTime(date('Y-m-d').' '.$opening_time);
+		$newdatetime = $datetime->sub(new DateInterval("P0Y0DT0H".$advance_time."M"));
+		if(strtotime($current_time) <= strtotime($newdatetime->format('H:i'))) {
+			$order_start_time = $opening_time;
+		} else {
+			$timeToAdd = strtotime($current_time) + $advance_time*60;
+			$order_start_time = date('H:i', $timeToAdd);
+		}
+
+		$order_start_time = roundToNextQuarter($order_start_time);
+		if(strtotime($order_start_time) <= strtotime($closing_time)) {
+			$times['can_order'] = 1;
+		}
+	} else {
+		$times['can_order'] = 1;
+	}
+	
+	$times = array_merge($times, array(
+		'opening_time' => $opening_time,
+		'closing_time' => $closing_time,
+		'order_start_time' => $order_start_time,
+		'order_end_time' => $order_end_time,
+		'current_time' => $current_time
+	));
+}
+
+echo json_encode($times);
+
+function roundToNextQuarter($time)
+{
+	$date = new DateTime(date('Y-m-d').' '.$time);
+	$minutes = $date->format("i");
+	$hour = $date->format("H");
 	if( $minutes%15!=0 )
 	{
 		if( $minutes<15 ) {
@@ -35,13 +71,13 @@ if( $date == $currentDate )
 			$minutes = '00';
 			$hour = $hour + 1;
 		}
-		$selected_start_time = $hour.':'.$minutes;
+		$time = $hour.':'.$minutes;
 	} else {
-		$selected_start_time = $hour.':'.$minutes;
+		$time = $hour.':'.$minutes;
 	}
-$selected_end_time = strtotime($rs['endtime']) >= strtotime($current_time) ? $rs['endtime'] : '';	
+
+	return $time;
 }
-echo json_encode(array($selected_start_time, $selected_end_time, $rs['starttime']));
 
 function makeTimesArray($time1, $time2)
 {
