@@ -9,7 +9,7 @@ $currentDate = date('Y-m-d');
 
 $q=mysql_query("select id, start_time as starttime,end_time as endtime, advance_time from ".$_POST['tablename']." where days like '%".$dayName."%' and deleted=0 limit 1") or die(mysql_error());
 $rs=mysql_fetch_assoc($q);
-$advancetime=$rs['advance_time'] + 15;
+$advancetime=$rs['advance_time'];
 $selected_start_time = $rs['starttime'];
 $selected_end_time = $rs['endtime'];
 // Validation for current date
