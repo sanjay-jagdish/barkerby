@@ -48,8 +48,7 @@ if( $current_user ) {
 					<div class="col-xs-6">
 						<div class="delvry-apap"> 
 							<input type="hidden" name="chkuniqeid" value="<?php echo $chkqnkid; ?>" id="chkuniqeid" />
-                            <input type="hidden" name="pluscheck" value="" id="pluscheck" /> 
-							<input type="radio" name="radiog_lite" id="radio1" class="css-checkbox" <?php echo $asapStatus?'checked':'disabled'; ?>/>	
+                            <input type="radio" name="radiog_lite" id="radio1" class="css-checkbox" <?php echo $asapStatus?'checked':'disabled'; ?>/>	
 							<label for="radio1" class="css-label radGroup1">Snarast</label>
 							<input type="hidden" id="asap" name="asap" value="<?php echo $asapStatus?'1':'0'; ?>">
 
@@ -685,7 +684,7 @@ jQuery(function($){
 		var uniq = $('#btn_skip').attr('data-rel');
 		
 		var type = 'update';
-		if($('.cart-opt').length==1){
+		if($('.cart-opt').length == 1){
 			type = 'delete';
 		}
 		
@@ -721,7 +720,7 @@ jQuery(function($){
 		     $("#total-price").val($(".reqtotal label").attr('data-total'));
              
 		     checkgetcountItem(0);
-				if($('.cart-opt').length==2){
+				if($('.cart-opt').length < 2){
 					$('.remove-tillval, .cart-opt input[type=button]').hide();
 				}
 				

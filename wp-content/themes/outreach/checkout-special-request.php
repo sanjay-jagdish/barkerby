@@ -342,7 +342,7 @@ jQuery(function(){
 		data: 'menu_id='+encodeURIComponent(menu_id)+'&uniq='+encodeURIComponent(uniq)+'&notes='+encodeURIComponent(notes)+'&res_detail_id='+encodeURIComponent(resid)+'&addons='+encodeURIComponent(addons)+'&thetemptillval='+encodeURIComponent('<?php echo thetemptillval; ?>')+'&check=check',
 		success: function(value){
 			//getcountItem(0);
-		    jQuery("#pluscheck").val(0);
+		    
 		    var obj = $.parseJSON(value);
 		    jQuery('.total-amt').html(obj.total);
 		    jQuery("#subtotal-"+resid).html(obj.subtotal);
@@ -374,6 +374,7 @@ jQuery(function(){
 		    }else{
 		     checkgetcountItem(0);
 		    }
+		    jQuery('.cart_content').load(siteurl+"/takeaway-cart.php");
 			var ids = jQuery(this).attr('data-rel');
 			jQuery(ids).fadeOut('fast');
 			

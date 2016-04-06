@@ -43,7 +43,7 @@
 		}
 		
 	}
-	
+	$count_tillvals=0;
 	$q=mysql_query("select * from reservation_detail where reservation_id=(select id from reservation where deleted=0 and uniqueid='".$chkqnkid."' order by id desc limit 1)") or die(mysql_error());
 
 	if(mysql_num_rows($q)>0){
@@ -74,5 +74,6 @@
 			</table>
 			<h3>SLUTSUMMA<span class="total-amt"><?php echo $total.' '.getCurrentCurrency();?></span></h3>
 			<input type="hidden" value="<?php echo $total; ?>" id="total-price">
+			<input type="hidden" name="pluscheck" value="<?php echo $count_tillvals; ?>" id="pluscheck" /> 
 <?php }  ?>
 
