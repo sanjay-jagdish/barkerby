@@ -66,7 +66,7 @@ background: #e6e6e6;
 	height:63px;
 	margin:0 0 20px;*/
 	
-	background:url(../images/logo-limone.png) no-repeat center;
+	background:url(../images/grekiska_logo.png) no-repeat center;
 	/*height:68px;
 	width:400px;*/
 	height:104px;
@@ -184,7 +184,7 @@ background: #e6e6e6;
 	
 	/*background: url(../images/garcon.png) no-repeat;
 	width: 194px;*/
-	background: url(../images/miseenplace.png) no-repeat;
+	background: url(../images/e2f.png) no-repeat;
 	width:400px;
 	height: 68px;
 	float: left;
@@ -2110,7 +2110,7 @@ span.grey{
 }
 .header-nav img{
 	display: block;
-	margin: 16px 0 0 10px !important;
+	margin: 6px 0 0 10px !important;
 	width: 120px;
 }
 

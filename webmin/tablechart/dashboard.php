@@ -68,11 +68,12 @@ body{
 }
 
 .thelogo {
-	background: url(./images/newdashboard/miseenplace-new.png) no-repeat;
+	background: url(./images/e2f.png) no-repeat;
 	float: left;
 	margin: 10px 0 5px;
-	width:237px !important;
+	width:120px !important;
 	height: 40px !important;
+	background-size: 100% 100%;
 }
 
 .thelogo a{
@@ -122,7 +123,7 @@ body{
 }
 
 .header-nav {
-	width: 55%;
+	width: 70%;
 }
 
 .header-wrapper,

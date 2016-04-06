@@ -18,7 +18,7 @@ if($year_num==0 && $week_num==0){
             <h2>
             	<?php
                 	
-					echo 'Menyinställningar - Lunchmeny';
+					echo 'Menyinställningar - Lunch';
 				?>
             </h2>
         </div>

@@ -304,7 +304,7 @@ tinymce.init({
                     <li class="nav-users"><a href="?page=users"></a></li>
                     <li class="nav-statistics"><a href="?page=statistics"></a></li>
                 </ul>-->
-               <a href="http://www.limoneristorante.se/" target="_blank"> <img src="images/newdashboard/limone-logo1.png" style="margin:5px 0 0;"> </a>
+               <a href="http://www.limoneristorante.se/" target="_blank"> <img src="images/grekiska_logo.png" style="height:45px;margin:5px 0 0;"> </a>
             </div>
             <!-- end .header-nav -->
             <div class="header-account">
@@ -405,17 +405,17 @@ tinymce.init({
         	<ul>
             	
             	<li class="nav-dashboard navs"><a href="?page=dashboard" title="Hem" class="dashboard-li">Home</a></li>
-            	<li class="nav-controlpanel navs"><a href="?page=controlpanel" title="Boken" class="controlpanel-li">Boken</a></li>
+            	<?php /* <li class="nav-controlpanel navs"><a href="?page=controlpanel" title="Boken" class="controlpanel-li">Boken</a></li> */ ?>                
                 <li class="nav-reservation navs"><a href="?page=orders" title="Beställningar" class="orders-li"><span></span>Beställningar</a></li>
-                <li class="nav-bordsbokning navs"><a href="javascript:void(0)" class="bordsbokning-li">Bordsbokning</a>
+                <?php /* <li class="nav-bordsbokning navs"><a href="javascript:void(0)" class="bordsbokning-li">Bordsbokning</a> 
                 	<ul>
                     	<li class="nav-logs navs"><a href="?page=other-settings&parent=bordsbokning">Inställningar</a></li>
                     	<li class="nav-logs navs <?php echo showNav($nav_booking_report,''); ?>"><a href="?page=booking_report&parent=reports">Historik</a></li>
                         <li class="nav-logs navs "><a href="?page=table-statistics&parent=reports">Statistik</a></li>
                         <li class="nav-logs navs <?php echo showNav($nav_logs,''); ?>"><a href="?page=logs&parent=reports">Logg</a></li>
                     </ul>
-                </li>
-                <li class="nav-takeaway navs"><a href="javascript:void(0)" class="takeaway-li">Take away</a>
+                </li> */ ?> 
+                <li class="nav-takeaway navs"><a href="javascript:void(0)" class="takeaway-li">Takeout</a>
                 	<ul>
                     	<li class="nav-takeawaymenu navs" data-rel="nav-takeaway"><a href="?page=takeaway-menu&parent=takeaway">Menyinställningar</a></li>
                         <li class="nav-takeawaysettings navs" data-rel="nav-takeaway"><a href="?page=takeaway-settings&parent=takeaway">Inställningar</a></li>
@@ -423,33 +423,33 @@ tinymce.init({
                          <li class="nav-logs navs <?php echo showNav($nav_logs,''); ?>"><a href="?page=logs&parent=reports">Logg</a></li>
                     </ul>
                 </li>
-                <li class="nav-catering navs"><a href="javascript:void(0)" class="catering-li <?php echo showNav($nav_catering,''); ?>">Catering</a>
+                <?php /* <li class="nav-catering navs"><a href="javascript:void(0)" class="catering-li <?php echo showNav($nav_catering,''); ?>">Catering</a> 
                 	<ul>
                         <li class="nav-catering_menu navs <?php echo showNav($nav_catering_menu,''); ?>" data-rel="nav-catering"><a href="?page=catering-menu&parent=catering">Menyinställningar</a></li>
                         <li class="nav-catering_settings navs <?php echo showNav($nav_catering_settings,''); ?>" data-rel="nav-catering"><a href="?page=catering-settings&parent=catering">Catering Settings</a></li>
                          <li class="nav-logs navs "><a href="?page=catering-statistics&parent=reports">Statistik</a></li>
                          <li class="nav-logs navs <?php echo showNav($nav_logs,''); ?>"><a href="?page=logs&parent=reports">Logg</a></li>
                     </ul>
-                </li>
-                <li class="nav-lunchmeny navs"><a href="javascript:void(0)" class="lunchmeny-li">Lunchmeny</a>
+                </li> */ ?> 
+                <li class="nav-lunchmeny navs"><a href="javascript:void(0)" class="lunchmeny-li">Lunch</a>
                 
                 	<ul>
                         <li class="nav-lunch_menu navs <?php echo showNav($nav_catering_menu,''); ?>" data-rel="nav-lunchmeny"><a href="?page=lunch-menu&parent=lunchmeny">Menyinställningar</a></li>
                         <li class="nav-takeawaysettings navs" data-rel="nav-lunchmeny"><a href="?page=lunchmeny-settings&parent=lunchmeny">Inställningar</a></li>
                          <li class="nav-logs navs <?php echo showNav($nav_logs,''); ?>"><a href="?page=logs&parent=reports">Logg</a></li>
-                    </ul>
+                  </ul>
                 
-                </li>
-                <li class="nav-alacarte navs"><a href="javascript:void(0)" class="alacarte-li">À la carte meny</a>
+              </li>
+                <?php /* <li class="nav-alacarte navs"><a href="javascript:void(0)" class="alacarte-li">À la carte meny</a>  
                 
                 	<ul>
                     	<li class="nav-menu navs <?php echo showNav($nav_menu,'category*sub_category'); ?>" data-rel="nav-alacarte"><a href="?page=menu">Menyinställningar</a>
                          <li class="nav-logs navs <?php echo showNav($nav_logs,''); ?>"><a href="?page=logs&parent=reports">Logg</a></li>
                     </ul>
                 
-                </li>
+                </li> */ ?> 
                 
-                <li class="nav-personal navs"><a href="javascript:void(0)" class="personal-li">Personal</a>
+                <li class="nav-personal navs"><a href="javascript:void(0)" class="personal-li">Användare</a>
                 
                 	<ul>
                     	<li class="nav-users navs <?php echo showNav($nav_users,''); ?>"><a href="?page=users&parent=staff">Personalkonton</a></li>
@@ -460,6 +460,7 @@ tinymce.init({
                 
                 </li>
                 
+                <?php /*
                 <li class="nav-alacarte navs"><a href="javascript:void(0)" class="alacarte-li">Schemaläggning</a>
                 
                 	<ul>
@@ -479,7 +480,7 @@ tinymce.init({
                          <li class="nav-logs navs <?php echo showNav($nav_logs,''); ?>"><a href="?page=logs&parent=reports">Logg</a></li>
                     </ul>
                 
-                </li>
+                </li> */ ?>
                 
                 <li class="nav-alacarte navs"><a href="javascript:void(0)" class="alacarte-li">Inställningar</a>
                 

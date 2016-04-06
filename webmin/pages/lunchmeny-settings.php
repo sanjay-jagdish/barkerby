@@ -578,7 +578,7 @@
             <h2>
             	<?php
                 	
-					echo 'Inställningar - Lunchmeny';
+					echo 'Inställningar - Lunch';
 				?>
             </h2>
         </div>
@@ -591,7 +591,7 @@
     
     <div class="page-content">
     	<div class="typeselection">
-        	<span id="ta1" <?php if(!isset($_GET['tab'])){ echo 'class="active"'; }?>>Lunchmeny</span>
+        	<span id="ta1" <?php if(!isset($_GET['tab'])){ echo 'class="active"'; }?>>Lunch</span>
            <!-- <span id="ta2">Order Status</span>-->
             <!--<span id="ta3" <?php //if(isset($_GET['tab'])){ echo 'class="active"'; }?>>Menypresentation</span>-->
             <?php /*?><span id="ta4" <?php if(isset($_GET['tab'])){ echo 'class="active"'; }?>>Påminnelseinställningar</span><?php */?>
@@ -937,7 +937,7 @@
                 
                 <fieldset>
                     <legend>
-                        Menypresentation för Lunchmeny
+                        Menypresentation för Lunch
                     </legend>
                     
                     <div class="left_name"><!--Text:--></div>
