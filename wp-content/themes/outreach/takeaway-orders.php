@@ -40,7 +40,7 @@
 		$theresid = $res_id;
 		
 	}else{
-		if(!isset($lunchmeny)){ // 0 is for takeaway
+		if($lunchmeny == 0){ // 0 is for takeaway
 		
 			if($tillval_count>0){
 				mysql_query("insert into reservation_detail(reservation_id,menu_id,quantity,price,status,lunchmeny,temp_tillval) values('".$reservation_id."','".$menu_id."','".$quan."','".$price."',0,0,1)") or die(mysql_error());
