@@ -171,7 +171,7 @@ genesis_register_sidebar( array(
 	'name'			=> __( 'Meny', 'outreach' ),
 	'description'	=> __( 'This is the meny section.', 'outreach' )
 ) );
-genesis_register_sidebar( array(
+genesis_register_sidebar( array(quantity-19
 	'id'				=> 'bgimg1',
 	'name'			=> __( 'bgimg1', 'outreach' ),
 	'description'	=> __( 'This is the meny section.', 'outreach' )
@@ -1351,11 +1351,7 @@ if($ttype == 2){
                                      <span class="outerinputs">
 						
 						<img src="<?php echo CHILD_URL; ?>/images/Lagg-till.png" class="takeimg tacart" data-id="<?php echo $menu_id_2; ?>" data-rel="<?php echo $menu_name_2.'<span>'.$menu_description_2.'</span>'; ?>" data-tillval="<?php echo $tillvals_2; ?>" data-title="<?php echo $use_price_2; ?>">
-						<span id="inputs">						
-						<input type="button" value="+" class="addme_takeaway" data-rel="<?php echo $menu_id_2; ?>">
-						<input type="text" class="quantity-takeaway quantity-<?php echo $menu_id_2; ?>" data-rel="<?php echo $menu_id_2; ?>" placeHolder="0" data-title="<?php echo $use_price_2; ?>" />
-						<input type="button" value="-" class="subtractme_takeaway" data-rel="<?php echo $menu_id_2; ?>">
-						</span>
+						
 						
 						</span>
 
@@ -1421,11 +1417,7 @@ if($ttype == 2){
                                      <span class="outerinputs">
 						
 						<img src="<?php echo CHILD_URL; ?>/images/Lagg-till.png" class="takeimg tacart" data-id="<?php echo $menu_id_4; ?>" data-rel="<?php echo $menu_name_4.'<span>'.$menu_description_4.'</span>'; ?>" data-tillval="<?php echo $tillvals_4; ?>" data-title="<?php echo $use_price_4; ?>">
-						<span id="inputs">						
-						<input type="button" value="+" class="addme_takeaway" data-rel="<?php echo $menu_id_4; ?>">
-						<input type="text" class="quantity-takeaway quantity-<?php echo $menu_id_4; ?>" data-rel="<?php echo $menu_id_4; ?>" placeHolder="0" data-title="<?php echo $use_price_4; ?>" />
-						<input type="button" value="-" class="subtractme_takeaway" data-rel="<?php echo $menu_id_4; ?>">
-						</span>
+						
 						                                     
 
 								</div>

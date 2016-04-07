@@ -393,7 +393,7 @@ jQuery(function(){
 					jQuery('.remove-tillval, .cart-opt input[type=button]').hide();
 				}
 				
-				jQuery('.cart_content').load(siteurl+"takeaway-cart.php");
+				jQuery('.cart_content').load(siteurl+"/takeaway-cart.php");
 				
 			}
 		 });	
