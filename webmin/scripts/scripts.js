@@ -3078,7 +3078,46 @@ jQuery(function(){
 		
 	});
 	
+	// For updating Sidor custom content.
+	jQuery('.update-sidor-content').click(function(e){
+		/* Prevent default actions */
+		e.preventDefault();
+		e.stopPropagation();
+		
+		updateSidorContent();
+	});	
+
 });
+
+function updateSidorContent(){
+	var content = tinyMCE.activeEditor.getContent();
+	var id = jQuery('.update-sidor-content').attr('data-id');
+	
+	jQuery('.displaymsg').fadeOut('slow');
+	
+	if(id>0){
+		
+		jQuery.ajax({
+				 url: "actions/update-sidor-content.php",
+				 type: 'POST',
+				 data: 'id='+encodeURIComponent(id)+'&content='+encodeURIComponent(content),
+				 success: function(value){
+					 if(value==1){
+						jQuery('.displaymsg').fadeIn('slow').addClass('successmsg').html('Content Successfully Updated.');
+					 }
+					 else{
+						jQuery('.displaymsg').fadeIn('slow').addClass('errormsg').html('An error has occurred while tryng to save the changes.');	
+					 }
+				 }
+			});
+		
+	}
+	else{
+		jQuery('.displaymsg').fadeIn('slow').addClass('errormsg').html('Fyll i alla obligatoriska fält.');
+	}
+	
+}
+
 function timeFormat(mins){
 	
 	var hour=parseInt(Number(mins)/60);
