@@ -33,6 +33,7 @@ $rs = mysql_query( $query );
 $dates = array();
 while($row = mysql_fetch_assoc($rs)) {
 	//$dates = array_merge($dates, createDateRangeArray($row['start_date'], $row['end_date']));
+	$dates[] = $row;
 }
 
 function createDateRangeArray($strDateFrom, $strDateTo)
@@ -452,9 +453,85 @@ jQuery(function($){
 	  	}
 	});
 	
+	// Get no of days in a month
+	function daysInMonth(month, year) 
+	{
+	    var days = [31,28,31,30,31,30,31,31,30,31,30,31];
+	    if( isLeapYear(year) ) {
+	    	days[1] = 29;
+	    }
+	    return days[month];
+	}
+
+	// Check if year is leap year or not
+	function isLeapYear(year)
+	{
+	  	return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
+	}
+
+	// Get week day name using day number 
+	function getDayName(dayNum)
+	{
+		// Week starts from Sunday
+	  	var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+	  	return days[dayNum];
+	}
+
+	// Apends 0 to beginging to a number less than 10
+	function getTwoDigitNumber(number){
+		return number < 10 ? ('0' + number) : number;
+	}
+
+	// Get day of year like 1 - 365
+	function getDayOfYear( dateObj )
+	{
+		var start = new Date(dateObj.getFullYear(), 0, 0);
+		var diff = dateObj - start;
+		var oneDay = 1000 * 60 * 60 * 24;
+		var day = Math.floor(diff / oneDay);
+		
+		return day;
+	}
+
+	function setAllowedDates(datetime)
+	{
+    	var allowedDates = [];
+ 	   	var current_date = new Date();
+ 	   	current_date.setHours(0,0,0,0);
+    	if(datetime.getMonth() >= current_date.getMonth())
+    	{
+	    	var totalDays = daysInMonth(datetime.getMonth(), datetime.getFullYear());
+	    	for(var i=1; i<=totalDays; i++)
+	    	{
+	    		var month = datetime.getMonth() + 1;
+	    		var date = new Date(datetime.getFullYear()+'-'+month+'-'+i);
+	    		if( date >= current_date )
+	    		{
+		    		var day = getDayName(date.getDay());
+		    		$.each(dates, function(index, value) {
+		    			if($.inArray(day, value.days)!==-1 && date>=value.start_date && date<=value.end_date)
+		    			{
+		    				allowedDates.push(datetime.getFullYear()+'-'+getTwoDigitNumber(month)+'-'+getTwoDigitNumber(i));
+		    				return false;
+		    			}
+		    		});
+		    	}
+	    	}
+    	}
+
+    	$('#input_datetime').datetimepicker('setOptions', {
+    		allowDates: allowedDates
+    	});
+    }
+
 	var dateToday = new Date();
-	// var allowDates = <?php echo json_encode($dates); ?>;
-	// console.log(allowDates);
+	var dates = <?php echo json_encode($dates); ?>;
+	$.each(dates, function(index, value) {
+		dates[index].days = value.days.replace(/ /g, '').split(',');
+		dates[index].start_date = new Date( value.start_date + ' 00:00:00' );
+		dates[index].end_date = new Date( value.end_date + ' 00:00:00' );
+	});
+	
 	var loaded = false;
 	$('#input_datetime').datetimepicker({
 		inline: true,
@@ -463,14 +540,14 @@ jQuery(function($){
 		minDate: dateToday,
 		defaultDate: '',
 	    scrollMonth: 0,
-	    maxDate: new Date(dateToday.getFullYear(), dateToday.getMonth()+2, -1),
 	    yearEnd: false,
 	    monthEnd: false,
-	    //allowDates: allowDates,
-	    //formatDate:'Y-m-d',
+	    onChangeMonth: setAllowedDates,
+	    formatDate:'Y-m-d',
 		onGenerate:function(dp,$input){
 			if(!loaded)
 			{
+				setAllowedDates(dp);
 				$.ajax({
 					url: siteurl+"/ajax/steps-otherTime.php",
 					type: 'POST',

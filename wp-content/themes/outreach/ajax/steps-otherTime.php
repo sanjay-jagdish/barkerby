@@ -7,7 +7,7 @@ $dayName = date('D', strtotime($_POST['datetime']));
 $date = date('Y-m-d', strtotime($_POST['datetime']));
 $currentDate = date('Y-m-d');
 
-$query = "select id, start_time as starttime,end_time as endtime, advance_time from ".$_POST['tablename']." where days like '%".$dayName."%' and deleted=0 limit 1";
+$query = "select id, start_time as starttime,end_time as endtime, advance_time from ".$_POST['tablename']." where days like '%".$dayName."%' and DATE(start_datetime) <= '$date' and DATE(end_datetime)>='$date' and deleted=0 limit 1";
 $rs = mysql_fetch_assoc( mysql_query( $query ) );
 $times = array('can_order' => 0);
 
@@ -18,7 +18,7 @@ if( $rs )
 	$advance_time = $rs['advance_time'];
 	$current_time = date('H:i');
 
-	$current_time = date('H:i', strtotime('+1 minutes'));
+	// $current_time = date('H:i', strtotime('+1 minutes'));
 
 	$order_start_time = $opening_time;
 	$order_end_time = $closing_time;
